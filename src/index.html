@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= json.project.title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <%= t.include("partials/_head.html") %>
+  </head>
+  <body>
+
+    <nav class="top-bar">
+      <a class="logo" href="http://seattletimes.com">
+        <img src="./assets/seattletimes.svg">
+      </a>
+    </nav>
+    <div class="griffey-container">
+      <section class="griffey-intro">
+
+        <img src="/assets/GriffeyILLO2016web.jpg">
+
+        <div class="stats">
+          <p>22 years</p>
+          <p>2,671 games</p>
+          <p>2,781 hits</p>
+          <p>1,662 runs</p>
+        </div>
+      </section>
+      <span class="separator"></span>
+
+      <section class="home-runs">
+        Griffey's Home Runs by Season
+
+      </section>
+      
+      <section class="batting-averages">
+        <div class="ct-chart ct-octave" id="ct-averages"></div>
+
+      </section>
+      <span class="separator"></span>
+
+      <section class="griffey-field">
+
+        <img src="/Assets/GriffeyWEBgraphics2.jpg">
+      </section>
+
+      <span class="separator"></span>
+
+    </div>
+
+
+    <script src="app.js" async></script>
+    <% if (json.project.production) { %>
+    <%= !json.project.embedded ? t.include("partials/_foot.html") : "" %>
+    <%= t.include("partials/_workHere.html") %>
+    <% } %>
+  </body>
+</html>
