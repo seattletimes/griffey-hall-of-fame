@@ -157,10 +157,14 @@ hrChart.on('draw', function(data) {
     
     barHorizontalCenter = data.x1 + (data.element.width() * .5);
     barVerticalCenter = data.y1 + (data.element.height() * -1) - 10;
-    console.log(data.index);
+    console.log(data.element.attr(0));
      
     value = data.element.attr('ct:value');
-      
+    for (var i = 1; i < 21; i++)
+      {
+        if (data.index == i) {
+        }
+      }
     
       label = new Chartist.Svg('text');
       label.text(value);
