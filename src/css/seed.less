@@ -72,14 +72,27 @@ nav.top-bar {
 }
 
 .home-runs {
+  
   .title {
     text-align: center;
     padding: 15px;
   }
-}
 
+
+}
+  .year {
+    
+    .left {
+      
+    }
+    
+    .right {
+    }
+
+    .body{
+    }
+  }
 .batting-averages {
-  padding: 5%;
 }
 
 .separator {
@@ -97,41 +110,105 @@ nav.top-bar {
   fill: black;
   stroke-width: 20px;
   font-family:  @df-sans;
-  margin-top: 100px;
 }
- .ct-series-a .ct-line {
+.ct-series-a .ct-line {
   stroke: #f05b4f;
 }
- .ct-series-a .ct-bar {
+.ct-series-a .ct-bar {
   stroke: #f05b4f;
- 
+
 }
 
 .ct-barlabel {
-    font-size:16px;
-  
+  font-size:16px;
+
 }
 
 .ct-series-a .ct-barlabel {
-   font-size:20px;
+  font-size:20px;
 }
 
 .ct-homeruns {
-  
+
   position: relative;
   float: left;
-    opacity: 30%;
-    z-index: 1;
-
-
-}
-
-.ct-homeruns2 {
-  position: absolute;
   opacity: 30%;
-  z-index: 0;
+  z-index: 1;
+
+
 }
+
 
 .ct-averages {
   position: relative;
 }
+
+
+
+.hr-leaders {
+  .display-flex();
+
+
+  .leader {
+
+    .flex(1);
+    .name {
+
+
+    }
+
+    .photo {
+
+
+      img {
+        width: 100px;
+        -webkit-border-radius: 12px; 
+        -moz-border-radius: 12px; 
+        border-radius: 12px; 
+      }
+    }
+
+    .stat {
+    }
+
+  }
+
+
+}
+
+
+.tooltip {
+  position: absolute;
+  display: inline-block;
+  line-height: 1.1;
+  padding: 0.4em;
+  background: white;
+  border: 1px solid black;
+  color: black;
+  // font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  pointer-events: none;
+  stroke: #679BD2;
+  z-index: 1;
+  @media @mobile {
+    min-width: 0;
+  }
+}
+
+.injuries {
+  img {
+    width: 50%;
+  }
+  
+    .icon {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    text-align: center;
+    opacity: 0;
+    transition: all .3s linear;
+    transform-origin: 50% 50%;
+  }
+}
+

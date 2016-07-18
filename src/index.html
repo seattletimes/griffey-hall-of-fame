@@ -28,38 +28,92 @@
       </section>
       <span class="separator"></span>
 
-      <section class="home-runs">
+      <div class="home-runs">
         <div class="title">Griffey's Home Runs by Season</div>
-       
+
         <div class="ct-homeruns ct-series-a ct-bar ct-octave ct-series-a" id="ct-homeruns"></div>
+      </div>
+
+        <div class="year">
+          
+          <div class="left"></div>
+          <div class="body"></div>
+          <div class="right">&#x2192;</div>
+        </div>
         
-        <div class="ct-homeruns2 ct-series-a ct-bar ct-octave ct-series-a" id="ct-homeruns2"></div>
-      </section>
-      
-            <span class="separator"></span>
+        
+
+      <span class="separator"></span>
 
 
       <section class="batting-averages">
         <div class="title">Batting Averages</div>
-<div class="ct-averages ct-octave" id="ct-averages"></div>
+        <div class="ct-averages ct-octave" id="ct-averages"></div>
       </section>
       <span class="separator"></span>
-      
-      <section class="slugging-percentages">
-        <div class="title">Batting Averages</div>
-<div class="ct-averages ct-octave" id="ct-averages"></div>
-      </section>
-      <span class="separator"></span>
-      <section class="batting-averages">
-        <div class="title">Batting Averages</div>
-<div class="ct-averages ct-octave" id="ct-averages"></div>
-      </section>
+
+   
       <span class="separator"></span>
 
       <section class="griffey-field">
 
         <img src="/Assets/GriffeyWEBgraphics2.jpg">
       </section>
+
+      <span class="separator"></span>
+
+
+      <span class="separator"></span>
+      <center>Home Run Leaders</center>
+      <span class="separator"></span>
+
+      <section class="hr-leaders">
+
+
+          <% var players = {};
+          json.hr_leaders.forEach(function(item) {
+            if (!players[item.Name]) players[item.Name] = [];
+            players[item.Name].push(item);
+          });
+          %>
+
+          <% for (var p in players) {
+            var player = players[p];
+            player.forEach(function(item) { %>
+                  <div class="leader">
+
+          <div class="photo"> <img src="./assets/leaders/<%=item.id%>.jpg"></div>
+                    <div class="name"><%=item.Name%></div>
+
+          <div class="stat"><%=item.hr%></div>
+        </div>
+
+          <% }); }
+            %>
+
+
+      </section>
+
+      <span class="separator"></span>
+
+      
+      <div class="injuries">
+      <img src="./assets/GriffeyCutout.jpg">
+         <% var injuries = {};
+          json.GriffeyStats_injuries.forEach(function(item) {
+            if (!injuries[item.injury]) injuries[item.injury] = [];
+            injuries[item.injury].push(item);
+          });
+          %>
+
+          <% for (var i in injuries) {
+            var injury = injuries[i];
+            injury.forEach(function(item) { %>
+       <div class="icon" style="top: <%= item.top %>; left: <%= item.left %>;">
+                                
+                         <% }); }
+            %>       
+      </div>
 
       <span class="separator"></span>
 

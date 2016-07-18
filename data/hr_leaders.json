@@ -1,0 +1,32 @@
+[
+  {
+    "Name": "Barry Bonds",
+    "hr": 762,
+    "id": "bb"
+  },
+  {
+    "Name": "Hank Aaron",
+    "hr": 755,
+    "id": "ha"
+  },
+  {
+    "Name": "Babe Ruth",
+    "hr": 714,
+    "id": "br"
+  },
+  {
+    "Name": "Alex Rodriguez",
+    "hr": 695,
+    "id": "ar"
+  },
+  {
+    "Name": "Willie Mays",
+    "hr": 660,
+    "id": "wm"
+  },
+  {
+    "Name": "Ken Griffey Jr.",
+    "hr": 630,
+    "id": "kg"
+  }
+]
