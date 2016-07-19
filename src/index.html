@@ -14,7 +14,10 @@
         <img src="./assets/seattletimes.svg">
       </a>
     </nav>
+
+
     <div class="griffey-container">
+
       <section class="griffey-intro">
 
         <img src="/assets/GriffeyILLO2016web.jpg">
@@ -25,105 +28,125 @@
           <p>2,781 hits</p>
           <p>1,662 runs</p>
         </div>
+
       </section>
-      <span class="separator"></span>
 
-      <div class="home-runs">
+
+      <section class="home-runs">
+
+              <div class="separator"></div>
+
         <div class="title">Griffey's Home Runs by Season</div>
+      <div class="separator"></div>
 
+        
         <div class="ct-homeruns ct-series-a ct-bar ct-octave ct-series-a" id="ct-homeruns"></div>
-      </div>
 
         <div class="year">
-          
-          <div class="left"></div>
-          <div class="body"></div>
-          <div class="right">&#x2192;</div>
+          <div class="left">left</div>
+          <ol class="content">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          </ol>
+          <div class="right">right</div>
         </div>
-        
-        
 
-      <span class="separator"></span>
+      </section>
 
 
       <section class="batting-averages">
+          <div class="separator"></div>
         <div class="title">Batting Averages</div>
+               <div class="separator"></div>
+
         <div class="ct-averages ct-octave" id="ct-averages"></div>
       </section>
-      <span class="separator"></span>
-
    
-      <span class="separator"></span>
+
 
       <section class="griffey-field">
-
+          <div class="separator"></div>
+        <div class="title">Field</div>
+  <div class="separator"></div>
         <img src="/Assets/GriffeyWEBgraphics2.jpg">
+      </section>      
+      
+      <section class="si">
+          <div class="separator"></div>
+        <div class="title">Sports Illustrated</div>
+  <div class="separator"></div>
+                <div class="image">
+
+        <% for (var i = 1; i < 9; i++) { %>
+        <img src="/Assets/covers/Griffey-SIcover<%=i%>.jpg">
+        
+        <% }; %>
+                  </div>
       </section>
 
-      <span class="separator"></span>
 
-
-      <span class="separator"></span>
-      <center>Home Run Leaders</center>
-      <span class="separator"></span>
 
       <section class="hr-leaders">
+  <div class="separator"></div>
+        <div class="title">Home Run Leaders</div>
+  <div class="separator"></div>
 
+        <% var players = {};
+        json.hr_leaders.forEach(function(item) {
+          if (!players[item.Name]) players[item.Name] = [];
+          players[item.Name].push(item);
+        });
+        %>
 
-          <% var players = {};
-          json.hr_leaders.forEach(function(item) {
-            if (!players[item.Name]) players[item.Name] = [];
-            players[item.Name].push(item);
-          });
-          %>
+        <% for (var p in players) {
+          var player = players[p];
+          player.forEach(function(item) { %>
 
-          <% for (var p in players) {
-            var player = players[p];
-            player.forEach(function(item) { %>
-                  <div class="leader">
-
+        <div class="leader">
           <div class="photo"> <img src="./assets/leaders/<%=item.id%>.jpg"></div>
-                    <div class="name"><%=item.Name%></div>
-
+          <div class="name"><%=item.Name%></div>
           <div class="stat"><%=item.hr%></div>
         </div>
 
-          <% }); }
-            %>
-
-
+        <% }); } %>
       </section>
 
-      <span class="separator"></span>
 
-      
+
       <div class="injuries">
-      <img src="./assets/GriffeyCutout.jpg">
-         <% var injuries = {};
+  <div class="separator"></div>
+        <div class="title">Injuries</div>
+  <div class="separator"></div>
+        <div class="image">
+          <img src="./assets/GriffeyCutout.jpg">
+
+          <% var injuries = {};
           json.GriffeyStats_injuries.forEach(function(item) {
             if (!injuries[item.injury]) injuries[item.injury] = [];
             injuries[item.injury].push(item);
-          });
-          %>
+          }); %>
 
           <% for (var i in injuries) {
             var injury = injuries[i];
             injury.forEach(function(item) { %>
-       <div class="icon" style="top: <%= item.top %>; left: <%= item.left %>;">
-                                
-                         <% }); }
-            %>       
+
+          <div class="icon" style="top: <%= item.top %>%; left: <%= item.left %>%;">x
+          </div>
+
+          <% }); } %>       
+
+    
+
+        </div>
       </div>
 
-      <span class="separator"></span>
 
-    </div>
-
-
-    <script src="app.js" async></script>
-    <% if (json.project.production) { %>
-    <%= !json.project.embedded ? t.include("partials/_foot.html") : "" %>
-    <%= t.include("partials/_workHere.html") %>
-    <% } %>
-  </body>
-</html>
+      <script src="app.js" async></script>
+      <% if (json.project.production) { %>
+      <%= !json.project.embedded ? t.include("partials/_foot.html") : "" %>
+      <%= t.include("partials/_workHere.html") %>
+      <% } %>
+      </body>
+    </html>

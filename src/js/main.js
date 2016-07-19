@@ -14,11 +14,12 @@ var baData = [0.264, 0.3, 0.327, 0.308, 0.309, 0.323, 0.258, 0.303, 0.304, 0.284
 
 var hrData = [16, 22, 22, 27, 45, 40, 17, 49, 56, 56, 48, 40, 22, 8, 13, 20, 35, 27, 30, 11, 19, 0];
 
+
+//BATTING AVERAGE
 var battingAverage = {
   labels: labels,
   series: [ baData ]
 };
-
 
 var baOptions = {
   axisX: {
@@ -26,187 +27,43 @@ var baOptions = {
   },
   axisY: {
     showGrid: false,
-    showLabel: false
   }
 };
 
-
 var baChart =  Chartist.Line('.ct-averages', battingAverage, baOptions);
 
-/*var completeData = [];
+//BA draw
+baChart.on('draw', function(data) {
+  var horizctr, vertctr, label, value;
+  if (data.type === "point") {
 
-for (var i = 0; i < 20; i++) {
-   var batting = ("{meta: " + baData[i]);
+    //Change colors
+    if (data.index < 11 || data.index > 18) {
+      data.element.attr({
+        style: 'stroke: blue;'
+      });
+    }
+  }
+});
 
-  var value = (", value: " + hrData[i] + "}");
+//HOME RUNS
 
-  completeData.push(batting + value);
+var data = [];
+for (var i = 0; i < 22; i++) {
+  var values = {
+    value: hrData[i],
+    meta: {
+      year: years[i],
+      battingAverage: baData[i]
+    }
+  };
+  data.push(values);
 };
-
-
-console.log(completeData);*/
 
 var homeRuns = {
   labels: labels,
-  series: [
-    [
-      {value: 16, 
-        meta: {
-          year: 1989,
-          battingAverage: 0.264
-        }
-      }, 
-      
-      {value: 22, 
-        meta: {
-          year: 1990,
-          battingAverage: 0.3
-        }
-      }, 
-      
-      {value: 22, 
-        meta: {
-          year: 1991,
-          battingAverage: 0.327
-        }
-      }, 
-      
-      {value: 27, 
-        meta: {
-          year: 1992,
-          battingAverage: 0.308
-        }
-      }, 
-      
-      {value: 45, 
-        meta: {
-          year: 1993,
-          battingAverage: 0.309
-        }
-      }, 
-      
-      {value: 40, 
-        meta: {
-          year: 1994,
-          battingAverage: 0.323
-        }
-      }, 
-      
-      {value: 17, 
-        meta: {
-          year: 1995,
-          battingAverage: 0.258
-        }
-      }, 
-      
-      {value: 49, 
-        meta: {
-          year: 1996,
-          battingAverage: 0.303
-        }
-      }, 
-      
-      {value: 56, 
-        meta: {
-          year: 1997,
-          battingAverage: 0.304
-        }
-      }, 
-      
-      {value: 56, 
-        meta: {
-          year: 1998,
-          battingAverage: 0.284
-        }
-      }, 
-      
-      {value: 48, 
-        meta: {
-          year: 1999,
-          battingAverage: 0.285
-        }
-      }, 
-      
-      {value: 40, 
-        meta: {
-          year: 2000,
-          battingAverage: 0.271
-        }
-      }, 
-      
-      {value: 22, 
-        meta: {
-          year: 2001,
-          battingAverage: 0.286
-        }
-      }, 
-      
-      {value: 8, 
-        meta: {
-          year: 2002,
-          battingAverage: 0.264
-        }
-      },
-      
-      {value: 13, 
-        meta: {
-          year: 2003,
-          battingAverage: 0.247
-        }
-      }, 
-      
-      {value: 20, 
-        meta: {
-          year: 2004,
-          battingAverage: 0.253
-        }
-      }, 
-      
-      {value: 35, 
-        meta: {
-          year: 2005,
-          battingAverage: 0.301
-        }
-      }, 
-      
-      {value: 27, 
-        meta: {
-          year: 2006,
-          battingAverage:0.252
-        }
-      }, 
-      
-      {value: 30, 
-        meta: {
-          year: 2007,
-          battingAverage: 0.277
-        }
-      }, 
-      
-      {value: 11, 
-        meta: {
-          year: 2008,
-          battingAverage: 0.249
-        }
-      }, 
-      
-      {value: 19, 
-        meta: {
-          year: 2009,
-          battingAverage: 0.214
-        }
-      }, 
-      
-      {value: 0, 
-        meta: {
-          year: 2010,
-          battingAverage: 0.184
-        }
-      }
-    ]
-  ]
+  series: [data]
 };
-
 
 var hrOptions = {
 
@@ -220,10 +77,40 @@ var hrOptions = {
 
 };
 
-
-
 var hrChart = Chartist.Bar('.ct-homeruns', homeRuns, hrOptions);
 
+//HR draw
+hrChart.on('draw', function(data) {
+  var horizctr, vertctr, label, value;
+  if (data.type === "bar") {
+
+    //Change colors
+    if (data.index < 11 || data.index > 18) {
+      data.element.attr({
+        style: 'stroke: blue;'
+      });
+    }
+
+    //Add numbers on top
+    horizctr = data.x1 + (data.element.width() * .5);
+    vertctr = data.y1 + (data.element.height() * -1) - 10;
+    console.log(data.element.attr(0));
+
+    value = data.element.attr('ct:value');
+    label = new Chartist.Svg('text');
+    label.text(value);
+    label.addClass("ct-barlabel");
+    label.attr({
+      x: horizctr,
+      y: vertctr,
+      'text-anchor': 'middle'
+    });
+    return  data.group.append(label);
+  }
+
+});
+
+//HR interactives
 
 var $hrChart = $('.ct-homeruns');
 
@@ -233,9 +120,7 @@ var $toolTip = $hrChart
 .hide();
 
 $hrChart.on('mouseenter', '.ct-bar', function() {
-  var $bar = $(this),
-      value = $bar.attr('ct:value'),
-      info = $bar.attr('ct:meta');
+  var $bar = $(this), info = $bar.attr('ct:meta');
   var meta = Chartist.deserialize(info);
 
   $toolTip.html("Batting Average: " + meta.battingAverage).show();
@@ -250,50 +135,40 @@ $hrChart.on('mousemove', function(event) {
     left: (event.offsetX || event.originalEvent.layerX) - $toolTip.width() / 2 - 10,
     top: (event.offsetY || event.originalEvent.layerY) - $toolTip.height() - 30
   });
-  });
-
-
-
-hrChart.on('draw', function(data) {
-  var barHorizontalCenter, barVerticalCenter, label, value;
-  if (data.type === "bar") {
-    var meta = Chartist.deserialize(data.meta);
-
-    if (data.index < 11 || data.index > 18) {
-      //Change color to Mariner
-      data.element.attr({
-        style: 'stroke: blue;'
-      });
-    }
-
-    barHorizontalCenter = data.x1 + (data.element.width() * .5);
-    barVerticalCenter = data.y1 + (data.element.height() * -1) - 10;
-    console.log(data.element.attr(0));
-
-    value = data.element.attr('ct:value');
-    for (var i = 1; i < 21; i++)
-    {
-      if (data.index == i) {
-      }
-    }
-
-    label = new Chartist.Svg('text');
-    label.text(value);
-
-    label.addClass("ct-barlabel");
-
-    label.attr({
-      x: barHorizontalCenter,
-      y: barVerticalCenter,
-      'text-anchor': 'middle'
-
-    });
-
-
-
-    return  data.group.append(label);
-
-
-  }
-
 });
+
+//HR timeline
+
+ var timeline = (function(){
+  var box = document.querySelector('.year');
+  var next = box.querySelector('.right');
+  var prev = box.querySelector('.left');
+  var items = box.querySelectorAll('.content li');
+  var counter = 0;
+  var amount = items.length;
+  var current = items[0];
+  box.classList.add('active');
+  
+  function navigate(direction) {
+    current.classList.remove('current');
+    counter = counter + direction;
+    if (direction === -1 && 
+        counter < 0) { 
+      counter = amount - 1; 
+    }
+    if (direction === 1 && 
+        !items[counter]) { 
+      counter = 0;
+    }
+    current = items[counter];
+    current.classList.add('current');
+  }
+   next.addEventListener('click', function(ev) {
+    navigate(1);
+  });
+  prev.addEventListener('click', function(ev) {
+    navigate(-1);
+  });
+  navigate(0);
+})
+ timeline();

@@ -34,181 +34,208 @@ nav.top-bar {
   }
 }
 .griffey-container {
+
   max-width: 1200px;
   margin: auto;
-  position: relative;
-}
-
-.griffey-intro {
   .display-flex();
-  .justify-content(center);
-  padding-bottom: 50px;
+  .flex-direction(column); 
+  section{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    .flex(1);
+  }
   .title {
     text-transform: uppercase;
     text-align: center;
-    font-size: 64px;
+    font-size: 32px;
   }
 
-  img {
-    width: 40%;
-    height: 40%;
-    .flex(4 0);
+  .separator {
+    display:block;
+    border:none;
+    color:white;
+    height:3px;
+    background:black;
+    margin-left: 5%;
+    margin-right: 5%;
 
   }
 
-  .stats {
+  .griffey-intro {
+    .display-flex();
+    .justify-content(center);
+    padding-bottom: 50px;
 
-    .flex(3 0);
-    padding-top: 30px;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    transform: translateX(-20%);
-    -webkit-transform:  translateX(-20%);
-    p {
-      text-transform: uppercase;
-      font-size: 32px;
+    img {
+      width: 40%;
+      height: 40%;
+      .flex(4 0);
+    }
+
+    .stats {
+      .flex(3 0);
+      padding-top: 30px;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      transform: translateX(-20%);
+      -webkit-transform:  translateX(-20%);
+      p {
+        text-transform: uppercase;
+        font-size: 32px;
+      }
     }
   }
-}
 
-.home-runs {
-  
-  .title {
-    text-align: center;
-    padding: 15px;
+  .home-runs {
+
+
+    .year {
+
+      .left {
+        float: left;
+        margin: auto;
+
+      }
+
+      .right {
+        float: right;
+        margin: auto;
+
+      }
+
+      li {
+
+        margin: auto;
+        display: none;
+        &.active {
+          display:block;
+        }
+      }
+
+    }
+  }
+  .batting-averages {
   }
 
+  .hr-leaders {
 
-}
-  .year {
-    
-    .left {
-      
-    }
-    
-    .right {
-    }
+    .leader {
+      .display-flex();
+      .flex-direction(row); 
+      .name {
+        .flex(1);
+      }
 
-    .body{
-    }
-  }
-.batting-averages {
-}
+      .photo {
+        img {
+          width: 100px;
+          -webkit-border-radius: 12px; 
+          -moz-border-radius: 12px; 
+          border-radius: 12px; 
+        }
+        .flex(1);
 
-.separator {
-  display:block;
-  border:none;
-  color:white;
-  height:3px;
-  background:black;
-  margin-left: 5%;
-  margin-right: 5%;
+      }
 
-}
+      .stat {
+        .flex(1);
 
-.ct-bar {
-  fill: black;
-  stroke-width: 20px;
-  font-family:  @df-sans;
-}
-.ct-series-a .ct-line {
-  stroke: #f05b4f;
-}
-.ct-series-a .ct-bar {
-  stroke: #f05b4f;
-
-}
-
-.ct-barlabel {
-  font-size:16px;
-
-}
-
-.ct-series-a .ct-barlabel {
-  font-size:20px;
-}
-
-.ct-homeruns {
-
-  position: relative;
-  float: left;
-  opacity: 30%;
-  z-index: 1;
-
-
-}
-
-
-.ct-averages {
-  position: relative;
-}
-
-
-
-.hr-leaders {
-  .display-flex();
-
-
-  .leader {
-
-    .flex(1);
-    .name {
-
-
-    }
-
-    .photo {
-
-
-      img {
-        width: 100px;
-        -webkit-border-radius: 12px; 
-        -moz-border-radius: 12px; 
-        border-radius: 12px; 
       }
     }
 
-    .stat {
+
+  }
+
+  .si {
+
+    .image {
+      .display-flex();
+      img {
+                .flex(1);
+
+        width: 15%;
+        height: 15%;
+      }
     }
+  }
+
+
+  .injuries {
+    .image {
+      width: 50%;
+      position: relative;
+
+      .icon {
+        position: absolute;
+        text-align: center;
+        color: black;
+        z-index: 99;
+
+      }
+    }
+  }
+
+
+  .ct-bar {
+    fill: black;
+    stroke-width: 20px;
+    font-family:  @df-sans;
+  }
+  .ct-series-a .ct-line {
+    stroke: #000000;
+  }
+  .ct-series-a .ct-bar {
+    stroke: #f05b4f;
+
+  }
+
+  .ct-barlabel {
+    font-size:16px;
+
+  }
+
+  .ct-series-a .ct-barlabel {
+    font-size:20px;
+  }
+
+  .ct-homeruns {
+
+    position: relative;
+    float: left;
+    opacity: 30%;
+    z-index: 1;
 
   }
 
 
-}
+  .ct-averages {
+    position: relative;
 
+    .ct-line {
+      stroke: black;
 
-.tooltip {
-  position: absolute;
-  display: inline-block;
-  line-height: 1.1;
-  padding: 0.4em;
-  background: white;
-  border: 1px solid black;
-  color: black;
-  // font-weight: bold;
-  font-size: 14px;
-  text-align: center;
-  pointer-events: none;
-  stroke: #679BD2;
-  z-index: 1;
-  @media @mobile {
-    min-width: 0;
+    }
   }
-}
 
-.injuries {
-  img {
-    width: 50%;
-  }
-  
-    .icon {
-    height: 30px;
-    width: 30px;
+
+
+  .tooltip {
     position: absolute;
+    display: inline-block;
+    line-height: 1.1;
+    padding: 0.4em;
+    background: white;
+    border: 1px solid black;
+    color: black;
+    // font-weight: bold;
+    font-size: 14px;
     text-align: center;
-    opacity: 0;
-    transition: all .3s linear;
-    transform-origin: 50% 50%;
+    pointer-events: none;
+    stroke: #679BD2;
+    z-index: 1;
+    @media @mobile {
+      min-width: 0;
+    }
   }
 }
 
