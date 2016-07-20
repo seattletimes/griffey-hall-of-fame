@@ -29,20 +29,28 @@ var playData = [78, 96, 95, 88, 96, 99, 50, 86, 97, 99, 99, 90, 69, 43, 33, 51, 
 
 var rbiData = [61, 80, 100, 103, 109, 90, 42, 140, 147, 146, 134, 118, 65, 23, 26, 60, 92, 72, 93, 71, 57, 7];
 
-//BATTING AVERAGE
+//BATTING AVERAGE and SLUG
 var battingAverage = {
   labels: labels,
-  series: [ baData ]
+  series: [ baData, slugData ]
 };
 
+var ticks = [];
+
+for (var i = 0; i <= 1; i += .05) ticks.push(i);
 
 var baChart = new Chartist.Line('.ct-averages', battingAverage, {
+  high: 1,
+  low: 0,
+  divisor:20,
   axisX: {
     showGrid: false
   },
   axisY: {
-    showGrid: false,
-    showLabel: false
+    ticks,
+    low: 0,
+    type: Chartist.FixedScaleAxis,
+    labelInterpolationFnc: l => l.toFixed(2)
   },
    plugins: [
     Chartist.plugins.tooltip({
@@ -75,53 +83,6 @@ if (data.type === "point") {
 });
 
 
-//SLUGGING
-
-var slugging = {
-  labels: labels,
-  series: [ slugData ]
-};
-
-
-var slugChart =  Chartist.Line('.ct-slug', slugging, {
-  axisX: {
-    showGrid: false
-  },
-  axisY: {
-    showGrid: false,
-    showLabel: false
-  },
-  plugins: [
-    Chartist.plugins.tooltip({
-      pointClass: 'slug new-point'
-    })
-  ]
-});
-
-
-//Slug draw
-slugChart.on('draw', function(data) {
-  if (data.type === "point") {
-
-    //Add tooltips
-    var circle = new Chartist.Svg('circle', {
-      cx: [data.x],
-      cy: [data.y],
-      r: [5], 
-      'ct:value': data.value.y,
-      'ct:meta': data.meta,
-      class: 'slug new-point'
-    }, 'ct-area');
-    data.element.replace(circle);
-
-    //Change colors
-    if (data.index < 11 || data.index > 18) {
-      circle.attr({
-        style: 'stroke: #2c3c87;  fill: #2c3c87;'
-      });
-    }
-  }
-});
 
 //COMPARE 
 var compared = {
@@ -291,11 +252,15 @@ $(".advance").click(function(){
 //Sports Illustrated
 
 var magClick = function(e) {
+  var others = qsa('.si-focus');
   
+  others.forEach(function(i) {
+    i.classList.remove("show");
+     });
     var pos = this.getAttribute("data-id");
 
-  var chatter = document.querySelector(`.chatter[data-id="${pos}"]`);
-  chatter.classList.add('show');
+  var focus = document.querySelector(`.si-focus[data-id="${pos}"]`);
+  focus.classList.add('show');
 };
 
 qsa(".si-img").forEach(i => i.addEventListener("click", magClick));

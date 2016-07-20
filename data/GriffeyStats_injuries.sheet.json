@@ -1,21 +1,24 @@
 [
   {
     "injury": "Dislocated toe",
+    "description": "Griffey dislocated his second toe on his right foot in early September of 2006 when he ran into a wall chasing after a Barry Bonds home run. It ended up sidelining him for most of the rest of the season, as he only had two plate appearances as a pinch hitter the rest of the way.",
     "top": 95,
     "left": 91
   },
   {
     "injury": "Torn ankle tendon",
+    "description": "Griffey tore a tendon legging out a double in mid-July of 2003. He had surgery the next day, and missed the rest of the season.",
     "top": 90,
     "left": 18
   },
   {
     "injury": "Torn knee tendon",
+    "description": "Griffey partially tore the tendon in his right knee when he was caught in a rundown in early April 2002. The injury ended up being less severe than it first appeared, and he declined to have surgery, and returned to action by the end of May.",
     "top": 77,
     "left": 73
   },
   {
-    "injury": "Torn hamstring",
+    "injury": "Strained hamstring",
     "top": 60,
     "left": 72
   },
@@ -48,5 +51,15 @@
     "injury": "Broken hand",
     "top": 25,
     "left": 32
+  },
+  {
+    "injury": "Sprained wrist ligament"
+  },
+  {
+    "injury": "Broken hamate bone in wrist"
+  },
+  {
+    "injury": "Torn hamstring",
+    "description": "Griffey tore his right hamstring making a sliding catch in August 2004. He had strained it earlier that year and missed 18 games, and in his first game back ruptured it and had surgery that caused him to miss the rest of the season."
   }
 ]

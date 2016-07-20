@@ -1,11 +1,7 @@
 @import "seattletimes";
 @import (inline) "npm://chartist/dist/chartist.min.css";
 
-@-webkit-keyframes redPulse {
-  from { background-color:cadetblue ; -webkit-box-shadow: 0 0 9px blue; }
-  50% { background-color: darkcyan; -webkit-box-shadow: 0 0 18px #FF0000; }
-  to { background-color: cadetblue ; -webkit-box-shadow: 0 0 9px #E71C1C; }
-}
+
 
 nav.top-bar {
   border-bottom: 1px solid @df-border-gray;
@@ -90,6 +86,9 @@ nav.top-bar {
     .legend {
       font-size: 12px;
       font-family: @df-sans;
+      .key {
+        display: block;
+      }
       .splotch {
         display: inline-block;
         width: 9px;
@@ -104,28 +103,33 @@ nav.top-bar {
     }
 
     .year {
-      display: inline-flex;
+      .display-flex();
       margin: auto;
-      .left {
-
-        position: sticky;
+      .align-items(stretch);
+      
+      .advance {
+        padding: 10px;
+        font-weight: bold;
+        transition: all .2s linear;
+        cursor: pointer;
+        
+        &:hover, &:focus {
+          background: @df-light-gray;
+        }
       }
-
-      .right {
-        position: sticky;
-
-
+      
+      .description-container {
+        .flex(1);
       }
 
       .year-description {
         float: inherit;
-        width: 90%;
-        background-color: cadetblue;
-        color: white;
+        font-family: @df-sans;
+        color: @df-dark-gray;
         margin: inherit;
         display: none;
         text-align: center;
-        margin: 10px;
+        padding: 0 10px;
 
 
         &.show {
@@ -136,7 +140,24 @@ nav.top-bar {
     }
   }
 
-
+  .batting-slug {
+    .legend {
+      font-size: 12px;
+      font-family: @df-sans;
+      .key {
+        display: block;
+      }
+      .splotch {
+        display: inline-block;
+        width: 19px;
+        height: 5px;
+        background-color: black;
+        &.two {
+          background-color: gray;
+        }
+      }
+    }
+  }
   .hr-leaders {
 
     padding: 5%;
@@ -175,19 +196,16 @@ nav.top-bar {
       height: 600px;
       width: 25%;
       overflow-y: scroll;
-
-      .flex-direction(column);
-      img {
-
-      }
     }
 
     .si-focus {
-
       width: 40%;
-      display: inline-block;
+      display: none;
       .chatter {
         float: left;
+      }
+      &.show {
+        display: inline-block;
       }
     }
   }
@@ -204,19 +222,21 @@ nav.top-bar {
         position: absolute;
         text-align: right;
       }
+      
+    
+}
 
       .glow {
         border-radius: 50%;
-        width: 10px;
-        height: 10px;
-        -webkit-animation-name: redPulse;
-        -webkit-animation-duration: 2s;
-        -webkit-animation-iteration-count: infinite;
-        -moz-animation-name: redPulse;
-        -moz-animation-duration: 2s;
-        -moz-animation-iteration-count: infinite;
+        width: 30px;
+        height: 30px;
+        border:solid 1px blue;
+        
+        &:hover {
+            background-color:cadetblue;
+            opacity: .7;
 
-        display: inline-block;
+        }
 
       }
 
@@ -225,52 +245,17 @@ nav.top-bar {
 
         &.show {
           display: inline-block;
-          background: white;
-          border: 2px solid black;
+          font-weight: 400;
+          padding: 5px;
+          background-color: fade(white, 80%);
+          border: 1px solid black;
         }
       }
     }
   }
 
 
-  .new-point{
-    fill-opacity: 1!important;
-    stroke-width: 0px;
-    stroke: #f05b4f;
-    transition: all 0.2s linear;
 
-    &:hover{
-      r: 7;
-      stroke-opacity: 0.2;
-      stroke-width: 20px;
-    }
-  }
-
- 
-  .ct-bar {
-    fill: black;
-    stroke-width: 20px;
-    font-family:  @df-sans;
-  }
-  
-  .ct-grid {
-    stroke: blue;
-  }
-
-  .ct-label {
-    color: black;
-  }
-  
-  .ct-series-a {
-
-    .ct-line {
-      stroke: #000000;
-    }
-    .ct-bar, .ct-point {
-      stroke: #a80000;
-
-    }
-  }
 
 
   .chartist-tooltip {
@@ -303,21 +288,65 @@ nav.top-bar {
   .chartist-tooltip.tooltip-show {
     opacity: 1; }
 
+  .new-point{
+    fill-opacity: 1!important;
+    stroke-width: 0px;
+    stroke: #a80000;
+    transition: all 0.2s linear;
 
-
-  .ct-homeruns {
-    position: relative;
-    float: left;
+    &:hover{
+      r: 7;
+      stroke-opacity: 0.2;
+      stroke-width: 20px;
+    }
   }
 
-  .ct-averages {
-    display: inline-block;
+
+  .ct-bar {
+    fill: black;
+    stroke-width: 20px;
+    font-family:  @df-sans;
   }
-  .ct-slug {
-    display: inline-block;
+
+  .ct-grid {
+    stroke: blue;
+  }
+
+  .ct-label {
+    color: black;
+    font-family: @df-sans;
   }
 
 
-}
+
+  .ct-homeruns, .ct-averages, .ct-play {
+    .ct-series-a {
+
+      .ct-line {
+        stroke: #000000;
+      }
+      .ct-bar, .ct-point, .ct-area {
+        stroke: #a80000;
+        fill: #a80000;
+
+      }
+    }
+
+    .ct-series-b {
+
+      .ct-line {
+        stroke: gray;
+      }
+      
+      .ct-area {
+        stroke: #a80000;
+        fill: #a80000;
+      }
+    }
+    
+  }
+
+
+
 
 
