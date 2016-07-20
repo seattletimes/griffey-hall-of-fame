@@ -17,6 +17,12 @@ var baData = [0.264, 0.3, 0.327, 0.308, 0.309, 0.323, 0.258, 0.303, 0.304, 0.284
 
 var hrData = [16, 22, 22, 27, 45, 40, 17, 49, 56, 56, 48, 40, 22, 8, 13, 20, 35, 27, 30, 11, 19, 0];
 
+var bondData = [16, 25, 24, 19, 33, 25, 34, 46, 37, 33, 42, 40, 37, 34, 49, 73, 46, 45, 45, 5, 26, 28]
+var rodData = [0, 5, 36, 23, 42, 42, 41, 52, 57, 47, 36, 48, 35, 54, 35, 30, 30, 16, 18, 7, 33, 8]
+var aaronData = [13, 27, 26, 44, 30, 39, 40, 34, 45, 44, 24, 32, 44, 39, 29, 44, 38, 47, 34, 40, 20, 12]
+var ruthData = [0, 4, 3, 2, 11, 29, 54, 59, 35, 41, 46, 25, 47, 60, 54, 46, 49, 46, 41, 34, 22, 6]
+var maysData = [20, 4, 41, 51, 36, 35, 29, 34, 29, 40, 49, 38, 47, 52, 37, 22, 23, 13, 28, 18, 8, 6]
+
 var slugData = [0.42, 0.481, 0.527, 0.535, 0.617, 0.674, 0.481, 0.628, 0.646, 0.611, 0.576, 0.556, 0.533, 0.426, 0.566, 0.513, 0.576, 0.486, 0.496, 0.424, 0.411, 0.204];
 
 var playData = [78, 96, 95, 88, 96, 99, 50, 86, 97, 99, 99, 90, 69, 43, 33, 51, 79, 67, 89, 88, 72, 20];
@@ -62,7 +68,7 @@ if (data.type === "point") {
     //Change colors
     if (data.index < 11 || data.index > 18) {
       circle.attr({
-        style: 'stroke: blue;  fill: blue;'
+        style: 'stroke: #2c3c87;  fill: #2c3c87;'
       });
     }
 }
@@ -111,13 +117,37 @@ slugChart.on('draw', function(data) {
     //Change colors
     if (data.index < 11 || data.index > 18) {
       circle.attr({
-        style: 'stroke: blue;  fill: blue;'
+        style: 'stroke: #2c3c87;  fill: #2c3c87;'
       });
     }
   }
 });
 
+//COMPARE 
+var compared = {
+  labels: labels,
+  series: [ hrData, bondData, rodData, aaronData, ruthData, maysData]
+};
 
+var compChart = new Chartist.Line('.ct-comp', compared, {
+  axisY: {
+    showLabel: false
+  },
+  plugins: [
+    Chartist.plugins.tooltip({
+     
+    })
+  ]
+});
+
+
+//Comp draw
+compChart.on('draw', function(data) {
+  if (data.type === "point") {
+console.log(data);
+    
+  }
+});
 
 //PLAYED 
 var played = {
@@ -156,7 +186,7 @@ playChart.on('draw', function(data) {
     //Change colors
     if (data.index < 11 || data.index > 18) {
       circle.attr({
-        style: 'stroke: blue;  fill: blue;'
+        style: 'stroke: #2c3c87;  fill: #2c3c87;'
       });
     }
   }
@@ -185,7 +215,6 @@ var homeRuns = {
   labels: labels,
   series: [data]
 };
-console.log(data);
 var hrChart = new Chartist.Bar('.ct-homeruns', homeRuns, { axisX: {
     showGrid: false
   },
@@ -194,7 +223,7 @@ var hrChart = new Chartist.Bar('.ct-homeruns', homeRuns, { axisX: {
     showLabel: false
   }, plugins: [
     Chartist.plugins.tooltip({
-      pointClass: 'hr new-point',
+      
       tooltipFnc : function() {
         var meta = event.target.getAttribute('ct:meta');
         var cleanMeta = Chartist.deserialize(meta);
@@ -210,14 +239,14 @@ var hrChart = new Chartist.Bar('.ct-homeruns', homeRuns, { axisX: {
 hrChart.on('draw', function(data) {
   var horizctr, vertctr, label, value;
   if (data.type === "bar") {
-
+console.log(data);
     data.element.attr({ "data-index": data.index });
 
    
     //Change colors
     if (data.index < 11 || data.index > 18) {
       data.element.attr({
-        style: 'stroke: blue;'
+        style: 'stroke: #2c3c87;'
       });
     }
 
@@ -260,21 +289,33 @@ $(".advance").click(function(){
 
 
 //Sports Illustrated
-//qsa(".si-img").forEach
 
-//Injuries
-
-/*$(".icon").hover( function() {
-  $(`.description`).addClass('show');
-});*/
-
-var hoverEffect = function(e) {
+var magClick = function(e) {
   
     var pos = this.getAttribute("data-id");
 
+  var chatter = document.querySelector(`.chatter[data-id="${pos}"]`);
+  chatter.classList.add('show');
+};
+
+qsa(".si-img").forEach(i => i.addEventListener("click", magClick));
+
+
+//Injuries
+
+var hoverEffect = function(e) {
+   var others = qsa('.description');
+  
+  others.forEach(function(i) {
+    i.classList.remove("show");
+
+  });
+    var pos = this.getAttribute("data-id");
+  
   var injury = document.querySelector(`.description[data-id="${pos}"]`);
   injury.classList.add('show');
 };
+  
+qsa(".icon").forEach(i => i.addEventListener("mouseenter", hoverEffect));
 
-qsa(".icon").forEach(i => i.addEventListener("mouseover", hoverEffect));
 
