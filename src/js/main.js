@@ -6,6 +6,7 @@ require("component-responsive-frame/child");
 var $ = require("jquery");
 var Chartist = require("chartist");
 
+
 var labels = ["'89", "'90", "'91", "'92", "'93", "'94", "'95", "'96", "'97", "'98", "'99", "'00", "'01", "'02", "'03", "'04", "'05", "'06", "'07", "'08", "'09", "'10"]
 
 var years = [1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010];
@@ -27,6 +28,7 @@ var baOptions = {
   },
   axisY: {
     showGrid: false,
+    showLabel: false
   }
 };
 
@@ -44,6 +46,33 @@ baChart.on('draw', function(data) {
       });
     }
   }
+});
+
+//BA interactives
+
+var $baChart = $('.ct-averages');
+
+var $toolTip2 = $baChart
+.append('<div class="tooltip"></div>')
+.find('.tooltip')
+.hide();
+
+$baChart.on('mouseenter', '.ct-point', function() {
+  var $point = $(this), info = $point.attr('ct:value');
+  var meta = Chartist.deserialize(info);
+
+  $toolTip2.html(info).show();
+});
+
+$baChart.on('mouseleave', '.ct-point', function() {
+  $toolTip2.hide();
+});
+
+$baChart.on('mousemove', function(event) {
+  $toolTip2.css({
+    left: (event.offsetX || event.originalEvent.layerX) - $toolTip2.width() / 2 - 10,
+    top: (event.offsetY || event.originalEvent.layerY) - $toolTip2.height() - 30
+  });
 });
 
 //HOME RUNS
@@ -107,6 +136,8 @@ hrChart.on('draw', function(data) {
     });
     return  data.group.append(label);
   }
+  
+  //Add highlight on selected years
 
 });
 
@@ -139,36 +170,32 @@ $hrChart.on('mousemove', function(event) {
 
 //HR timeline
 
- var timeline = (function(){
-  var box = document.querySelector('.year');
-  var next = box.querySelector('.right');
-  var prev = box.querySelector('.left');
-  var items = box.querySelectorAll('.content li');
-  var counter = 0;
-  var amount = items.length;
-  var current = items[0];
-  box.classList.add('active');
-  
-  function navigate(direction) {
-    current.classList.remove('current');
-    counter = counter + direction;
-    if (direction === -1 && 
-        counter < 0) { 
-      counter = amount - 1; 
-    }
-    if (direction === 1 && 
-        !items[counter]) { 
-      counter = 0;
-    }
-    current = items[counter];
-    current.classList.add('current');
-  }
-   next.addEventListener('click', function(ev) {
-    navigate(1);
-  });
-  prev.addEventListener('click', function(ev) {
-    navigate(-1);
-  });
-  navigate(0);
-})
- timeline();
+ $(".year div").each(function(e) {
+        if (e != 0)
+            $(this).hide();
+    });
+    
+    $(".right").click(function(){
+        if ($(".year div:visible").next().length != 0)
+            $(".year div:visible").next().show().prev().hide();
+        else {
+            $(".year div:visible").hide();
+            $(".year div:first").show();
+        }
+        return false;
+    });
+
+    $(".left").click(function(){
+        if ($(".year div:visible").prev().length != 0)
+            $(".year div:visible").prev().show().next().hide();
+        else {
+            $(".year div:visible").hide();
+            $(".year div:last").show();
+        }
+        return false;
+    });
+
+
+
+//Sports Illustrated
+

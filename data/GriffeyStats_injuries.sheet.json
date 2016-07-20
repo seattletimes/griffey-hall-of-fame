@@ -1,22 +1,52 @@
 [
   {
-    "injury": "toe",
-    "top": 87,
-    "left": 74
+    "injury": "Dislocated toe",
+    "top": 97,
+    "left": 84
   },
   {
-    "injury": "ankle",
+    "injury": "Torn ankle tendon",
+    "top": 90,
+    "left": 27
+  },
+  {
+    "injury": "Torn knee tendon",
+    "top": 77,
+    "left": 73
+  },
+  {
+    "injury": "Torn hamstring",
+    "top": 60,
+    "left": 72
+  },
+  {
+    "injury": "Inflammation behind knee",
+    "top": 74,
+    "left": 38
+  },
+  {
+    "injury": "Lower abdominal strain",
+    "top": 47,
+    "left": 60
+  },
+  {
+    "injury": "Pleurisy",
     "top": 40,
-    "left": 65
+    "left": 52
   },
   {
-    "injury": "knee",
-    "top": 20,
-    "left": 46
+    "injury": "Dislocated shoulder",
+    "top": 32,
+    "left": 68
   },
   {
-    "injury": "hamstring",
-    "top": 36,
-    "left": 97
+    "injury": "Broken wrist",
+    "top": 25,
+    "left": 45
+  },
+  {
+    "injury": "Broken hand",
+    "top": 25,
+    "left": 32
   }
 ]
