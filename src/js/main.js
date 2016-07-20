@@ -284,10 +284,7 @@ $hrChart.on('mousemove', function(event) {
 
 //HR timeline
 
- $(".year div").each(function(e) {
-        if (e != 0)
-            $(this).hide();
-    });
+
     
     $(".advance").click(function(){
       var $this = $(this);
