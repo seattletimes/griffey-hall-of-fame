@@ -5,7 +5,7 @@
 require("component-responsive-frame/child");
 var $ = require("jquery");
 var Chartist = require("chartist");
-
+var tooltip = require("./chartist-plugin-tooltip.min.js");
 
 var labels = ["'89", "'90", "'91", "'92", "'93", "'94", "'95", "'96", "'97", "'98", "'99", "'00", "'01", "'02", "'03", "'04", "'05", "'06", "'07", "'08", "'09", "'10"]
 
@@ -141,21 +141,42 @@ var played = {
   series: [ playData ]
 };
 
-var playOptions = {
-  axisX: {
-    showGrid: false
-  },
-  axisY: {
-    showGrid: false,
-    showLabel: false
-  }
-};
 
-var playChart =  Chartist.Line('.ct-play', played, playOptions);
+
+var playChart = new Chartist.Line('.ct-play', played, {
+ 
+  axisY: {
+   
+    showLabel: false
+  },
+  plugins: [
+    Chartist.plugins.tooltip({
+      appendToBody: true,
+      pointClass: 'new-point'
+    })
+  ]
+});
+
 
 //Slug draw
 playChart.on('draw', function(data) {
 if (data.type === "point") {
+    
+    //Add tooltips
+//      console.log(data);
+
+   var circle = new Chartist.Svg('circle', {
+	    cx: [data.x],
+      cy: [data.y],
+      r: [5], 
+      'ct:value': data.value.y,
+     'ct:meta': data.meta,
+     class: 'new-point',
+     
+    }, 'ct-area');
+  
+  data.element.replace(circle);
+  
     //Change colors
     if (data.index < 11 || data.index > 18) {
       data.element.attr({
@@ -165,32 +186,8 @@ if (data.type === "point") {
   }
 });
 
-//Slug interactives
 
-var $playChart = $('.ct-play');
 
-var $toolTip4 = $playChart
-.append('<div class="tooltip"></div>')
-.find('.tooltip')
-.hide();
-
-$playChart.on('mouseenter', '.ct-point', function() {
-  var $point = $(this), info = $point.attr('ct:value');
-  var meta = Chartist.deserialize(info);
-
-  $toolTip4.html(info).show();
-});
-
-$playChart.on('mouseleave', '.ct-point', function() {
-  $toolTip4.hide();
-});
-
-$playChart.on('mousemove', function(event) {
-  $toolTip4.css({
-    left: (event.offsetX || event.originalEvent.layerX) - $toolTip4.width() / 2 - 10,
-    top: (event.offsetY || event.originalEvent.layerY) - $toolTip4.height() - 30
-  });
-});
 
 //HOME RUNS
 
@@ -229,6 +226,7 @@ var hrChart = Chartist.Bar('.ct-homeruns', homeRuns, hrOptions);
 hrChart.on('draw', function(data) {
   var horizctr, vertctr, label, value;
   if (data.type === "bar") {
+    data.element.attr({ "data-index": data.index });
 
     //Change colors
     if (data.index < 11 || data.index > 18) {
@@ -240,7 +238,6 @@ hrChart.on('draw', function(data) {
     //Add numbers on top
     horizctr = data.x1 + (data.element.width() * .5);
     vertctr = data.y1 + (data.element.height() * -1) - 10;
-    console.log(data.element.attr(0));
 
     value = data.element.attr('ct:value');
     label = new Chartist.Svg('text');
@@ -292,24 +289,17 @@ $hrChart.on('mousemove', function(event) {
             $(this).hide();
     });
     
-    $(".right").click(function(){
-        if ($(".year div:visible").next().length != 0)
-            $(".year div:visible").next().show().prev().hide();
-        else {
-            $(".year div:visible").hide();
-            $(".year div:first").show();
-        }
-        return false;
-    });
-
-    $(".left").click(function(){
-        if ($(".year div:visible").prev().length != 0)
-            $(".year div:visible").prev().show().next().hide();
-        else {
-            $(".year div:visible").hide();
-            $(".year div:last").show();
-        }
-        return false;
+    $(".advance").click(function(){
+      var $this = $(this);
+      var current = $(".year .show");
+      var index = current.attr("data-index");
+      var bar = document.querySelector(`.home-runs svg [data-index="${index}"]`);
+      if (!current.length) {
+        current = $(".year div:first");
+      }
+      var next = $this.hasClass("left") ? current.prev(".year-description") : current.next(".year-description");
+      next.addClass("show");
+      current.removeClass("show");
     });
 
 

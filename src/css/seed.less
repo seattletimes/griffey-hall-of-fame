@@ -96,7 +96,7 @@ nav.top-bar {
 
 
     .year {
-      
+
       .left {
         float: left;
         margin: auto;
@@ -109,7 +109,7 @@ nav.top-bar {
         margin: auto;
 
       }
-      
+
       div {
         margin: inherit;
         display: none;
@@ -122,25 +122,27 @@ nav.top-bar {
   .hr-leaders {
 
     .leader {
+      width: 40%;
       .display-flex();
-      .flex-direction(row); 
+      .align-items(baseline);
       .name {
-        .flex(1);
+        .flex(1 0 0);
       }
 
       .photo {
+        .flex(1 0 0);
         img {
           width: 100px;
           -webkit-border-radius: 12px; 
           -moz-border-radius: 12px; 
           border-radius: 12px; 
         }
-        .flex(1);
+
 
       }
 
       .stat {
-        .flex(1);
+        .flex(1 0 0);
 
       }
     }
@@ -161,12 +163,12 @@ nav.top-bar {
 
       }
     }
-    
+
     .si-focus {
-    
+
       width: 40%;
       display: inline-block;
-    .chatter {
+      .chatter {
         float: left;
       }
     }
@@ -188,6 +190,7 @@ nav.top-bar {
       }
 
       .glow {
+
         border-radius: 50%;
         width: 10px;
         height: 10px;
@@ -207,7 +210,18 @@ nav.top-bar {
     }
   }
 
+  .new-point{
+    fill-opacity: 1!important;
+    stroke-width: 0px;
+    stroke: red;
+    transition: all 0.2s linear;
 
+    &:hover{
+      r: 7;
+      stroke-opacity: 0.2;
+      stroke-width: 20px;
+    }
+  }
   .ct-bar {
     fill: black;
     stroke-width: 20px;
@@ -226,6 +240,36 @@ nav.top-bar {
 
   }
 
+  .ct-tooltip {
+    position: absolute;
+    display: inline-block;
+    min-width: 5em;
+    padding: .5em;
+    background: #F4C63D;
+    color: #453D3F;
+    font-family: Oxygen,Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    text-align: center;
+    pointer-events: none;
+    z-index: 1;
+    -webkit-transition: opacity .2s linear;
+    -moz-transition: opacity .2s linear;
+    -o-transition: opacity .2s linear;
+    transition: opacity .2s linear; }
+  .ct-tooltip:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -15px;
+    border: 15px solid transparent;
+    border-top-color: #F4C63D; }
+  .ct-tooltip.tooltip-show {
+    opacity: 1; }
+
+
   .ct-series-a .ct-barlabel {
     font-size:20px;
   }
@@ -239,17 +283,17 @@ nav.top-bar {
 
   }
 
-    .ct-line {
-      stroke: black;
+  .ct-line {
+    stroke: black;
 
-    }
+  }
   .ct-averages {
     display: inline-block;
     width: 48%;
 
   }
   .ct-slug {
-        display: inline-block;
+    display: inline-block;
 
     width: 48%;
 
@@ -276,3 +320,23 @@ nav.top-bar {
     }
   }
 }
+
+.inj-tooltip {
+  position: relative;
+  display: inline-block;
+
+  .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+}
+
