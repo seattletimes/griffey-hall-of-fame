@@ -6,6 +6,8 @@ require("component-responsive-frame/child");
 var $ = require("jquery");
 var Chartist = require("chartist");
 var tooltip = require("./chartist-plugin-tooltip.min.js");
+var qsa = require("./lib/qsa");
+
 
 var labels = ["'89", "'90", "'91", "'92", "'93", "'94", "'95", "'96", "'97", "'98", "'99", "'00", "'01", "'02", "'03", "'04", "'05", "'06", "'07", "'08", "'09", "'10"]
 
@@ -27,113 +29,95 @@ var battingAverage = {
   series: [ baData ]
 };
 
-var baOptions = {
+
+var baChart = new Chartist.Line('.ct-averages', battingAverage, {
   axisX: {
     showGrid: false
   },
   axisY: {
     showGrid: false,
     showLabel: false
-  }
-};
-
-var baChart =  Chartist.Line('.ct-averages', battingAverage, baOptions);
+  },
+   plugins: [
+    Chartist.plugins.tooltip({
+      pointClass: 'ba new-point'
+    })
+  ]
+});
 
 //BA draw
 baChart.on('draw', function(data) {
- 
-  if (data.type === "point")
+if (data.type === "point") {
+  //Add tooltips
+    var circle = new Chartist.Svg('circle', {
+      cx: [data.x],
+      cy: [data.y],
+      r: [5], 
+      'ct:value': data.value.y,
+      'ct:meta': data.meta,
+      class: 'ba new-point'
+    }, 'ct-area');
+    data.element.replace(circle);
+
     //Change colors
     if (data.index < 11 || data.index > 18) {
-      data.element.attr({
-        style: 'stroke: blue;'
+      circle.attr({
+        style: 'stroke: blue;  fill: blue;'
       });
     }
-  });
-
-//BA interactives
-
-var $baChart = $('.ct-averages');
-
-var $toolTip2 = $baChart
-.append('<div class="tooltip"></div>')
-.find('.tooltip')
-.hide();
-
-$baChart.on('mouseenter', '.ct-point', function() {
-  var $point = $(this), info = $point.attr('ct:value');
-  var meta = Chartist.deserialize(info);
-
-  $toolTip2.html(info).show();
+}
 });
 
-$baChart.on('mouseleave', '.ct-point', function() {
-  $toolTip2.hide();
-});
-
-$baChart.on('mousemove', function(event) {
-  $toolTip2.css({
-    left: (event.offsetX || event.originalEvent.layerX) - $toolTip2.width() / 2 - 10,
-    top: (event.offsetY || event.originalEvent.layerY) - $toolTip2.height() - 30
-  });
-});
 
 //SLUGGING
+
 var slugging = {
   labels: labels,
   series: [ slugData ]
 };
 
-var slugOptions = {
+
+var slugChart =  Chartist.Line('.ct-slug', slugging, {
   axisX: {
     showGrid: false
   },
   axisY: {
     showGrid: false,
     showLabel: false
-  }
-};
+  },
+  plugins: [
+    Chartist.plugins.tooltip({
+      pointClass: 'slug new-point'
+    })
+  ]
+});
 
-var slugChart =  Chartist.Line('.ct-slug', slugging, slugOptions);
 
 //Slug draw
 slugChart.on('draw', function(data) {
-if (data.type === "point") {
+  if (data.type === "point") {
+
+    //Add tooltips
+    var circle = new Chartist.Svg('circle', {
+      cx: [data.x],
+      cy: [data.y],
+      r: [5], 
+      'ct:value': data.value.y,
+      'ct:meta': data.meta,
+      class: 'slug new-point'
+    }, 'ct-area');
+    data.element.replace(circle);
+
     //Change colors
     if (data.index < 11 || data.index > 18) {
-      data.element.attr({
-        style: 'stroke: blue;'
+      circle.attr({
+        style: 'stroke: blue;  fill: blue;'
       });
     }
   }
 });
 
-//Slug interactives
 
-var $slugChart = $('.ct-slug');
-
-var $toolTip3 = $slugChart
-.append('<div class="tooltip"></div>')
-.find('.tooltip')
-.hide();
-
-$slugChart.on('mouseenter', '.ct-point', function() {
-  var $point = $(this), info = $point.attr('ct:value');
-  var meta = Chartist.deserialize(info);
-
-  $toolTip3.html(info).show();
-});
-
-$slugChart.on('mouseleave', '.ct-point', function() {
-  $toolTip3.hide();
-});
-
-$slugChart.on('mousemove', function(event) {
-  $toolTip3.css({
-    left: (event.offsetX || event.originalEvent.layerX) - $toolTip3.width() / 2 - 10,
-    top: (event.offsetY || event.originalEvent.layerY) - $toolTip3.height() - 30
-  });
-});
 
 //PLAYED 
 var played = {
@@ -142,50 +126,41 @@ var played = {
 };
 
 
-
 var playChart = new Chartist.Line('.ct-play', played, {
- 
   axisY: {
-   
     showLabel: false
   },
   plugins: [
     Chartist.plugins.tooltip({
-      appendToBody: true,
-      pointClass: 'new-point'
+      pointClass: 'play new-point'
     })
   ]
 });
 
 
-//Slug draw
+//Play draw
 playChart.on('draw', function(data) {
-if (data.type === "point") {
-    
-    //Add tooltips
-//      console.log(data);
+  if (data.type === "point") {
 
-   var circle = new Chartist.Svg('circle', {
-	    cx: [data.x],
+    //Add tooltips
+    var circle = new Chartist.Svg('circle', {
+      cx: [data.x],
       cy: [data.y],
       r: [5], 
       'ct:value': data.value.y,
-     'ct:meta': data.meta,
-     class: 'new-point',
-     
+      'ct:meta': data.meta,
+      class: 'play new-point'
     }, 'ct-area');
-  
-  data.element.replace(circle);
-  
+
+    data.element.replace(circle);
     //Change colors
     if (data.index < 11 || data.index > 18) {
-      data.element.attr({
-        style: 'stroke: blue;'
+      circle.attr({
+        style: 'stroke: blue;  fill: blue;'
       });
     }
   }
 });
-
 
 
 
@@ -197,7 +172,10 @@ for (var i = 0; i < 22; i++) {
     value: hrData[i],
     meta: {
       year: years[i],
-      battingAverage: baData[i]
+      battingAverage: baData[i],
+      slugData: slugData[i],
+      playData: playData[i],
+      rbiData: rbiData[i]
     }
   };
   data.push(values);
@@ -207,27 +185,35 @@ var homeRuns = {
   labels: labels,
   series: [data]
 };
-
-var hrOptions = {
-
-  axisX: {
+console.log(data);
+var hrChart = new Chartist.Bar('.ct-homeruns', homeRuns, { axisX: {
     showGrid: false
   },
   axisY: {
     showGrid: false,
     showLabel: false
-  }
+  }, plugins: [
+    Chartist.plugins.tooltip({
+      pointClass: 'hr new-point',
+      tooltipFnc : function() {
+        var meta = event.target.getAttribute('ct:meta');
+        var cleanMeta = Chartist.deserialize(meta);
+        return "Batting Average: " + cleanMeta.battingAverage + "<br>Slugging Percentage: " + cleanMeta.slugData;
+      }
+    })
+  ]
 
-};
-
-var hrChart = Chartist.Bar('.ct-homeruns', homeRuns, hrOptions);
+});
 
 //HR draw
+
 hrChart.on('draw', function(data) {
   var horizctr, vertctr, label, value;
   if (data.type === "bar") {
+
     data.element.attr({ "data-index": data.index });
 
+   
     //Change colors
     if (data.index < 11 || data.index > 18) {
       data.element.attr({
@@ -250,56 +236,45 @@ hrChart.on('draw', function(data) {
     });
     return  data.group.append(label);
   }
-  
-  //Add highlight on selected years
-
 });
 
-//HR interactives
 
-var $hrChart = $('.ct-homeruns');
-
-var $toolTip = $hrChart
-.append('<div class="tooltip"></div>')
-.find('.tooltip')
-.hide();
-
-$hrChart.on('mouseenter', '.ct-bar', function() {
-  var $bar = $(this), info = $bar.attr('ct:meta');
-  var meta = Chartist.deserialize(info);
-
-  $toolTip.html("Batting Average: " + meta.battingAverage).show();
-});
-
-$hrChart.on('mouseleave', '.ct-bar', function() {
-  $toolTip.hide();
-});
-
-$hrChart.on('mousemove', function(event) {
-  $toolTip.css({
-    left: (event.offsetX || event.originalEvent.layerX) - $toolTip.width() / 2 - 10,
-    top: (event.offsetY || event.originalEvent.layerY) - $toolTip.height() - 30
-  });
-});
 
 //HR timeline
 
 
-    
-    $(".advance").click(function(){
-      var $this = $(this);
-      var current = $(".year .show");
-      var index = current.attr("data-index");
-      var bar = document.querySelector(`.home-runs svg [data-index="${index}"]`);
-      if (!current.length) {
-        current = $(".year div:first");
-      }
-      var next = $this.hasClass("left") ? current.prev(".year-description") : current.next(".year-description");
-      next.addClass("show");
-      current.removeClass("show");
-    });
+
+$(".advance").click(function(){
+  var $this = $(this);
+  var current = $(".year .show");
+  var index = current.attr("data-index");
+  var bar = document.querySelector(`.home-runs svg [data-index="${index}"]`);
+  if (!current.length) {
+    current = $(".year div:first");
+  }
+  var next = $this.hasClass("left") ? current.prev(".year-description") : current.next(".year-description");
+  next.addClass("show");
+  current.removeClass("show");
+});
 
 
 
 //Sports Illustrated
 //qsa(".si-img").forEach
+
+//Injuries
+
+/*$(".icon").hover( function() {
+  $(`.description`).addClass('show');
+});*/
+
+var hoverEffect = function(e) {
+  
+    var pos = this.getAttribute("data-id");
+
+  var injury = document.querySelector(`.description[data-id="${pos}"]`);
+  injury.classList.add('show');
+};
+
+qsa(".icon").forEach(i => i.addEventListener("mouseover", hoverEffect));
+

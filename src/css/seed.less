@@ -1,10 +1,10 @@
 @import "seattletimes";
 @import (inline) "npm://chartist/dist/chartist.min.css";
 
-@-webkit-keyframes greenPulse {
-  from { background-color: #FF1010; -webkit-box-shadow: 0 0 9px #E71C1C; }
-  50% { background-color: #E40000; -webkit-box-shadow: 0 0 18px #FF0000; }
-  to { background-color: #FF1010; -webkit-box-shadow: 0 0 9px #E71C1C; }
+@-webkit-keyframes redPulse {
+  from { background-color:cadetblue ; -webkit-box-shadow: 0 0 9px blue; }
+  50% { background-color: darkcyan; -webkit-box-shadow: 0 0 18px #FF0000; }
+  to { background-color: cadetblue ; -webkit-box-shadow: 0 0 9px #E71C1C; }
 }
 
 nav.top-bar {
@@ -51,9 +51,11 @@ nav.top-bar {
     .flex(1);
   }
   .title {
-    text-transform: uppercase;
     text-align: center;
     font-size: 32px;
+    font-family: @df-sans;
+    font-weight: 300;
+    padding-bottom: 3%;
   }
 
   .separator {
@@ -94,25 +96,45 @@ nav.top-bar {
 
   .home-runs {
 
+    .legend {
+      font-size: 12px;
+      font-family: @df-sans;
+      .splotch {
+        display: inline-block;
+        width: 9px;
+        height: 9px;
+        background-color: blue;
+        margin-left: 20px;
+        
+        &.two {
+          background-color: red;
+        }
+      }
+    }
 
     .year {
-
+        display: inline-flex;
+      margin: auto;
       .left {
-        float: left;
-        margin: auto;
-        display: inline-block;
 
+position: sticky;
       }
 
       .right {
-        float: right;
-        margin: auto;
+        position: sticky;
 
+       
       }
 
       .year-description {
+        float: inherit;
+        width: 90%;
+        background-color: cadetblue;
+        color: white;
         margin: inherit;
         display: none;
+        text-align: center;
+        margin: 10px;
         
         
         &.show {
@@ -125,11 +147,10 @@ nav.top-bar {
 
 
   .hr-leaders {
-
+padding: 5%;
     .leader {
       width: 40%;
       .display-flex();
-      .align-items(baseline);
       .name {
         .flex(1 0 0);
       }
@@ -147,7 +168,7 @@ nav.top-bar {
       }
 
       .stat {
-        .flex(1 0 0);
+        .flex(1 0 1);
 
       }
     }
@@ -181,7 +202,7 @@ nav.top-bar {
 
 
   .injuries {
-    font-family: @df-serif;
+    font-family: @df-sans;
     font-size: 11px;
     .image {
       width: 50%;
@@ -189,28 +210,28 @@ nav.top-bar {
 
       .icon {
         position: absolute;
-        text-align: center;
-
-
+        text-align: right;
       }
 
       .glow {
-
         border-radius: 50%;
         width: 10px;
         height: 10px;
-        background-color: black;
-        z-index: 99;
-        -webkit-animation-name: greenPulse;
-        -webkit-animation-duration: 4s;
+        -webkit-animation-name: redPulse;
+        -webkit-animation-duration: 2s;
         -webkit-animation-iteration-count: infinite;
         display: inline-block;
-
 
       }
 
       .description {
-        display: inline-block;
+        display: none;
+        
+        &.show {
+          display: inline-block;
+          background: white;
+          border: 2px solid black;
+        }
       }
     }
   }
@@ -245,23 +266,24 @@ nav.top-bar {
 
   }
 
-  .ct-tooltip {
-    position: absolute;
-    display: inline-block;
-    min-width: 5em;
-    padding: .5em;
-    background: #F4C63D;
-    color: #453D3F;
-    font-family: Oxygen,Helvetica,Arial,sans-serif;
-    font-weight: 700;
-    text-align: center;
-    pointer-events: none;
-    z-index: 1;
-    -webkit-transition: opacity .2s linear;
-    -moz-transition: opacity .2s linear;
-    -o-transition: opacity .2s linear;
-    transition: opacity .2s linear; }
-  .ct-tooltip:before {
+  .chartist-tooltip {
+  position: absolute;
+  display: inline-block;
+  opacity: 0;
+  min-width: 5em;
+  padding: .5em;
+  background: #F4C63D;
+  color: #453D3F;
+  font-family: @df-sans;
+  font-weight: 700;
+  text-align: center;
+  pointer-events: none;
+  z-index: 1;
+  -webkit-transition: opacity .2s linear;
+  -moz-transition: opacity .2s linear;
+  -o-transition: opacity .2s linear;
+  transition: opacity .2s linear; }
+  .chartist-tooltip:before {
     content: "";
     position: absolute;
     top: 100%;
@@ -271,8 +293,9 @@ nav.top-bar {
     margin-left: -15px;
     border: 15px solid transparent;
     border-top-color: #F4C63D; }
-  .ct-tooltip.tooltip-show {
+  .chartist-tooltip.tooltip-show {
     opacity: 1; }
+
 
 
   .ct-series-a .ct-barlabel {
@@ -305,43 +328,6 @@ nav.top-bar {
   }
 
 
-
-  .tooltip {
-    position: absolute;
-    display: inline-block;
-    line-height: 1.1;
-    padding: 0.4em;
-    background: white;
-    border: 1px solid black;
-    color: black;
-    // font-weight: bold;
-    font-size: 14px;
-    text-align: center;
-    pointer-events: none;
-    stroke: #679BD2;
-    z-index: 1;
-    @media @mobile {
-      min-width: 0;
-    }
-  }
 }
 
-.inj-tooltip {
-  position: relative;
-  display: inline-block;
-
-  .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: white;
-    color: black;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-  }
-}
 

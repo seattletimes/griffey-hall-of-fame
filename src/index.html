@@ -34,22 +34,39 @@
 
       <section class="home-runs">
 
-              <div class="separator"></div>
-
         <div class="title">Griffey's Home Runs by Season</div>
-      <div class="separator"></div>
-
         
+        <div class="legend">
+        <div class="splotch"></div> With Mariners
+        <div class="splotch two"></div> With Cincinnati, Chicago White Socks
+          
+        </div>
         <div class="ct-homeruns ct-series-a ct-bar ct-octave ct-series-a" id="ct-homeruns"></div>
 
         <div class="year">
+          
           <a class="advance left">left</a>
           
-          <div data-index="17" class="year-description show">Griffey suffered a severe wrist injury on May 26, 1995, while making a leaping catch into the outfield wall. It sidelined him until mid-August</div>
-          <div class="year-description">His best home-run seasons were 1997 and 1998, when he hit 56 each year</div>
-          <div class="year-description">His best home-run seasons were 1997 and 1998, when he hit 56 each year</div>
-          <div class="year-description">Griffey was traded to Cincinnati following the 1999 Mariners season, having hit 398 homers in 11 years here</div>
+          <div class="year-description show" >Click here to explore some of Ken Griffey Jr.'s most memorable moments.</div>
+            <% var notes = {};
+       json.GriffeyStats_notes.forEach(function(item) {
+          if (!notes[item.Note]) notes[item.Note] = [];
+          notes[item.Note].push(item);
+        });
+
+          
+          
+          for (var n in notes) {
+            
+          var note = notes[n];
+          note.forEach(function(item) { %>
+
+          <div class="year-description" data-id="<%= item.id %>">
+            
+            <div class="year"><%= item.Year %></div><br><%= item.Note %></div>
+
          
+          <% })}; %>      
           <a class="advance right">right</a>
         </div>
 
@@ -57,9 +74,7 @@
 
 
       <section class="batting-averages">
-          <div class="separator"></div>
         <div class="title">Batting Average And Slug</div>
-               <div class="separator"></div>
 
         <div class="ct-averages ct-octave" id="ct-averages"></div>
         
@@ -67,32 +82,24 @@
       </section>
    
 <!--      <section class="slugging">
-          <div class="separator"></div>
         <div class="title">Slugging Percentage</div>
-               <div class="separator"></div>
 
         <div class="ct-slug ct-octave" id="ct-slug"></div>
       </section>-->
       
       <section class="play">
-          <div class="separator"></div>
         <div class="title">Percent of Games Played</div>
-               <div class="separator"></div>
 
         <div class="ct-play ct-octave" id="ct-play"></div>
       </section>
 
       <section class="griffey-field">
-          <div class="separator"></div>
         <div class="title">Field</div>
-  <div class="separator"></div>
         <img src="/Assets/GriffeyWEBgraphics2.jpg">
       </section>      
       
       <section class="si">
-          <div class="separator"></div>
         <div class="title">Sports Illustrated</div>
-  <div class="separator"></div>
                 <div class="si-image">
 
         <% for (var i = 1; i < 9; i++) { %>
@@ -113,9 +120,9 @@
 
 
       <section class="hr-leaders">
-  <div class="separator"></div>
+
         <div class="title">Home Run Leaders</div>
-  <div class="separator"></div>
+
 
         <% var players = {};
         json.hr_leaders.forEach(function(item) {
@@ -156,8 +163,8 @@
             var injury = injuries[i];
             injury.forEach(function(item) { %>
 
-          <div class="icon" style="top: <%= item.top %>%; left: <%= item.left %>%;"><div class="glow"></div>
-          <div class="description"><%= item.injury %></div>
+          <div class="icon" style="top: <%= item.top %>%; left: <%= item.left %>%;"  data-id="<%= item.injury %>"><div class="glow"></div>
+          <div class="description" data-id="<%= item.injury %>"><%= item.injury %></div>
           </div>
 
           <% }); } %>       

@@ -1,76 +1,37 @@
 [
   {
-    "Year": 1989
-  },
-  {
-    "Year": 1990
-  },
-  {
-    "Year": 1991
-  },
-  {
-    "Year": 1992
-  },
-  {
-    "Year": 1993
-  },
-  {
-    "Year": 1994
-  },
-  {
     "Year": 1995,
-    "Note": "Griffey suffered a severe wrist injury on May 26, 1995, while making a leaping catch into the outfield wall. It sidelined him until mid-August"
-  },
-  {
-    "Year": 1996
+    "Note": "Griffey suffered a severe wrist injury on May 26, 1995, while making a leaping catch into the outfield wall. It sidelined him until mid-August",
+    "id": 6
   },
   {
     "Year": 1997,
-    "Note": "His best home-run seasons were 1997 and 1998, when he hit 56 each year"
+    "Note": "His best home-run seasons were 1997 and 1998, when he hit 56 each year",
+    "id": 8
   },
   {
     "Year": 1998,
-    "Note": "His best home-run seasons were 1997 and 1998, when he hit 56 each year"
+    "Note": "His best home-run seasons were 1997 and 1998, when he hit 56 each year",
+    "id": 9
   },
   {
     "Year": 1999,
-    "Note": "Griffey was traded to Cincinnati following the 1999 Mariners season, having hit 398 homers in 11 years here"
-  },
-  {
-    "Year": 2000
-  },
-  {
-    "Year": 2001
-  },
-  {
-    "Year": 2002,
-    "undefined": "When you're trying to hit home runs, you tend to strike out more, therefore the batting average goes down. All the big homerun hitters have not very good batting averages. "
+    "Note": "Griffey was traded to Cincinnati following the 1999 Mariners season, having hit 398 homers in 11 years here",
+    "id": 10
   },
   {
     "Year": 2003,
-    "Note": "Injuries forced Griffey to miss 260 out of 486 games with the Reds from 2002-2004"
-  },
-  {
-    "Year": 2004
-  },
-  {
-    "Year": 2005
-  },
-  {
-    "Year": 2006
-  },
-  {
-    "Year": 2007
+    "Note": "Injuries forced Griffey to miss 260 out of 486 games with the Reds from 2002-2004",
+    "id": 14
   },
   {
     "Year": 2008,
-    "Note": "Griffey was traded during the 2008 season and hit three homers with the White Sox"
+    "Note": "Griffey was traded during the 2008 season and hit three homers with the White Sox",
+    "id": 19
   },
   {
     "Year": 2009,
-    "Note": "Griffey returns to Mariners and hits 19 homers in 2009"
-  },
-  {
-    "Year": 2010
+    "Note": "Griffey returns to Mariners and hits 19 homers in 2009",
+    "id": 20
   }
 ]

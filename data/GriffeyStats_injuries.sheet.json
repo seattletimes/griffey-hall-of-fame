@@ -1,13 +1,13 @@
 [
   {
     "injury": "Dislocated toe",
-    "top": 97,
-    "left": 84
+    "top": 95,
+    "left": 91
   },
   {
     "injury": "Torn ankle tendon",
     "top": 90,
-    "left": 27
+    "left": 18
   },
   {
     "injury": "Torn knee tendon",
@@ -22,7 +22,7 @@
   {
     "injury": "Inflammation behind knee",
     "top": 74,
-    "left": 38
+    "left": 36
   },
   {
     "injury": "Lower abdominal strain",
@@ -37,12 +37,12 @@
   {
     "injury": "Dislocated shoulder",
     "top": 32,
-    "left": 68
+    "left": 64
   },
   {
     "injury": "Broken wrist",
-    "top": 25,
-    "left": 45
+    "top": 22,
+    "left": 41
   },
   {
     "injury": "Broken hand",
