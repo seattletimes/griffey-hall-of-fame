@@ -58,13 +58,29 @@
 
       <section class="batting-averages">
           <div class="separator"></div>
-        <div class="title">Batting Averages</div>
+        <div class="title">Batting Average And Slug</div>
                <div class="separator"></div>
 
         <div class="ct-averages ct-octave" id="ct-averages"></div>
+        
+        <div class="ct-slug ct-octave" id="ct-slug"></div>
       </section>
    
+<!--      <section class="slugging">
+          <div class="separator"></div>
+        <div class="title">Slugging Percentage</div>
+               <div class="separator"></div>
 
+        <div class="ct-slug ct-octave" id="ct-slug"></div>
+      </section>-->
+      
+      <section class="play">
+          <div class="separator"></div>
+        <div class="title">Percent of Games Played</div>
+               <div class="separator"></div>
+
+        <div class="ct-play ct-octave" id="ct-play"></div>
+      </section>
 
       <section class="griffey-field">
           <div class="separator"></div>
@@ -77,13 +93,21 @@
           <div class="separator"></div>
         <div class="title">Sports Illustrated</div>
   <div class="separator"></div>
-                <div class="image">
+                <div class="si-image">
 
         <% for (var i = 1; i < 9; i++) { %>
-        <img src="/Assets/covers/Griffey-SIcover<%=i%>.jpg">
+        <img class="si-img" src="/Assets/covers/Griffey-SIcover<%=i%>.jpg">
         
         <% }; %>
                   </div>
+        
+        <div class="si-focus">
+          <div class="chatter">
+          <h1>Year</h1>
+            Griffey suffered a severe wrist injury on May 26, 1995, while making a leaping catch into the outfield wall. It sidelined him until mid-August
+            
+          </div>
+          <img src="/Assets/covers/Griffey-SIcover1.jpg"></div>
       </section>
 
 
@@ -138,10 +162,11 @@
 
           <% }); } %>       
 
-    
+
 
         </div>
       </div>
+      
 
 
       <script src="app.js" async></script>

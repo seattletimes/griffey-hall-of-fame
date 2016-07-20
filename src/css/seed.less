@@ -96,10 +96,11 @@ nav.top-bar {
 
 
     .year {
-
+      
       .left {
         float: left;
         margin: auto;
+        display: inline-block;
 
       }
 
@@ -110,22 +111,13 @@ nav.top-bar {
       }
       
       div {
+        margin: inherit;
         display: none;
-      }
-
-      li {
-
-        margin: auto;
-        display: none;
-        &.active {
-          display:block;
-        }
       }
 
     }
   }
-  .batting-averages {
-  }
+
 
   .hr-leaders {
 
@@ -157,18 +149,25 @@ nav.top-bar {
   }
 
   .si {
-    .image {
+    .si-image {
+      display: inline-block;
       margin: 5%;
       height: 600px;
-      width: inherit;
+      width: 25%;
       overflow-y: scroll;
 
-      .display-flex();
       .flex-direction(column);
       img {
-        .flex(1);
 
-        width: 25%;
+      }
+    }
+    
+    .si-focus {
+    
+      width: 40%;
+      display: inline-block;
+    .chatter {
+        float: left;
       }
     }
   }
@@ -240,14 +239,20 @@ nav.top-bar {
 
   }
 
-
-  .ct-averages {
-    position: relative;
-
     .ct-line {
       stroke: black;
 
     }
+  .ct-averages {
+    display: inline-block;
+    width: 48%;
+
+  }
+  .ct-slug {
+        display: inline-block;
+
+    width: 48%;
+
   }
 
 
@@ -271,4 +276,3 @@ nav.top-bar {
     }
   }
 }
-
