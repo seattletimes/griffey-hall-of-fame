@@ -95,7 +95,10 @@ var compChart = new Chartist.Line('.ct-comp', compared, {
   },
   plugins: [
     Chartist.plugins.tooltip({
-     
+      pointClass: 'comp new-point',
+       tooltipFnc : function() {
+        return event.target.getAttribute('ct:value');
+      }
     })
   ]
 });
@@ -104,9 +107,50 @@ var compChart = new Chartist.Line('.ct-comp', compared, {
 //Comp draw
 compChart.on('draw', function(data) {
   if (data.type === "point") {
-console.log(data);
+     var circle = new Chartist.Svg('circle', {
+      cx: [data.x],
+      cy: [data.y],
+      r: [5], 
+      'ct:value': data.value.y,
+      'ct:meta': data.meta,
+      class: 'comp new-point'
+    }, 'ct-area');
+        data.element.replace(circle);
     
+    if (data.seriesIndex != 0) {
+       circle.attr({
+        style: 'opacity: .3;'
+      });
+    }
+    else {
+      circle.attr({
+        style: 'stroke-width: 8px;  stroke: #52C4B1;'
+      });
+    }
   }
+    if (data.type === "line") {
+      if (data.seriesIndex != 0) {
+      data.element.attr({
+        style: 'opacity: .2; stroke-width: 1px;'
+      });
+      }
+          else {
+      data.element.attr({
+        style: 'stroke-width: 5px;  stroke: #52C4B1;'
+      });
+    }
+    }
+});
+
+//COMP events
+var $leaders = $('.hr-leaders');
+
+var $comp = $('.ct-comp');
+$leaders.on('click', '.leader', function(){
+  
+   var pos = this.getAttribute("data-id");
+console.log(compChart); 
+  compChart.showLine(false);
 });
 
 //PLAYED 
@@ -201,14 +245,13 @@ var hrChart = new Chartist.Bar('.ct-homeruns', homeRuns, { axisX: {
 hrChart.on('draw', function(data) {
   var horizctr, vertctr, label, value;
   if (data.type === "bar") {
-console.log(data);
     data.element.attr({ "data-index": data.index });
 
    
     //Change colors
     if (data.index < 11 || data.index > 18) {
       data.element.attr({
-        style: 'stroke: #2c3c87;'
+        style: 'stroke: #52C4B1;'
       });
     }
 
@@ -268,6 +311,7 @@ qsa(".si-img").forEach(i => i.addEventListener("click", magClick));
 
 
 //Injuries
+
 
 var hoverEffect = function(e) {
    var others = qsa('.description');

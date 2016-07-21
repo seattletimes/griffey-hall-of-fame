@@ -1,8 +1,40 @@
 [
   {
+    "Year": 1989,
+    "Note": "Griffey's rookie year, when he spent most of the season as the Mariners starting centerfielder despite being just 19 years old- the youngest player in the majors.",
+    "id": 0
+  },
+  {
+    "Year": 1990,
+    "Note": "He is the first Mariner elected as an All-Star starter, and he and his dad become the first father-son duo to hit back-to-back home runs.",
+    "id": 1
+  },
+  {
+    "Year": 1991,
+    "Note": "Griffey continues to develop and has his best season yet, leading the Mariners to their first-ever winning season.",
+    "id": 2
+  },
+  {
+    "Year": 1992,
+    "Note": "Griffey puts together another strong season, highlighted by earning All-Star Game MVP honors after a 3-for-3 performance, including a home run.",
+    "id": 3
+  },
+  {
+    "Year": 1993,
+    "id": 4
+  },
+  {
+    "Year": 1994,
+    "id": 5
+  },
+  {
     "Year": 1995,
     "Note": "Griffey suffered a severe wrist injury on May 26, 1995, while making a leaping catch into the outfield wall. It sidelined him until mid-August",
     "id": 6
+  },
+  {
+    "Year": 1996,
+    "id": 7
   },
   {
     "Year": 1997,
@@ -20,9 +52,37 @@
     "id": 10
   },
   {
+    "Year": 2000,
+    "id": 11
+  },
+  {
+    "Year": 2001,
+    "id": 12
+  },
+  {
+    "Year": 2002,
+    "id": 13
+  },
+  {
     "Year": 2003,
     "Note": "Injuries forced Griffey to miss 260 out of 486 games with the Reds from 2002-2004",
     "id": 14
+  },
+  {
+    "Year": 2004,
+    "id": 15
+  },
+  {
+    "Year": 2005,
+    "id": 16
+  },
+  {
+    "Year": 2006,
+    "id": 17
+  },
+  {
+    "Year": 2007,
+    "id": 18
   },
   {
     "Year": 2008,
@@ -33,5 +93,9 @@
     "Year": 2009,
     "Note": "Griffey returns to Mariners and hits 19 homers in 2009",
     "id": 20
+  },
+  {
+    "Year": 2010,
+    "id": 21
   }
 ]

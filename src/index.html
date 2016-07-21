@@ -20,18 +20,30 @@
 
       <section class="griffey-intro">
 
-        <img src="./assets/GriffeyILLO2016web.jpg">
+        <div class="kgj">Ken Griffey Jr.</div>
+        <div class="logo"><img src="./assets/GriffeyILLO2016web.jpg"></div>
 
+        <div class="top-chatter">
         <div class="stats">
           <p>22 years</p>
           <p>2,671 games</p>
           <p>2,781 hits</p>
           <p>1,836 RBI</p>
         </div>
+        <div class="hrs">
           <p>630 home runs</p>
+   
+        </div>
+        </div>
+
+        <div class="field">
+          <img src="./assets/GriffeyWEBgraphics2.jpg">
+          <div class="chatter">
+
+Aut nulla eget, ipsum in nulla, sapien dolor, tristique lectus elementum, nullam libero. Non neque vitae aenean augue neque, purus sed venenatis porttitor et mus aenean, cursus vestibulum, pellentesque risus. Ad fermentum. Eros justo orci cum praesent vestibulum scelerisque, hendrerit dictumst magna aptent nonummy, ad rhoncus. Hendrerit vitae ridiculus integer in suscipit non, aliquam fusce laoreet ac aenean, scelerisque purus pharetra cursus, vivamus nullam rhoncus donec ligula aenean, libero mi nec sit. Eu vestibulum faucibus, sapien sed molestie in non volutpat a. Vel vivamus nunc pharetra, mauris curabitur sed egestas gravida turpis, pulvinar urna eget libero velit eget libero, tellus vestibulum nec placerat eu suscipit vestibulum. Dis urna, urna non enim sociis nulla nascetur massa, tortor luctus sit praesent. Massa est.</div>
+        </div>
 
       </section>
-
 
       <section class="home-runs">
 
@@ -77,29 +89,46 @@
 
       </section>
 
+            <section class="compare">
+        <div class="hr-leaders">
 
-      <section class="batting-slug">
-        <div class="title">Batting Average And Slug</div>
-<div class="legend">
-          <div class="key"><div class="splotch"></div>Batting Average</div>
+
+
+          <% var players = {};
+          json.hr_leaders.forEach(function(item) {
+            if (!players[item.Name]) players[item.Name] = [];
+            players[item.Name].push(item);
+          });
           
-          <div class="key two"><div class="splotch two"></div>Slugging Percentage </div>
+          var colors = ['grey', 'red', 'blue', 'green', 'purple', '#52C4B1'];
+          var index = 0;
+          %>
 
+          <% for (var p in players) {
+            
+            console.log(colors[index]);
+            var player = players[p];
+            player.forEach(function(item) { %>
+
+          <div class="leader" data-id="<%=index%>">
+            <div class="photo"> <img  style="border: 6px solid <%=colors[index]%>;" src="./assets/leaders/<%=item.id%>.jpg"></div>
+            <div class="name"><%=item.Name%></div>
+            <div class="stat"><%=item.hr%></div>
+          </div>
+
+          <% index++; }); } %>
         </div>
-        <div class="ct-averages ct-octave" id="ct-averages"></div>
+             
+        <div class="ct-comp ct-octave" id="ct-comp"></div>
 
       </section>
-
-      <section class="griffey-field">
-        <img class="field" src="./assets/GriffeyWEBgraphics2.jpg">
-      </section>      
 
       <section class="si">
         <div class="title">Sports Illustrated</div>
         <div class="si-image">
 
-          <% for (var i = 1; i < 9; i++) { %>
-          <div class="si-img"><img src="./assets/covers/Griffey-SIcover<%=i%>.jpg" data-id="<%=i%>"></div>
+          <% for (var i = 1; i < 10; i++) { %>
+          <div class="si-img" data-id="<%=i%>"><img src="./assets/covers/Griffey-SIcover<%=i%>.jpg"></div>
 
           <% }; %>
         </div>
@@ -123,7 +152,7 @@
           <% for (var m = 2; m < 10; m++) {
 
             var mag = mags[m];
-            console.log(m);
+            
             mag.forEach(function(item) { %>
 
           <div class="si-focus" data-id="<%= item.id %>">
@@ -144,33 +173,7 @@
       </section>
 
 
-      <section class="compare">
-        <div class="hr-leaders">
 
-
-
-          <% var players = {};
-          json.hr_leaders.forEach(function(item) {
-            if (!players[item.Name]) players[item.Name] = [];
-            players[item.Name].push(item);
-          });
-          %>
-
-          <% for (var p in players) {
-            var player = players[p];
-            player.forEach(function(item) { %>
-
-          <div class="leader">
-            <div class="photo"> <img src="./assets/leaders/<%=item.id%>.jpg"></div>
-            <div class="name"><%=item.Name%></div>
-            <div class="stat"><%=item.hr%></div>
-          </div>
-
-          <% }); } %>
-        </div>
-        <div class="ct-comp ct-octave" id="ct-comp"></div>
-
-      </section>
 
         <div class="title">Injuries</div>
 
