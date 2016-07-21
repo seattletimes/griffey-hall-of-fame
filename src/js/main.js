@@ -29,57 +29,11 @@ var playData = [78, 96, 95, 88, 96, 99, 50, 86, 97, 99, 99, 90, 69, 43, 33, 51, 
 
 var rbiData = [61, 80, 100, 103, 109, 90, 42, 140, 147, 146, 134, 118, 65, 23, 26, 60, 92, 72, 93, 71, 57, 7];
 
-//BATTING AVERAGE and SLUG
-var battingAverage = {
-  labels: labels,
-  series: [ baData, slugData ]
-};
-
 var ticks = [];
 
 for (var i = 0; i <= 1; i += .05) ticks.push(i);
 
-var baChart = new Chartist.Line('.ct-averages', battingAverage, {
-  high: 1,
-  low: 0,
-  divisor:20,
-  axisX: {
-  },
-  axisY: {
-    ticks,
-    low: 0,
-    type: Chartist.FixedScaleAxis,
-    labelInterpolationFnc: l => l.toFixed(3)
-  },
-   plugins: [
-    Chartist.plugins.tooltip({
-      pointClass: 'ba new-point'
-    })
-  ]
-});
 
-//BA draw
-baChart.on('draw', function(data) {
-if (data.type === "point") {
-  //Add tooltips
-    var circle = new Chartist.Svg('circle', {
-      cx: [data.x],
-      cy: [data.y],
-      r: [5], 
-      'ct:value': data.value.y,
-      'ct:meta': data.meta,
-      class: 'ba new-point'
-    }, 'ct-area');
-    data.element.replace(circle);
-
-    //Change colors
-    if (data.index < 11 || data.index > 18) {
-      circle.attr({
-        style: 'stroke: #2c3c87;  fill: #2c3c87;'
-      });
-    }
-}
-});
 
 
 
@@ -135,9 +89,9 @@ compChart.on('draw', function(data) {
   }
     if (data.type === "line") {
       if (data.seriesIndex != 0) {
-      data.element.attr({
-        style: 'opacity: .2; stroke-width: 1px;'
-      });
+        console.log(data);
+        data.element.addClass('ct-hi');
+     
       }
           else {
       data.element.attr({
@@ -154,9 +108,18 @@ var $comp = $('.ct-comp');
 $leaders.on('click', '.leader', function(){
   
    var pos = this.getAttribute("data-id");
-console.log(compChart); 
-  compChart.showLine(false);
+
+  
+  
+  
+  playChart.update({
+  labels: labels,
+  series: [ baData ]
+}, null, false);
+  console.log(hrChart); 
 });
+
+
 
 //PLAYED 
 var played = {
@@ -168,6 +131,9 @@ var played = {
 var playChart = new Chartist.Line('.ct-play', played, {
   axisY: {
     showLabel: false,
+    showGrid: false
+  },
+  axisX: {
     showGrid: false
   },
   plugins: [
@@ -203,7 +169,6 @@ playChart.on('draw', function(data) {
     }
   }
 });
-
 
 
 //HOME RUNS
@@ -288,6 +253,7 @@ $(".advance").click(function(){
   var current = $(".year .show");
   var index = current.attr("data-index");
   var bar = document.querySelector(`.home-runs svg [data-index="${index}"]`);
+ 
   if (current == null) {
     current = $(".year div:first");
   }

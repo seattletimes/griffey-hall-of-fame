@@ -28,7 +28,6 @@ nav.top-bar {
       height: 30px;
       background: white;
       padding: 10px;
-
       @media @mobile {
         padding: 5px;
       }
@@ -38,126 +37,131 @@ nav.top-bar {
 
 .griffey-container {
   font-family: @df-sans;
-    max-width: 1200px;
+  max-width: 1200px;
   margin: auto;
   .display-flex();
   .flex-direction(column); 
-  
-  
+
+
   .title {
     text-align: center;
     font-size: 32px;
     font-weight: 600;
     padding-bottom: 3%;
-    
+
     @media @mobile {
-    font-size: 20px;
-      }
+      font-size: 20px;
+    }
   }
 
   .chatter {
     font-size: 20px;
-    padding: 5px;
-    
+    padding: 5%;
+
     @media @mobile {
-        padding: 5px;
-      }
+      font-size: 14px;
+      padding: 9%;
+      max-height: 200px;
+      overflow: scroll;
+    }
   }
 
-  section{
-    padding-top: 5%;
+  section {
     padding-bottom: 5%;
     .flex(1);
   }
 
 
   .griffey-intro {
-
     padding-bottom: 50px;
 
     .kgj {
-      font-size: 150px;
+      font-size: 80px;
       font-weight: 900;
       position: relative;
-      top: 10%;
-      z-index: 1;
       text-align: center;
-      margin: 0 auto;
 
       @media @mobile {
-        font-size: 3em;
+        font-size: 2em;
         font-weight: 900;
       }
     }
+
     .logo {
-      max-width: 100%;
 
       padding-left: 20%;
-      -webkit-transform: translateZ(0);
-      transform: translateZ(0);
-      z-index: 999;
       img {
         max-width: 800px;
-        margin-bottom: 3px;
+        width: 70%;
 
         @media @mobile {
           max-width: 100%;
         }
       }
 
-
-    }
-
-    .top-chatter {
-      .hrs {
-        background-color: fade(white, 30%);
-        top: 90%;
-        position:absolute;
-        width: 100%;
-        p {
+      .top-chatter {
+        .hrs {
+          background-color: fade(white, 30%);
+          width: 100%;
+          top: 70%;
+          position:absolute;
           font-size: 90px;
           font-weight: 900;
           text-align: center;
+          -webkit-transform:translateX(-30%);
+          transform: translateX(-30%);
           @media @mobile {
             font-size: 40px;
             padding: 5px;
+            -webkit-transform:translateX(-20%);
+            transform: translateX(-20%);
+            top: 40%;
           }
         }
-      }
 
-      .stats {
+        .stats {
 
-        position: absolute;
-        top: 40%;
-        padding-left: 30px;
-        @media @mobile {
-          top: 20%;
-
-        }
-        p {
+          position: absolute;
+          top: 30%;
           font-size: 40px;
           font-weight: 900;
+          -webkit-transform:translateX(-30%);
+          transform: translateX(-30%);
           @media @mobile {
+            top: 20%;
             font-size: 16px;
             top: 10%;
           }
+          @media @tablet {
+            top: 15%;
+            -webkit-transform:translateX(-60%);
+            transform: translateX(-60%);
+          }
         }
       }
-
     }
+
+
   }
 
   .field {
-    padding-top: 100px;
+    padding-top: 50px;
     img {
       width: 40%;
       float: right;
+      @media @mobile {
+        width: 100%;
+      }
     }
 
     .chatter {
       float: left;
-      width: 50%;
+      width: 60%;
+      @media @mobile {
+        width: 100%;
+        margin-bottom: 50px;
 
+      }
     }
   }
   .home-runs {
@@ -178,7 +182,7 @@ nav.top-bar {
           background-color: #a80000;
         }
       }
-      
+
     }
 
     .year {
@@ -209,6 +213,20 @@ nav.top-bar {
         text-align: center;
         padding: 0 10px;
 
+        @media @mobile {
+          font-size: 14px;
+        }
+
+        .year {
+          font-weight: 800;
+          text-align: center;
+          margin-left: 46%;
+          font-size: 30px;
+
+          @media @mobile {
+            font-size: 16px;
+          }
+        }
 
         &.show {
           display: block;
@@ -316,20 +334,20 @@ nav.top-bar {
         float: left;
         width: 40%;
         padding: 30px;
-        
+
         @media @mobile {
-        width: 90%;
+          width: 90%;
         }
       }
-      
+
       .chatter {
-        
+
         .year{
           font-weight: 700;
           font-size: 40px;
           text-align: center;
         }
-        
+
       }
       &.show {
         display: inline-block;
@@ -441,8 +459,8 @@ nav.top-bar {
 
 .ct-barlabel {
   @media @mobile {
-         font-size: 12px;
-        }
+    font-size: 12px;
+  }
 }
 .ct-bar {
   fill: black;
@@ -455,22 +473,27 @@ nav.top-bar {
 
 .ct-label {
   color: black;
-  
+
   @media @mobile {
     font-size: 8px;
-      
+
   }
 }
 
 .ct-homeruns {
+
   @media @mobile {
-            margin-top: 30px;
-          }
+    margin-top: 30px;
+  }
 }
 
+.ct-hi {
+  opacity: .2; 
+  stroke-width: 1px;
+}
 .ct-homeruns, .ct-play {
-  
-  
+
+
   .ct-series-a {
 
     .ct-line {
@@ -480,8 +503,8 @@ nav.top-bar {
       stroke: #a80000;
       fill: #a80000;
       @media @mobile {
-         stroke-width: 2px;
-        }
+        stroke-width: 2px;
+      }
     }
   }
 
@@ -497,7 +520,7 @@ nav.top-bar {
     }
   }
 
-  
+
 }
 
 .ct-comp {
@@ -508,7 +531,37 @@ nav.top-bar {
     fill: #52C4B1;
   }
 }
-
+.chartist-tooltip {
+  position: absolute;
+  display: inline-block;
+  opacity: 0;
+  min-width: 5em;
+  padding: .5em;
+  background: @st-light-blue;;
+  color: #453D3F;
+  font-weight: 700;
+  text-align: center;
+  pointer-events: none;
+  z-index: 1;
+  -webkit-transition: opacity .2s linear;
+  -moz-transition: opacity .2s linear;
+  -o-transition: opacity .2s linear;
+  transition: opacity .2s linear;
+}
+.chartist-tooltip:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -15px;
+  border: 15px solid transparent;
+  border-top-color: @st-light-blue;;
+}
+.chartist-tooltip.tooltip-show {
+  opacity: 1;
+}
 
 .tooltip {
   position: absolute;
