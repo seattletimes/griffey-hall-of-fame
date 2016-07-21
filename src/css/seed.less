@@ -42,18 +42,6 @@ nav.top-bar {
   .display-flex();
   .flex-direction(column); 
 
-
-  .title {
-    text-align: center;
-    font-size: 32px;
-    font-weight: 600;
-    padding-bottom: 3%;
-
-    @media @mobile {
-      font-size: 20px;
-    }
-  }
-
   .chatter {
     font-size: 20px;
     padding: 5%;
@@ -61,8 +49,7 @@ nav.top-bar {
     @media @mobile {
       font-size: 14px;
       padding: 9%;
-      max-height: 200px;
-      overflow: scroll;
+
     }
   }
 
@@ -71,99 +58,62 @@ nav.top-bar {
     .flex(1);
   }
 
-
   .griffey-intro {
-    padding-bottom: 50px;
-
+    .display-flex;
+    .align-items(flex-start);
+  }
+  .intro {
+    .flex(1 0 0);
+    .display-flex();
+    .flex-direction(column);
     .kgj {
-      font-size: 80px;
+      font-size: 90px;
+      font-family: @df-serif;
       font-weight: 900;
       position: relative;
       text-align: center;
+      margin: 0 auto;
+
+      .flex(2);
 
       @media @mobile {
         font-size: 2em;
         font-weight: 900;
       }
     }
-
-    .logo {
-
-      padding-left: 20%;
-      img {
-        max-width: 800px;
-        width: 70%;
-
-        @media @mobile {
-          max-width: 100%;
-        }
-      }
-
-      .top-chatter {
-        .hrs {
-          background-color: fade(white, 30%);
-          width: 100%;
-          top: 70%;
-          position:absolute;
-          font-size: 90px;
-          font-weight: 900;
-          text-align: center;
-          -webkit-transform:translateX(-30%);
-          transform: translateX(-30%);
-          @media @mobile {
-            font-size: 40px;
-            padding: 5px;
-            -webkit-transform:translateX(-20%);
-            transform: translateX(-20%);
-            top: 40%;
-          }
-        }
-
-        .stats {
-
-          position: absolute;
-          top: 30%;
-          font-size: 40px;
-          font-weight: 900;
-          -webkit-transform:translateX(-30%);
-          transform: translateX(-30%);
-          @media @mobile {
-            top: 20%;
-            font-size: 16px;
-            top: 10%;
-          }
-          @media @tablet {
-            top: 15%;
-            -webkit-transform:translateX(-60%);
-            transform: translateX(-60%);
-          }
-        }
+    .intro-text {
+      text-align: center;
+      margin: 0 auto;
+    }
+    
+    .chatter{
+      .flex(1);
+    }
+    
+    .hrs {
+      text-align: center;
+      font-size: 16px;
+      font-family: @df-serif;
+      .num {
+        font-weight: 600;
+        font-size: 50px;
       }
     }
-
-
   }
-
+  
+  .img {
+    position: fixed;
+    .flex(2 0 0);
+  }
+  
   .field {
-    padding-top: 50px;
     img {
-      width: 40%;
-      float: right;
-      @media @mobile {
-        width: 100%;
-      }
-    }
-
-    .chatter {
-      float: left;
-      width: 60%;
-      @media @mobile {
-        width: 100%;
-        margin-bottom: 50px;
-
-      }
+      width: 30%;
     }
   }
+
+
+  
   .home-runs {
 
     .legend {
@@ -236,23 +186,7 @@ nav.top-bar {
     }
   }
 
-  .batting-slug {
-    .legend {
-      font-size: 12px;
-      .key {
-        display: block;
-      }
-      .splotch {
-        display: inline-block;
-        width: 19px;
-        height: 5px;
-        background-color: black;
-        &.two {
-          background-color: gray;
-        }
-      }
-    }
-  }
+ 
   .hr-leaders {
 
     padding: 5%;
@@ -442,33 +376,12 @@ nav.top-bar {
 .chartist-tooltip.tooltip-show {
   opacity: 1; }
 
-.new-point{
-  fill-opacity: 1!important;
-  stroke-width: 0px;
-  stroke: #52C4B1;
-  transition: all 0.2s linear;
 
 
 
-  &:hover{
-    r: 7;
-    stroke-opacity: 0.2;
-    stroke-width: 20px;
-  }
-}
-
-.ct-barlabel {
-  @media @mobile {
-    font-size: 12px;
-  }
-}
 .ct-bar {
   fill: black;
   stroke-width: 20px;
-}
-
-.ct-grid {
-  stroke: blue;
 }
 
 .ct-label {
@@ -476,61 +389,144 @@ nav.top-bar {
 
   @media @mobile {
     font-size: 8px;
-
   }
 }
 
 .ct-homeruns {
-
+  .ct-barlabel {
+    @media @mobile {
+      font-size: 12px;
+    }
+  }
   @media @mobile {
     margin-top: 30px;
   }
 }
 
-.ct-hi {
-  opacity: .2; 
-  stroke-width: 1px;
-}
 .ct-homeruns, .ct-play {
 
-
-  .ct-series-a {
-
-    .ct-line {
-      stroke: @df-middle-gray ;
-    }
-    .ct-bar, .ct-point, .ct-area {
-      stroke: #a80000;
-      fill: #a80000;
-      @media @mobile {
-        stroke-width: 2px;
-      }
+  .ct-line {
+    stroke: @df-middle-gray ;
+  }
+  .ct-bar, .ct-point, .ct-area {
+    stroke: #a80000;
+    fill: #a80000;
+    @media @mobile {
+      stroke-width: 2px;
     }
   }
 
-  .ct-series-b {
 
-    .ct-line {
-      stroke: gray;
+
+}
+.aaron {
+  stroke: red;
+  fill: red;
+
+  .ct-area {
+    fill: red;
+  }
+}  
+
+.bonds {
+  stroke: gray;
+  fill: gray;
+
+  .ct-area {
+    fill: gray;
+  }
+} 
+
+.rod {
+  stroke: green;
+  fill: green;
+
+  .ct-area {
+    fill: green;
+  }
+}  
+
+.griffey, &.ct-area, &.new-point {
+  stroke:  #52C4B1;
+  fill:  #52C4B1;
+
+}
+
+.mays {
+  stroke:  purple;
+  fill:  purple;
+
+  .ct-area {
+    fill:  purple;
+  }
+
+  .new-point {
+    stroke: purple;
+  }
+}
+
+.ruth {
+  stroke:  blue;
+  fill:  blue;
+
+  .ct-area {
+    fill:  blue;
+  }
+  .new-point {
+    stroke: blue;
+  }
+}
+.ct-comp {
+  width: 75%;
+
+  .ct-series {
+
+    .new-point{
+      fill-opacity: 1!important;
+      transition: all 0.2s linear;
+
+
+
+      &:hover{
+        r: 7;
+        stroke-opacity: 0.2;
+        stroke-width: 20px;
+      }
     }
 
     .ct-area {
-      stroke: #a80000;
-      fill: #a80000;
+      stroke-width: 8px; 
+    } .ct-line {
+      stroke-width: 8px; 
+
     }
+
+    .ct-line, .ct-point {
+      stroke-width: 7px;
+    }
+
+    .ct-faded-point, .ct-faded-line {
+      opacity: .2;
+      stroke-width: 4px;
+    }
+
+
+    .ct-focused-point, .ct-focused-line{
+      opacity: 1;
+      stroke-width: 4px;
+    }
+
+
+
   }
+
 
 
 }
 
-.ct-comp {
-  .ct-line, .ct-point {
-    stroke-width: 7px;
-  }
-  .ct-series-a, .ct-area {
-    fill: #52C4B1;
-  }
-}
+
+
+
 .chartist-tooltip {
   position: absolute;
   display: inline-block;
@@ -563,21 +559,6 @@ nav.top-bar {
   opacity: 1;
 }
 
-.tooltip {
-  position: absolute;
-  display: inline-block;
-  line-height: 1.1;
-  padding: 0.4em;
-  background: white;
-  border: 1px dashed @df-border-gray;
-  color: rgba(0,0,0,.5);
-  // font-weight: bold;
-  font-size: 14px;
-  text-align: center;
-  pointer-events: none;
-  stroke: #679BD2;
-  z-index: 1;
-  @media @mobile {
-    min-width: 0;
-  }
-}
+
+
+

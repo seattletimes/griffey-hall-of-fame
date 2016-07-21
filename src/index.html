@@ -19,32 +19,30 @@
     <div class="griffey-container">
 
       <section class="griffey-intro">
-
-        <div class="kgj">Ken Griffey Jr.</div>
-        <div class="logo"><img src="./assets/GriffeyILLO2016web.jpg">
         
-        <div class="top-chatter">
-          <div class="stats">
-            <p>22 years</p>
-            <p>2,671 games</p>
-            <p>2,781 hits</p>
-            <p>1,836 RBI</p>
-          </div>
-          <div class="hrs">
-            <p>630 home runs</p>
-
-          </div>
-        </div>
+        <div class="intro">
         
-        </div>
-
-
-        <div class="field">
-          <div class="chatter">
-
-            Aut nulla eget, ipsum in nulla, sapien dolor, tristique lectus elementum, nullam libero. Non neque vitae aenean augue neque, purus sed venenatis porttitor et mus aenean, cursus vestibulum, pellentesque risus. Ad fermentum. Eros justo orci cum praesent vestibulum scelerisque, hendrerit dictumst magna aptent nonummy, ad rhoncus. Hendrerit vitae ridiculus integer in suscipit non, aliquam fusce laoreet ac aenean, scelerisque purus pharetra cursus, vivamus nullam rhoncus donec ligula aenean, libero mi nec sit. Eu vestibulum faucibus, sapien sed molestie in non volutpat a. Vel vivamus nunc pharetra, mauris curabitur sed egestas gravida turpis, pulvinar urna eget libero velit eget libero, tellus vestibulum nec placerat eu suscipit vestibulum. Dis urna, urna non enim sociis nulla nascetur massa, tortor luctus sit praesent. Massa est.</div>
+        <div class="inro-text">HALL OF FAME | KEN GRIFFEY JR. | CLASS OF 2016</div>
+        <div class="kgj">Measuring Greatness</div>
+        <div class="inro-text">22 years | 2,671 games | 2,781 hits | 1,836 RBI</div>
+        <div class="chatter">
+Ken Griffey Jr. battled injuries for a large part of his career. As a result, he was placed on the disabled list 12 times, forcing him to miss significant playing time. Griffey played in fewer than 130 games in 11 of his 22 total seasons. See a rundown of his injuries and time missed below..</div>
+          
+          <div class="hrs"><div class="num">630</div> HOME RUNS</div>
+          <div class="field">
+          
           <img src="./assets/GriffeyWEBgraphics2.jpg">
         </div>
+        </div>
+        
+        
+<div class="logo"><img src="./assets/GriffeyILLO2016web.jpg"></div>
+        
+        
+      
+
+
+        
 
       </section>
 
@@ -112,8 +110,8 @@
             var player = players[p];
             player.forEach(function(item) { %>
 
-          <div class="leader" data-id="<%=index%>">
-            <div class="photo"> <img  style="border: 6px solid <%=colors[index]%>;" src="./assets/leaders/<%=item.id%>.jpg"></div>
+          <div class="leader" data-id="<%=item.id%>">
+            <div class="photo"> <img  style="border: 6px solid <%=colors[index]%>;" src="./assets/leaders/<%=index+1%>.jpg"></div>
             <div class="name"><%=item.Name%></div>
             <div class="stat"><%=item.hr%></div>
           </div>

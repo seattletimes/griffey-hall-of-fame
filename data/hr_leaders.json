@@ -2,31 +2,31 @@
   {
     "Name": "Barry Bonds",
     "hr": 762,
-    "id": "bb"
+    "id": "bonds"
   },
   {
     "Name": "Hank Aaron",
     "hr": 755,
-    "id": "ha"
+    "id": "aaron"
   },
   {
     "Name": "Babe Ruth",
     "hr": 714,
-    "id": "br"
+    "id": "ruth"
   },
   {
     "Name": "Alex Rodriguez",
     "hr": 695,
-    "id": "ar"
+    "id": "rod"
   },
   {
     "Name": "Willie Mays",
     "hr": 660,
-    "id": "wm"
+    "id": "mays"
   },
   {
     "Name": "Ken Griffey Jr.",
     "hr": 630,
-    "id": "kg"
+    "id": "griffey"
   }
 ]

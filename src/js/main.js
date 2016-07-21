@@ -15,13 +15,16 @@ var years = [1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2
 
 var baData = [0.264, 0.3, 0.327, 0.308, 0.309, 0.323, 0.258, 0.303, 0.304, 0.284, 0.285, 0.271, 0.286, 0.264, 0.247, 0.253, 0.301, 0.252, 0.277, 0.249, 0.214, 0.184];
 
-var hrData = [16, 22, 22, 27, 45, 40, 17, 49, 56, 56, 48, 40, 22, 8, 13, 20, 35, 27, 30, 11, 19, 0];
+var griffeyData = [16, 38, 60, 87, 132, 172, 189, 238, 294, 350, 398, 438, 460, 468, 481, 501, 536, 563, 593, 611, 630, 630]
+var hrData = [16, 22, 22, 27, 45, 40, 17, 49, 56, 56, 48, 40, 22, 8, 13, 20, 35, 27, 30, 18, 19, 0];
 
-var bondData = [16, 25, 24, 19, 33, 25, 34, 46, 37, 33, 42, 40, 37, 34, 49, 73, 46, 45, 45, 5, 26, 28]
-var rodData = [0, 5, 36, 23, 42, 42, 41, 52, 57, 47, 36, 48, 35, 54, 35, 30, 30, 16, 18, 7, 33, 8]
-var aaronData = [13, 27, 26, 44, 30, 39, 40, 34, 45, 44, 24, 32, 44, 39, 29, 44, 38, 47, 34, 40, 20, 12]
-var ruthData = [0, 4, 3, 2, 11, 29, 54, 59, 35, 41, 46, 25, 47, 60, 54, 46, 49, 46, 41, 34, 22, 6]
-var maysData = [20, 4, 41, 51, 36, 35, 29, 34, 29, 40, 49, 38, 47, 52, 37, 22, 23, 13, 28, 18, 8, 6]
+var bondData = [16, 41, 65, 84, 117, 142, 176, 222, 259, 292, 334, 374, 411, 445, 494, 567, 613, 658, 703, 708, 734, 762]
+
+var rodData = [0, 5, 41, 64, 106, 148, 189, 241, 298, 345, 381, 429, 464, 518, 553, 583, 613, 629, 647, 654, 687, 696]
+
+var aaronData = [13, 40, 66, 110, 140, 179, 219, 253, 298, 342, 366, 398, 442, 481, 510, 554, 592, 639, 673, 713, 733, 745]
+var ruthData = [13, 40, 66, 110, 140, 179, 219, 253, 298, 342, 366, 398, 442, 481, 510, 554, 592, 639, 673, 713, 733, 745]
+var maysData = [20, 24, 65, 116, 152, 187, 216, 250, 279, 319, 368, 406, 453, 505, 542, 564, 587, 600, 628, 646, 654, 660]
 
 var slugData = [0.42, 0.481, 0.527, 0.535, 0.617, 0.674, 0.481, 0.628, 0.646, 0.611, 0.576, 0.556, 0.533, 0.426, 0.566, 0.513, 0.576, 0.486, 0.496, 0.424, 0.411, 0.204];
 
@@ -40,7 +43,7 @@ for (var i = 0; i <= 1; i += .05) ticks.push(i);
 //COMPARE 
 var compared = {
   labels: labels,
-  series: [ hrData, bondData, rodData, aaronData, ruthData, maysData]
+  series: [ {className: "griffey", data: griffeyData}, {className: "bonds", data: bondData}, {className: "rod", data: rodData}, {className: "aaron", data:  aaronData}, {className: "ruth", data: ruthData}, {className: "mays", data: maysData}]
 };
 
 var compChart = new Chartist.Line('.ct-comp', compared, {
@@ -65,7 +68,11 @@ var compChart = new Chartist.Line('.ct-comp', compared, {
 
 //Comp draw
 compChart.on('draw', function(data) {
+   data.element.attr({ "data-index": data.index });
+  console.log(data); 
+
   if (data.type === "point") {
+
      var circle = new Chartist.Svg('circle', {
       cx: [data.x],
       cy: [data.y],
@@ -77,46 +84,36 @@ compChart.on('draw', function(data) {
         data.element.replace(circle);
     
     if (data.seriesIndex != 0) {
-       circle.attr({
-        style: 'opacity: .3;'
-      });
+               circle.addClass('ct-faded-point');
+
     }
     else {
-      circle.attr({
-        style: 'stroke-width: 8px;  stroke: #52C4B1;'
-      });
+       circle.addClass('ct-focused-point');
     }
+   
   }
     if (data.type === "line") {
+
       if (data.seriesIndex != 0) {
-        console.log(data);
-        data.element.addClass('ct-hi');
+        data.element.addClass('ct-faded-line');
      
       }
-          else {
-      data.element.attr({
-        style: 'stroke-width: 5px;  stroke: #52C4B1;'
-      });
-    }
+      else {
+        data.element.addClass('ct-focused-line');
+      }
+          
     }
 });
 
+
 //COMP events
 var $leaders = $('.hr-leaders');
-
 var $comp = $('.ct-comp');
 $leaders.on('click', '.leader', function(){
-  
    var pos = this.getAttribute("data-id");
-
-  
-  
-  
-  playChart.update({
-  labels: labels,
-  series: [ baData ]
-}, null, false);
-  console.log(hrChart); 
+  var thing = document.querySelector(`.${pos}`)
+   console.log(thing);
+ thing.addClass("ct-focused-point");
 });
 
 
