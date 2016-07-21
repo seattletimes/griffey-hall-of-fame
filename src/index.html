@@ -24,23 +24,23 @@
         <div class="logo"><img src="./assets/GriffeyILLO2016web.jpg"></div>
 
         <div class="top-chatter">
-        <div class="stats">
-          <p>22 years</p>
-          <p>2,671 games</p>
-          <p>2,781 hits</p>
-          <p>1,836 RBI</p>
-        </div>
-        <div class="hrs">
-          <p>630 home runs</p>
-   
-        </div>
+          <div class="stats">
+            <p>22 years</p>
+            <p>2,671 games</p>
+            <p>2,781 hits</p>
+            <p>1,836 RBI</p>
+          </div>
+          <div class="hrs">
+            <p>630 home runs</p>
+
+          </div>
         </div>
 
         <div class="field">
           <img src="./assets/GriffeyWEBgraphics2.jpg">
           <div class="chatter">
 
-Aut nulla eget, ipsum in nulla, sapien dolor, tristique lectus elementum, nullam libero. Non neque vitae aenean augue neque, purus sed venenatis porttitor et mus aenean, cursus vestibulum, pellentesque risus. Ad fermentum. Eros justo orci cum praesent vestibulum scelerisque, hendrerit dictumst magna aptent nonummy, ad rhoncus. Hendrerit vitae ridiculus integer in suscipit non, aliquam fusce laoreet ac aenean, scelerisque purus pharetra cursus, vivamus nullam rhoncus donec ligula aenean, libero mi nec sit. Eu vestibulum faucibus, sapien sed molestie in non volutpat a. Vel vivamus nunc pharetra, mauris curabitur sed egestas gravida turpis, pulvinar urna eget libero velit eget libero, tellus vestibulum nec placerat eu suscipit vestibulum. Dis urna, urna non enim sociis nulla nascetur massa, tortor luctus sit praesent. Massa est.</div>
+            Aut nulla eget, ipsum in nulla, sapien dolor, tristique lectus elementum, nullam libero. Non neque vitae aenean augue neque, purus sed venenatis porttitor et mus aenean, cursus vestibulum, pellentesque risus. Ad fermentum. Eros justo orci cum praesent vestibulum scelerisque, hendrerit dictumst magna aptent nonummy, ad rhoncus. Hendrerit vitae ridiculus integer in suscipit non, aliquam fusce laoreet ac aenean, scelerisque purus pharetra cursus, vivamus nullam rhoncus donec ligula aenean, libero mi nec sit. Eu vestibulum faucibus, sapien sed molestie in non volutpat a. Vel vivamus nunc pharetra, mauris curabitur sed egestas gravida turpis, pulvinar urna eget libero velit eget libero, tellus vestibulum nec placerat eu suscipit vestibulum. Dis urna, urna non enim sociis nulla nascetur massa, tortor luctus sit praesent. Massa est.</div>
         </div>
 
       </section>
@@ -51,16 +51,16 @@ Aut nulla eget, ipsum in nulla, sapien dolor, tristique lectus elementum, nullam
 
         <div class="legend">
           <div class="key"><div class="splotch"></div> With Mariners</div>
-          
+
           <div class="key two"><div class="splotch two"></div> With Cincinnati Reds; Chicago White Sox</div>
 
         </div>
-        <div class="ct-homeruns ct-series-a ct-bar ct-octave ct-series-a" id="ct-homeruns"></div>
+        <div class="ct-homeruns ct-bar ct-octave" id="ct-homeruns"></div>
 
         <div class="year">
 
           <a class="advance left">&lt;</a>
-          
+
           <div class="description-container">
 
             <div class="year-description show" >Click here to explore some of Ken Griffey Jr.'s most memorable moments.</div>
@@ -83,15 +83,15 @@ Aut nulla eget, ipsum in nulla, sapien dolor, tristique lectus elementum, nullam
 
 
             <% })}; %>
-            </div>
+          </div>
           <a class="advance right">&gt;</a>
         </div>
 
       </section>
 
-            <section class="compare">
+      <section class="compare">
         <div class="hr-leaders">
-
+          <title>Top Home Run Hitters</title>
 
 
           <% var players = {};
@@ -99,14 +99,13 @@ Aut nulla eget, ipsum in nulla, sapien dolor, tristique lectus elementum, nullam
             if (!players[item.Name]) players[item.Name] = [];
             players[item.Name].push(item);
           });
-          
+
           var colors = ['grey', 'red', 'blue', 'green', 'purple', '#52C4B1'];
           var index = 0;
           %>
 
           <% for (var p in players) {
-            
-            console.log(colors[index]);
+
             var player = players[p];
             player.forEach(function(item) { %>
 
@@ -118,64 +117,71 @@ Aut nulla eget, ipsum in nulla, sapien dolor, tristique lectus elementum, nullam
 
           <% index++; }); } %>
         </div>
-             
+
         <div class="ct-comp ct-octave" id="ct-comp"></div>
 
       </section>
 
       <section class="si">
-        <div class="title">Sports Illustrated</div>
         <div class="si-image">
 
-          <% for (var i = 1; i < 10; i++) { %>
+          <% for (var i = 1; i < 10; i++) { 
+            if (i == 2) { %>
+          <div class="si-img" data-id="<%=i%>"><img src="./assets/covers/Griffey-SIcover<%=i%>a.jpg"></div>
+          <% } 
+          else { %>
+
           <div class="si-img" data-id="<%=i%>"><img src="./assets/covers/Griffey-SIcover<%=i%>.jpg"></div>
 
-          <% }; %>
+          <% }
+
+          }; %>
         </div>
-<% var mags = {};
-          json.GriffeyStats_si.forEach(function(item) {
-            if (!mags[item.id]) mags[item.id] = [];
-            mags[item.id].push(item);
-          }); %>
-        
-         <div class="si-focus show" data-id="1">
+        <% var mags = {};
+        json.GriffeyStats_si.forEach(function(item) {
+          if (!mags[item.id]) mags[item.id] = [];
+          mags[item.id].push(item);
+        }); %>
 
-            <div class="chatter">
-              
-              <div class="year">1990</div>
-            <img src="./assets/covers/Griffey-SIcover1.jpg">
-              Griffey’s first S.I. cover is also his most iconic. The magazine calls him “Seattle’s 20-year-old wonder” and likens him to Willie Mays.
-            </div>
-        
-          </div>
+        <div class="si-focus show" data-id="1">
 
-          <% for (var m = 2; m < 10; m++) {
-
-            var mag = mags[m];
+          <img src="./assets/covers/Griffey-SIcover1.jpg">
+          <div class="chatter">
+            <div class="year">1990</div>
+ Griffey’s first S.I. cover is also his most iconic. The magazine calls him “Seattle’s 20-year-old wonder” and likens him to Willie Mays.
             
-            mag.forEach(function(item) { %>
-
-          <div class="si-focus" data-id="<%= item.id %>">
-
-            <div class="chatter">
-              
-              <div class="year"><%= item.Year %></div>
-            <img src="./assets/covers/Griffey-SIcover<%=item.id%>.jpg">
-              <%= item.Description %>
-            </div>
-        
+           
           </div>
 
+        </div>
 
-          <% })}; %>  
-   
-          
+        <% for (var m = 2; m < 10; m++) {
+
+          var mag = mags[m];
+
+          mag.forEach(function(item) { %>
+
+        <div class="si-focus" data-id="<%= item.id %>">
+
+            <img src="./assets/covers/Griffey-SIcover<%=item.id%>.jpg">
+          <div class="chatter">
+
+            <div class="year"><%= item.Year %></div>
+            <%= item.Description %>
+          </div>
+
+        </div>
+
+
+        <% })}; %>  
+
+
       </section>
 
 
 
 
-        <div class="title">Injuries</div>
+      <div class="title">Injuries</div>
 
       <div class="injuries">
         <div class="image">
@@ -200,13 +206,13 @@ Aut nulla eget, ipsum in nulla, sapien dolor, tristique lectus elementum, nullam
 
 
         </div>
-        
+
         <div class="played">
           <div class="title">Percent of Games Played</div>
 
           <div class="ct-play ct-octave" id="ct-play"></div>
         </div>
-        
+
       </div>
 
 

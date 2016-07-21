@@ -91,7 +91,12 @@ var compared = {
 
 var compChart = new Chartist.Line('.ct-comp', compared, {
   axisY: {
-    showLabel: false
+    showLabel: true,
+    showGrid: false
+  },  
+  axisX: {
+    showLabel: false,
+    showGrid: false
   },
   plugins: [
     Chartist.plugins.tooltip({
@@ -283,7 +288,7 @@ $(".advance").click(function(){
   var current = $(".year .show");
   var index = current.attr("data-index");
   var bar = document.querySelector(`.home-runs svg [data-index="${index}"]`);
-  if (!current.length) {
+  if (current == null) {
     current = $(".year div:first");
   }
   var next = $this.hasClass("left") ? current.prev(".year-description") : current.next(".year-description");

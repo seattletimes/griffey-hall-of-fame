@@ -35,24 +35,35 @@ nav.top-bar {
     }
   }
 }
-.griffey-container {
 
+.griffey-container {
+  font-family: @df-sans;
+    max-width: 1200px;
+  margin: auto;
+  .display-flex();
+  .flex-direction(column); 
+  
+  
   .title {
     text-align: center;
     font-size: 32px;
-    font-family: @df-sans;
-    font-weight: 300;
+    font-weight: 600;
     padding-bottom: 3%;
+    
+    @media @mobile {
+    font-size: 20px;
+      }
   }
 
   .chatter {
     font-size: 20px;
     padding: 5px;
+    
+    @media @mobile {
+        padding: 5px;
+      }
   }
-  max-width: 1200px;
-  margin: auto;
-  .display-flex();
-  .flex-direction(column); 
+
   section{
     padding-top: 5%;
     padding-bottom: 5%;
@@ -63,24 +74,23 @@ nav.top-bar {
   .griffey-intro {
 
     padding-bottom: 50px;
-        font-family: @df-sans;
 
     .kgj {
       font-size: 150px;
-        font-weight: 900;
+      font-weight: 900;
       position: relative;
       top: 10%;
       z-index: 1;
       text-align: center;
       margin: 0 auto;
-      
-       @media @mobile {
-    font-size: 3em;
+
+      @media @mobile {
+        font-size: 3em;
         font-weight: 900;
-  }
+      }
     }
     .logo {
-          max-width: 100%;
+      max-width: 100%;
 
       padding-left: 20%;
       -webkit-transform: translateZ(0);
@@ -89,51 +99,50 @@ nav.top-bar {
       img {
         max-width: 800px;
         margin-bottom: 3px;
-        
-         @media @mobile {
-    max-width: 100%;
-  }
-      }
 
-
-    }
-    
-    .top-chatter {
-    .hrs {
-      background-color: fade(white, 30%);
-        top: 90%;
-        position:absolute;
-      width: 100%;
-      p {
-        font-size: 90px;
-        font-weight: 900;
-        text-align: center;
         @media @mobile {
-          font-size: 40px;
-          padding: 5px;
+          max-width: 100%;
         }
       }
+
+
     }
-    
-    .stats {
-      
+
+    .top-chatter {
+      .hrs {
+        background-color: fade(white, 30%);
+        top: 90%;
+        position:absolute;
+        width: 100%;
+        p {
+          font-size: 90px;
+          font-weight: 900;
+          text-align: center;
+          @media @mobile {
+            font-size: 40px;
+            padding: 5px;
+          }
+        }
+      }
+
+      .stats {
+
         position: absolute;
         top: 40%;
         padding-left: 30px;
-          @media @mobile {
-          top: 20%;
-          
-        }
-      p {
-        font-size: 40px;
-        font-weight: 900;
         @media @mobile {
-          font-size: 16px;
-          top: 10%;
-          
+          top: 20%;
+
+        }
+        p {
+          font-size: 40px;
+          font-weight: 900;
+          @media @mobile {
+            font-size: 16px;
+            top: 10%;
+          }
         }
       }
-    }
 
     }
   }
@@ -141,21 +150,20 @@ nav.top-bar {
   .field {
     padding-top: 100px;
     img {
-    width: 40%;
+      width: 40%;
       float: right;
     }
-    
+
     .chatter {
       float: left;
       width: 50%;
-      
+
     }
   }
   .home-runs {
 
     .legend {
       font-size: 12px;
-      font-family: @df-sans;
       .key {
         display: block;
       }
@@ -170,6 +178,7 @@ nav.top-bar {
           background-color: #a80000;
         }
       }
+      
     }
 
     .year {
@@ -194,7 +203,6 @@ nav.top-bar {
 
       .year-description {
         float: inherit;
-        font-family: @df-sans;
         color: @df-dark-gray;
         margin: inherit;
         display: none;
@@ -213,7 +221,6 @@ nav.top-bar {
   .batting-slug {
     .legend {
       font-size: 12px;
-      font-family: @df-sans;
       .key {
         display: block;
       }
@@ -233,51 +240,96 @@ nav.top-bar {
     padding: 5%;
     .display-flex();
 
+    @media @mobile {
+      display: inline-block;
+
+    }
+
     .leader {
       width: 40%;
       .flex(1 0 0);
 
+      @media @mobile {
+        display: block;
+        width: 60%;
+        margin: 0 auto;
+      }
+
 
       .name, .stat, img {
         font-size: 9;
-        font-family: @df-sans;
         text-align: center;
         width: 100px;
+        @media @mobile {
+          display: inline-block;
+
+
+        }
+
       }
 
       img {
         -webkit-border-radius: 12px; 
         -moz-border-radius: 12px; 
         border-radius: 12px; 
+        @media @mobile {
+          width: 100%;
+        }
       }
-      
+
       .stat {
         font-weight: 800;
+        @media @mobile {
+
+          width: 20%;
+          float: right;
+
+        }
+      }
+
+      .name {
+        @media @mobile {
+
+        }
       }
     }
 
   }
 
 
-
-
   .si {
+    padding-left: 20px;
+    padding-roght: 20px;
     .si-image {
       .display-flex();
-      margin: 5%;
       .si-img {
         width: 100px;
-
         .flex(1);
 
       }
     }
 
     .si-focus {
-      width: 40%;
       display: none;
-      .chatter {
+
+      img{
         float: left;
+        width: 40%;
+        padding: 30px;
+        
+        @media @mobile {
+        width: 90%;
+        }
+      }
+      
+      .chatter {
+        
+        .year{
+          font-weight: 700;
+          font-size: 40px;
+          text-align: center;
+        }
+        
       }
       &.show {
         display: inline-block;
@@ -288,7 +340,6 @@ nav.top-bar {
 
   .injuries {
     .display-flex();
-    font-family: @df-sans;
     font-size: 11px;
     .image {
       width: 40%;
@@ -352,7 +403,6 @@ nav.top-bar {
   padding: .5em;
   background: #F4C63D;
   color: #453D3F;
-  font-family: @df-sans;
   font-weight: 700;
   text-align: center;
   pointer-events: none;
@@ -379,8 +429,8 @@ nav.top-bar {
   stroke-width: 0px;
   stroke: #52C4B1;
   transition: all 0.2s linear;
-  
-  
+
+
 
   &:hover{
     r: 7;
@@ -389,11 +439,14 @@ nav.top-bar {
   }
 }
 
-
+.ct-barlabel {
+  @media @mobile {
+         font-size: 12px;
+        }
+}
 .ct-bar {
   fill: black;
   stroke-width: 20px;
-  font-family:  @df-sans;
 }
 
 .ct-grid {
@@ -402,21 +455,33 @@ nav.top-bar {
 
 .ct-label {
   color: black;
-  font-family: @df-sans;
+  
+  @media @mobile {
+    font-size: 8px;
+      
+  }
 }
 
+.ct-homeruns {
+  @media @mobile {
+            margin-top: 30px;
+          }
+}
 
-
-.ct-homeruns, .ct-averages, .ct-play {
+.ct-homeruns, .ct-play {
+  
+  
   .ct-series-a {
 
     .ct-line {
-      stroke: #000000;
+      stroke: @df-middle-gray ;
     }
     .ct-bar, .ct-point, .ct-area {
       stroke: #a80000;
       fill: #a80000;
-
+      @media @mobile {
+         stroke-width: 2px;
+        }
     }
   }
 
@@ -432,6 +497,7 @@ nav.top-bar {
     }
   }
 
+  
 }
 
 .ct-comp {
