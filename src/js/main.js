@@ -44,13 +44,12 @@ var baChart = new Chartist.Line('.ct-averages', battingAverage, {
   low: 0,
   divisor:20,
   axisX: {
-    showGrid: false
   },
   axisY: {
     ticks,
     low: 0,
     type: Chartist.FixedScaleAxis,
-    labelInterpolationFnc: l => l.toFixed(2)
+    labelInterpolationFnc: l => l.toFixed(3)
   },
    plugins: [
     Chartist.plugins.tooltip({
@@ -119,15 +118,18 @@ var played = {
 
 var playChart = new Chartist.Line('.ct-play', played, {
   axisY: {
-    showLabel: false
+    showLabel: false,
+    showGrid: false
   },
   plugins: [
     Chartist.plugins.tooltip({
-      pointClass: 'play new-point'
+      pointClass: 'play new-point',
+       tooltipFnc : function() {
+        return event.target.getAttribute('ct:value');
+      }
     })
   ]
 });
-
 
 //Play draw
 playChart.on('draw', function(data) {
@@ -165,7 +167,6 @@ for (var i = 0; i < 22; i++) {
       year: years[i],
       battingAverage: baData[i],
       slugData: slugData[i],
-      playData: playData[i],
       rbiData: rbiData[i]
     }
   };
@@ -188,7 +189,7 @@ var hrChart = new Chartist.Bar('.ct-homeruns', homeRuns, { axisX: {
       tooltipFnc : function() {
         var meta = event.target.getAttribute('ct:meta');
         var cleanMeta = Chartist.deserialize(meta);
-        return "Batting Average: " + cleanMeta.battingAverage + "<br>Slugging Percentage: " + cleanMeta.slugData;
+        return "Batting Average: " + cleanMeta.battingAverage + "<br>Slugging Percentage: " + cleanMeta.slugData + "<br>RBI: " + cleanMeta.rbiData;
       }
     })
   ]

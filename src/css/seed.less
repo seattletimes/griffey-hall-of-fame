@@ -62,21 +62,24 @@ nav.top-bar {
     padding-bottom: 50px;
 
     img {
-      width: 40%;
-      height: 40%;
-      .flex(4 0);
+      padding-left: 20%;
+      width: 60%;
+      height: 60%;
+      .flex(3 0);
     }
 
     .stats {
-      .flex(3 0);
+      .flex(1 0);
       padding-top: 30px;
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
       transform: translateX(-20%);
       -webkit-transform:  translateX(-20%);
       p {
-        text-transform: uppercase;
-        font-size: 32px;
+        font-size: 28px;
+        font-weight: 800;
+        text-align: center;
+        font-family: @df-sans;
       }
     }
   }
@@ -106,18 +109,18 @@ nav.top-bar {
       .display-flex();
       margin: auto;
       .align-items(stretch);
-      
+
       .advance {
         padding: 10px;
         font-weight: bold;
         transition: all .2s linear;
         cursor: pointer;
-        
+
         &:hover, &:focus {
           background: @df-light-gray;
         }
       }
-      
+
       .description-container {
         .flex(1);
       }
@@ -191,11 +194,14 @@ nav.top-bar {
 
   .si {
     .si-image {
-      display: inline-block;
+      .display-flex();
       margin: 5%;
-      height: 600px;
-      width: 25%;
-      overflow-y: scroll;
+      .si-img {
+        width: 100px;
+
+        .flex(1);
+
+      }
     }
 
     .si-focus {
@@ -212,139 +218,150 @@ nav.top-bar {
 
 
   .injuries {
+    .display-flex();
     font-family: @df-sans;
     font-size: 11px;
     .image {
-      width: 50%;
+      width: 40%;
       position: relative;
 
       .icon {
         position: absolute;
         text-align: right;
       }
-      
+
+
+    }
+
+    .glow {
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      border:solid 1px blue;
+
+      &:hover {
+        background-color:cadetblue;
+        opacity: .7;
+
+      }
+
+    }
+
+    .description {
+      display: none;
+
+      &.show {
+        display: inline-block;
+        font-weight: 400;
+        padding: 5px;
+        background-color: fade(white, 80%);
+        border: 1px solid black;
+      }
+    }
     
+    .played {
+      width: 50%;
+      display: inline-block;
+      float: right;
+      
+      .title {
+        font-size: 16px;
+      }
+    }
+  }
 }
 
-      .glow {
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        border:solid 1px blue;
-        
-        &:hover {
-            background-color:cadetblue;
-            opacity: .7;
-
-        }
-
-      }
-
-      .description {
-        display: none;
-
-        &.show {
-          display: inline-block;
-          font-weight: 400;
-          padding: 5px;
-          background-color: fade(white, 80%);
-          border: 1px solid black;
-        }
-      }
-    }
-  }
 
 
 
 
+.chartist-tooltip {
+  position: absolute;
+  display: inline-block;
+  opacity: 0;
+  min-width: 5em;
+  padding: .5em;
+  background: #F4C63D;
+  color: #453D3F;
+  font-family: @df-sans;
+  font-weight: 700;
+  text-align: center;
+  pointer-events: none;
+  z-index: 1;
+  -webkit-transition: opacity .2s linear;
+  -moz-transition: opacity .2s linear;
+  -o-transition: opacity .2s linear;
+  transition: opacity .2s linear; }
+.chartist-tooltip:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -15px;
+  border: 15px solid transparent;
+  border-top-color: #F4C63D; }
+.chartist-tooltip.tooltip-show {
+  opacity: 1; }
 
-  .chartist-tooltip {
-    position: absolute;
-    display: inline-block;
-    opacity: 0;
-    min-width: 5em;
-    padding: .5em;
-    background: #F4C63D;
-    color: #453D3F;
-    font-family: @df-sans;
-    font-weight: 700;
-    text-align: center;
-    pointer-events: none;
-    z-index: 1;
-    -webkit-transition: opacity .2s linear;
-    -moz-transition: opacity .2s linear;
-    -o-transition: opacity .2s linear;
-    transition: opacity .2s linear; }
-  .chartist-tooltip:before {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    margin-left: -15px;
-    border: 15px solid transparent;
-    border-top-color: #F4C63D; }
-  .chartist-tooltip.tooltip-show {
-    opacity: 1; }
+.new-point{
+  fill-opacity: 1!important;
+  stroke-width: 0px;
+  stroke: #a80000;
+  transition: all 0.2s linear;
 
-  .new-point{
-    fill-opacity: 1!important;
-    stroke-width: 0px;
-    stroke: #a80000;
-    transition: all 0.2s linear;
-
-    &:hover{
-      r: 7;
-      stroke-opacity: 0.2;
-      stroke-width: 20px;
-    }
-  }
-
-
-  .ct-bar {
-    fill: black;
+  &:hover{
+    r: 7;
+    stroke-opacity: 0.2;
     stroke-width: 20px;
-    font-family:  @df-sans;
+  }
+}
+
+
+.ct-bar {
+  fill: black;
+  stroke-width: 20px;
+  font-family:  @df-sans;
+}
+
+.ct-grid {
+  stroke: blue;
+}
+
+.ct-label {
+  color: black;
+  font-family: @df-sans;
+}
+
+
+
+.ct-homeruns, .ct-averages, .ct-play {
+  .ct-series-a {
+
+    .ct-line {
+      stroke: #000000;
+    }
+    .ct-bar, .ct-point, .ct-area {
+      stroke: #a80000;
+      fill: #a80000;
+
+    }
   }
 
-  .ct-grid {
-    stroke: blue;
-  }
+  .ct-series-b {
 
-  .ct-label {
-    color: black;
-    font-family: @df-sans;
-  }
-
-
-
-  .ct-homeruns, .ct-averages, .ct-play {
-    .ct-series-a {
-
-      .ct-line {
-        stroke: #000000;
-      }
-      .ct-bar, .ct-point, .ct-area {
-        stroke: #a80000;
-        fill: #a80000;
-
-      }
+    .ct-line {
+      stroke: gray;
     }
 
-    .ct-series-b {
-
-      .ct-line {
-        stroke: gray;
-      }
-      
-      .ct-area {
-        stroke: #a80000;
-        fill: #a80000;
-      }
+    .ct-area {
+      stroke: #a80000;
+      fill: #a80000;
     }
-    
   }
+
+}
 
 
 

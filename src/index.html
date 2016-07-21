@@ -26,8 +26,9 @@
           <p>22 years</p>
           <p>2,671 games</p>
           <p>2,781 hits</p>
-          <p>1,662 runs</p>
+          <p>1,836 RBI</p>
         </div>
+          <p>630 home runs</p>
 
       </section>
 
@@ -39,7 +40,7 @@
         <div class="legend">
           <div class="key"><div class="splotch"></div> With Mariners</div>
           
-          <div class="key two"><div class="splotch two"></div> With Cincinnati, Chicago White Socks</div>
+          <div class="key two"><div class="splotch two"></div> With Cincinnati Reds; Chicago White Sox</div>
 
         </div>
         <div class="ct-homeruns ct-series-a ct-bar ct-octave ct-series-a" id="ct-homeruns"></div>
@@ -89,18 +90,6 @@
 
       </section>
 
-      <!--      <section class="slugging">
-<div class="title">Slugging Percentage</div>
-
-<div class="ct-slug ct-octave" id="ct-slug"></div>
-</section>-->
-
-      <section class="play">
-        <div class="title">Percent of Games Played</div>
-
-        <div class="ct-play ct-octave" id="ct-play"></div>
-      </section>
-
       <section class="griffey-field">
         <img class="field" src="./assets/GriffeyWEBgraphics2.jpg">
       </section>      
@@ -110,7 +99,7 @@
         <div class="si-image">
 
           <% for (var i = 1; i < 9; i++) { %>
-          <img class="si-img" src="./assets/covers/Griffey-SIcover<%=i%>.jpg" data-id="<%=i%>">
+          <div class="si-img"><img src="./assets/covers/Griffey-SIcover<%=i%>.jpg" data-id="<%=i%>"></div>
 
           <% }; %>
         </div>
@@ -183,9 +172,9 @@
 
       </section>
 
+        <div class="title">Injuries</div>
 
       <div class="injuries">
-        <div class="title">Injuries</div>
         <div class="image">
           <img src="./assets/GriffeyCutout.jpg">
 
@@ -208,6 +197,13 @@
 
 
         </div>
+        
+        <div class="played">
+          <div class="title">Percent of Games Played</div>
+
+          <div class="ct-play ct-octave" id="ct-play"></div>
+        </div>
+        
       </div>
 
 
