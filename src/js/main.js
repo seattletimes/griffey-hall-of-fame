@@ -273,21 +273,3 @@ var magClick = function(e) {
 
 qsa(".si-img").forEach(i => i.addEventListener("click", magClick));
 
-
-//Injuries
-
-var hoverEffect = function(e) {
-   var others = qsa('.description');
-  
-  others.forEach(function(i) {
-    i.classList.remove("show");
-
-  });
-    var pos = this.getAttribute("data-id");
-  
-  var injury = document.querySelector(`.description[data-id="${pos}"]`);
-  injury.classList.add('show');
-};
-  
-qsa(".icon").forEach(i => i.addEventListener("mouseenter", hoverEffect));
-

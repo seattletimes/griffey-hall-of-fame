@@ -133,9 +133,10 @@
 
       <div class="injuries">
         <div class="image">
-          <img src="./assets/GriffeyCutout.jpg">
+          <img src="./assets/GriffeyWEBgraphics3.jpg">
+        </div>
 
-          <% var injuries = {};
+        <% var injuries = {};
           json.GriffeyStats_injuries.forEach(function(item) {
             if (!injuries[item.injury]) injuries[item.injury] = [];
             injuries[item.injury].push(item);
@@ -145,16 +146,11 @@
             var injury = injuries[i];
             injury.forEach(function(item) { %>
 
-          <div class="icon" style="top: <%= item.top %>%; left: <%= item.left %>%;"  data-id="<%= item.injury %>"><div class="glow"></div>
-            <div class="description" data-id="<%= item.injury %>"><%= item.injury %></div>
+          <div class="description"><%= item.description %></div>
           </div>
 
-          <% }); } %>       
-
-
-
-        </div>
-
+          <% }); } %>  
+            
         <div class="played">
           
 <div class="chatter">Ken Griffey Jr. battled injuries for a large part of his career. As a result, he was placed on the disabled list 12 times, forcing him to miss significant playing time. Griffey played in fewer than 130 games in 11 of his 22 total seasons. See a rundown of his injuries and time missed below.</div>

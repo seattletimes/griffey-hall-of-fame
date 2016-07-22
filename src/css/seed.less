@@ -390,53 +390,21 @@ nav.top-bar {
       float: left;
       position: relative;
 
-      .icon {
-        position: absolute;
-            text-align: right;
-      }
-
-
     }
-
- 
-    .glow {
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      border:solid 1px blue;
-      
-      @media @mobile {
-        display: none;
-      }
-
-      &:hover {
-        background-color:cadetblue;
-        opacity: .7;
-         @media @mobile {
-        display: none;
-      }
-      }
-
-    }
-
+    
     .description {
-      display: none;
-
-      &.show {
         display: inline-block;
         font-weight: 400;
         padding: 5px;
         background-color: fade(white, 80%);
         border: 1px solid black;
           @media @mobile {
-          display: none;
-        
+           
         }
-        }
+      
     }
     
     .played {
-      display: none;
       width: 50%;
       display: inline-block;
       float: right;
@@ -445,20 +413,8 @@ nav.top-bar {
         font-size: 16px;
       }
     }
-  }
-        
-
-        
-      }
-  
-
-
-
-    
-  
-
-
-
+  }          
+}
 
 .ct-bar {
   fill: black;
@@ -474,13 +430,13 @@ nav.top-bar {
 }
 
 .ct-homeruns {
+  @media @mobile {
+    margin-top: 30px;
+  }
   .ct-barlabel {
     @media @mobile {
       font-size: 12px;
     }
-  }
-  @media @mobile {
-    margin-top: 30px;
   }
 }
 
@@ -496,9 +452,6 @@ nav.top-bar {
       stroke-width: 2px;
     }
   }
-
-
-
 }
 
 .ct-comp {
@@ -507,11 +460,12 @@ nav.top-bar {
   @media @mobile {
     width: 100%;
   }
+  
   .ct-series {
+    
     &.aaron {
       stroke: red;
       fill: red;
-
       .ct-area {
         stroke: red;
       }
@@ -539,7 +493,6 @@ nav.top-bar {
       .ct-area {
         stroke: #52C4B1;
       }
-
     }
 
     &.mays {
@@ -548,7 +501,6 @@ nav.top-bar {
       .ct-area {
         stroke: purple;
       }
-
     }
 
     &.ruth {
@@ -557,10 +509,7 @@ nav.top-bar {
       .ct-area {
         stroke: blue;
       }
-
     }
-
-
 
     .ct-area {
       opacity: .2;
@@ -577,38 +526,31 @@ nav.top-bar {
         stroke-width: 1px;
       }
     }
+    
     &.focus {
       .ct-line{
         stroke-width: 7px;
         opacity: 1;
-
       }
       .ct-area {
         stroke-width: 12px;
         opacity: 1;
-
-
       }
     }
+    
     .new-point{
       fill-opacity: 1!important;
       transition: all 0.2s linear;
       @media @mobile {
         r: 0;
       }
-
-      &:hover{
+      &:hover {
         r: 9;
         stroke-opacity: 0.2;
         stroke-width: 20px;
       }
     }
-
-
   }
-
-
-
 }
 
 
