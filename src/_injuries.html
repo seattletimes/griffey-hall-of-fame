@@ -1,0 +1,42 @@
+<section class="injuries">
+
+  <% var injuries = {};
+  json.GriffeyStats_injuries.forEach(function(item) {
+    if (!injuries[item.injury]) injuries[item.injury] = [];
+    injuries[item.injury].push(item);
+  }); %>
+
+  <h2 class="title">Griffey's Injuries</h2>
+  <div class="row">
+    <div class="left">
+      <p class="chatter">Ken Griffey Jr. battled injuries for a large part of his career. As a result, he was placed on the disabled list 12 times, forcing him to miss significant playing time. Griffey played in fewer than 130 games in 11 of his 22 total seasons. See a rundown of his injuries and time missed by tapping on each injury.</p>
+
+      <div class="description">
+        <ul>
+        <% for (var i in injuries) {
+          var injury = injuries[i];
+          injury.forEach(function(item) { %>
+
+          <li class="item" data-id="<%= item.injury %>"><strong><%= item.injury %></strong><br>
+            <%= item.description %></li>
+        <% }); } %>  
+        </ul>
+      </div>
+    </div>
+    
+    <div class="image">
+      <img src="./assets/GriffeyCutout.jpg">
+
+      <% for (var i in injuries) {
+        var injury = injuries[i];
+        injury.forEach(function(item) { %>
+
+      <div class="icon" style="top: <%= item.top %>%; left: <%= item.left %>%;"  data-id="<%= item.injury %>">
+        <div class="label" data-id="<%= item.injury %>"><%= item.injury %></div>
+      </div>
+
+      <% }); } %>       
+
+    </div>
+  </div>
+</section>
