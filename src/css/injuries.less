@@ -1,0 +1,74 @@
+.injuries {
+  max-width: 800px;
+  margin: 0 auto;
+
+  .row {
+    .display-flex();
+
+    @media @mobile {
+      display: block;
+    }
+  }
+
+  .image {
+    .flex(1 0 50%);
+    .flex-order(1);
+    position: relative;
+    @media @mobile {
+      width: 100%;
+    }
+  }
+
+  .icon {
+    position: absolute;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: fade(@df-goldenrod, 80%);
+    border: 1px solid @df-goldenrod;
+
+    &:hover, &:focus, &.active {
+      background-color: @df-goldenrod;
+    }
+
+    .label {
+      display: none;
+      background-color: fade(white, 80%);
+      padding: 4px 8px;
+      position: relative;
+      left: 15px;
+      width: 100px;
+    }
+
+    &:hover {
+
+      .label {
+        display: block;
+
+        @media @mobile {
+          display: none;
+        }
+      }
+    }
+  }
+
+
+
+  .description {
+    .flex-order(1);
+    background-color: fade(@df-middle-gray, 10%);
+
+    @media @mobile {
+      font-size: 16px;
+    }
+
+    .item {
+      display: none;
+      &.show {
+        padding: 8px 20px;
+        display: block;
+      }
+    }
+  }
+
+}
