@@ -272,3 +272,31 @@ var magClick = function(e) {
 
 qsa(".si-img").forEach(i => i.addEventListener("click", magClick));
 
+//chatter buttons
+var $circ = $('.circle');
+
+$circ.on('click', '.chatter', function(){
+
+  if ()
+  if (this.classList.contains("a")) {
+      $(chatter one).classList.add("show");
+  }
+  else if 
+    (this.classList.contains("b")) {
+      $(chatter two).classList.add("show");
+  }
+    
+     else if 
+    (this.classList.contains("c")) {
+      $(chatter three).classList.add("show");
+  }
+       
+    
+  else if 
+    (this.classList.contains("d")) {
+      $(chatter four).classList.add("show");
+    }
+  
+  
+});
+
