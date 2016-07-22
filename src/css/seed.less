@@ -380,6 +380,19 @@ nav.top-bar {
 
   }
 
+  .yaxis {
+    top: 40%;
+    left: -55px;
+    position: absolute;
+    transform: rotate(270deg);
+    font-size: 14px;
+    font-weight: bold;
+
+    @media (max-width: 1200px) {
+      left: -40px;
+    }
+  }
+
   .xaxis {
     text-align: center;
     font-size: 14px;
@@ -447,8 +460,8 @@ nav.top-bar {
 }
 
 .ct-comp {
-  width: 90%;
-
+  width: 100%;
+  margin: auto;
   @media @mobile {
     width: 100%;
     margin: 0 auto;
