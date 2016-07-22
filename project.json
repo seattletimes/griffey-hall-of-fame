@@ -5,17 +5,17 @@
       "path": "bodily-stud"
     },
     "live": {
-      "bucket": "",
-      "path": ""
+      "bucket": "projects.seattletimes.com",
+      "path": "2016/griffey-hall-of-fame"
     }
   },
-  "title": "",
-  "description": "",
+  "title": "Ken Griffey Jr: Measuring Greatness",
+  "description": "Numbers don’t begin to tell the story of Ken Griffey Jr.’s Hall of Fame career. But one thing is clear: No. 24 was No. 1 in baseball for a long time.",
   "url": "",
   "slug": "",
   "tags": [],
-  "image": "assets/social.jpg",
+  "image": "assets/social_teaser.jpg",
   "sheets": ["142vYj53t5MjZayxI0IgLvoSOz3UQlbNby7kTn26pYHY"],
-  "production": false,
+  "production": true,
   "embedded": true
 }
