@@ -290,4 +290,34 @@ qsa(".si-img").forEach(i => i.addEventListener("click", magClick));
 
   qsa(".circle").forEach(i => i.addEventListener("click", chatSwitch));
 
+//Injury
+$(".icon").hover(
+  function () {
+    var $label = $(this).children(".label");
+    $label.addClass("show");
+  },
+  function () {
+        var $label = $(this).children(".label");
+
+    $label.removeClass("show");
+  }
+);
+
+
+  var inj = function(e) {
+   var others = qsa('.item');
+  
+  others.forEach(function(i) {
+    i.classList.remove("show");
+     });
+  
+   var pos = this.getAttribute("data-id");
+  var desc = (document.querySelector(`.item[data-id="${pos}"]`));
+  desc.classList.add("show");
+  
+};
+
+  qsa(".icon").forEach(i => i.addEventListener("click", inj));
+
+
 
