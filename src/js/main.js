@@ -244,9 +244,11 @@ hrChart.on('draw', function(data) {
 $(".advance").click(function(){
   var $this = $(this);
   var current = $(".year .show");
-  console.log(current)
-  var index = current.attr("data-index");
-  console.log(index)
+  var index = current.attr("data-id");
+  index = index * 1;
+
+  if (this.classList.contains("left") & index < 0) return;
+  if (this.classList.contains("right") & index > 20) return;
   var bar = document.querySelector(`.home-runs svg [data-index="${index}"]`);
  
   if (current == null) {
