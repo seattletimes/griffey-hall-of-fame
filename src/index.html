@@ -15,6 +15,8 @@
       </a>
     </nav>
 
+    <%= t.include("./partials/_ad.html", { type: "banner" }) %>
+
 
     <div class="griffey-container">
 
@@ -23,8 +25,8 @@
         <div class="grif-pic"><img src="./assets/GriffeyILLO2016web.jpg"></div>
         <div class="intro">
 
-          <div class="inro-text">HALL OF FAME | KEN GRIFFEY JR. | CLASS OF 2016</div>
-          <div class="kgj">Measuring Greatness</div>
+          <div class="inro-text">HALL OF FAME | <strong>KEN GRIFFEY JR.</strong> | CLASS OF 2016</div>
+          <div class="kgj">MEASURING GREATNESS</div>
           <div class="inro-text">22 years | 2,671 games | 2,781 hits | 1,836 RBI</div>
           <div class="chatter">
             Ken Griffey Jr. battled injuries for a large part of his career. As a result, he was placed on the disabled list 12 times, forcing him to miss significant playing time. Griffey played in fewer than 130 games in 11 of his 22 total seasons. See a rundown of his injuries and time missed below..</div>
@@ -250,7 +252,14 @@
 
       </section>
 
+      <div class="bottom-ad"><%= t.include("./partials/_ad.html", { type: "bannerBottom" }) %></div>
+      
     </div>
+    <footer>
+      <a class="logo" href="http://www.seattletimes.com">
+        <img src="./assets/st-logo.png">
+      </a>
+    </footer>
 
 
     <script src="app.js" async></script>

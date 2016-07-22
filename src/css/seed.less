@@ -110,24 +110,21 @@ nav.top-bar {
     }
     .intro {
       width: 40%;
-      float: left;
       z-index: 999;
-      padding-left: 60px;
+      text-align: center;
+
       @media @mobile {
         padding: 0;
         width: 100%;
-        display: block;
-
       }
-      .display-flex();
-      .flex-direction(column);
+
       .kgj {
         font-size: 90px;
         font-family: @df-serif;
         font-weight: 900;
         position: relative;
-        text-align: center;
         margin: 0 auto;
+        line-height: 0.9em;
 
         .flex(2);
 
@@ -140,11 +137,7 @@ nav.top-bar {
         }
       }
       .intro-text {
-        text-align: center;
-        margin: 0 auto;
-
-        @media @mobile {
-        }
+        margin-bottom: 30px;
       }
 
       .chatter{
