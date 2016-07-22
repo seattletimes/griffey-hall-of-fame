@@ -47,6 +47,7 @@ nav.top-bar {
   font-family: @df-sans;
   max-width: 1200px;
   margin: auto;
+  padding: 10px;
   .display-flex();
   .flex-direction(column); 
 
@@ -73,7 +74,6 @@ nav.top-bar {
   }
   .chatter, .comp-chatter {
     font-size: 18px;
-    padding-left: 5%;
     padding-bottom: 2%;
     text-align: center;
 
@@ -251,6 +251,8 @@ nav.top-bar {
         font-weight: bold;
         transition: all .2s linear;
         cursor: pointer;
+        color: #A80000;
+        font-size: 40px;
 
         &:hover, &:focus {
           background: @df-light-gray;
@@ -295,7 +297,7 @@ nav.top-bar {
 
   .hr-leaders {
 
-    .display-flex();
+    text-align: center;
 
     @media @mobile {
       display: inline-block;
@@ -303,8 +305,8 @@ nav.top-bar {
     }
 
     .leader {
-      width: 40%;
-      .flex(1 0 0);
+      display: inline-block;
+      padding: 0 10px;
       cursor: pointer;
 
       @media @mobile {
@@ -316,6 +318,7 @@ nav.top-bar {
       .name, .stat, img {
         font-size: 14px;
         text-align: center;
+        font-family: @df-serif;
         width: 100px;
         @media @mobile {
           display: inline-block;
@@ -326,6 +329,7 @@ nav.top-bar {
         -webkit-border-radius: 12px; 
         -moz-border-radius: 12px; 
         border-radius: 12px;
+        border: 6px solid white;
 
         @media @mobile {
           border-radius: 5px;
@@ -334,6 +338,7 @@ nav.top-bar {
 
       .stat {
         font-weight: 800;
+        font-size: 30px;
         @media @mobile {
 
           width: 20%;
@@ -345,6 +350,12 @@ nav.top-bar {
       .name {
         @media @mobile {
 
+        }
+      }
+
+      &.highlighted {
+        img {
+          border: 6px solid #52C4B1;
         }
       }
     }
@@ -512,54 +523,11 @@ nav.top-bar {
   }
 
   .ct-series {
-
-    &.aaron {
-      stroke: red;
-      fill: red;
-      .ct-area {
-        stroke: red;
-      }
-    }  
-
-    &.bonds{
-      stroke: gray;
-      fill: gray;
-      .ct-area {
-        stroke: gray;
-      }
-    } 
-
-    &.rod {
-      stroke: green;
-      fill: green;
-      .ct-area {
-        stroke: green;
-      }
-    }  
-
-    &.griffey {
       stroke:  #52C4B1;
       fill:  #52C4B1;
       .ct-area {
         stroke: #52C4B1;
       }
-    }
-
-    &.mays {
-      stroke:  purple;
-      fill:  purple;
-      .ct-area {
-        stroke: purple;
-      }
-    }
-
-    &.ruth {
-      stroke:  blue;
-      fill:  blue;
-      .ct-area {
-        stroke: blue;
-      }
-    }
 
     .ct-area {
       opacity: .2;
@@ -640,4 +608,8 @@ nav.top-bar {
   .chartist-tooltip.tooltip-show {
     opacity: 1;
   }
+}
+
+.credits {
+  padding-bottom: 20px;
 }

@@ -50,7 +50,7 @@ window.addEventListener("scroll",(function() {
 //COMPARE 
 var compared = {
   labels: nums,
-  series: [ {className: "griffey", data: griffeyData}, {className: "bonds", data: bondData}, {className: "rod", data: rodData}, {className: "aaron", data:  aaronData}, {className: "ruth", data: ruthData}, {className: "mays", data: maysData}]
+  series: [ {className: "griffey focus", data: griffeyData}, {className: "bonds", data: bondData}, {className: "rod", data: rodData}, {className: "aaron", data:  aaronData}, {className: "ruth", data: ruthData}, {className: "mays", data: maysData}]
 };
 
 var compChart = new Chartist.Line('.ct-comp', compared, {
@@ -76,7 +76,7 @@ var compChart = new Chartist.Line('.ct-comp', compared, {
 //Comp draw
 compChart.on('draw', function(data) {
    data.element.attr({ "data-index": data.index });
-  console.log(data); 
+  // console.log(data); 
 
   if (data.type === "point") {
      var circle = new Chartist.Svg('circle', {
@@ -98,18 +98,16 @@ compChart.on('draw', function(data) {
 var $leaders = $('.hr-leaders');
 var $comp = $('.ct-comp');
 
-$leaders.on('click', '.leader', function(){
-   var pos = this.getAttribute("data-id");
-  var line = (document.querySelector(`.${pos}`));
-  
-  if (line.classList.contains("focus")) {
-      line.classList.remove("focus");
+document.querySelector(".leader[data-id='griffey']").classList.add("highlighted");
 
-  }
-  else {
-    
+$leaders.on('click', '.leader', function(){
+  if (document.querySelector(".highlighted")) document.querySelector(".highlighted").classList.remove("highlighted");
+  this.classList.add("highlighted");
+  var pos = this.getAttribute("data-id");
+  var line = (document.querySelector(`.${pos}`));
+  if (document.querySelector(".focus")) document.querySelector(".focus").classList.remove("focus");
   line.classList.add("focus");
-  }
+
 });
 
 
@@ -244,7 +242,9 @@ hrChart.on('draw', function(data) {
 $(".advance").click(function(){
   var $this = $(this);
   var current = $(".year .show");
+  console.log(current)
   var index = current.attr("data-index");
+  console.log(index)
   var bar = document.querySelector(`.home-runs svg [data-index="${index}"]`);
  
   if (current == null) {
@@ -283,7 +283,7 @@ qsa(".si-img").forEach(i => i.addEventListener("click", magClick));
   
    var pos = this.getAttribute("data-id");
   var chatter = (document.querySelector(`.comp-chatter[data-id="${pos}"]`));
-  console.log(chatter);
+  // console.log(chatter);
   chatter.classList.add("show");
   
 };
