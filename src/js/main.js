@@ -34,11 +34,7 @@ var playData = [78, 96, 95, 88, 96, 99, 50, 86, 97, 99, 99, 90, 69, 43, 33, 51, 
 
 var rbiData = [61, 80, 100, 103, 109, 90, 42, 140, 147, 146, 134, 118, 65, 23, 26, 60, 92, 72, 93, 71, 57, 7];
 
-var ticks = [];
-
-for (var i = 0; i <= 1; i += .05) ticks.push(i);
-
-
+//Scroll effect
 var grif = document.querySelector(".grif-pic");
 var hr = document.querySelector("li");
 window.addEventListener("scroll",(function() {
@@ -280,7 +276,6 @@ qsa(".si-img").forEach(i => i.addEventListener("click", magClick));
 
 //Injuries
 
-
 var hoverEffect = function(e) {
    var others = qsa('.description');
   
@@ -295,5 +290,4 @@ var hoverEffect = function(e) {
 };
   
 qsa(".icon").forEach(i => i.addEventListener("mouseenter", hoverEffect));
-
 

@@ -52,7 +52,7 @@ nav.top-bar {
 
   @media @mobile {
     padding: 0 10px;
-    display: inherit;
+    display: block;
   }
 
 
@@ -60,12 +60,14 @@ nav.top-bar {
     font-weight: 800;
     font-size: 45px;
     text-align: left;
+    padding-left: 20px;
     padding-bottom: 20px;
     font-family: @df-serif;
     z-index: 20;
 
     @media @mobile {
       font-size: 20px;
+      padding: 0;
 
     }
 
@@ -73,10 +75,12 @@ nav.top-bar {
   .chatter {
     font-size: 20px;
     padding-left: 5%;
+    padding-top: 5%;
     padding-bottom: 2%;
 
     @media @mobile {
       font-size: 14px;
+      padding: 0;
 
     }
   }
@@ -84,7 +88,7 @@ nav.top-bar {
   section {
     padding-bottom: 5%;
     .flex(1);
-        @media @mobile {
+    @media @mobile {
       display: block;
 
     }
@@ -97,11 +101,12 @@ nav.top-bar {
       float: left;
       z-index: 999;
       padding-left: 60px;
-       @media @mobile {
-          padding: 0;
-         width: 100%;
+      @media @mobile {
+        padding: 0;
+        width: 100%;
+        display: block;
 
-        }
+      }
       .display-flex();
       .flex-direction(column);
       .kgj {
@@ -116,6 +121,7 @@ nav.top-bar {
 
         @media @mobile {
           position: block;
+          line-height: 90%;
           font-size: 3em;
           font-weight: 900;
           width: 100%;
@@ -124,23 +130,34 @@ nav.top-bar {
       .intro-text {
         text-align: center;
         margin: 0 auto;
-        
-         @media @mobile {
-          display: none;
+
+        @media @mobile {
+          font-size: 10px;
         }
       }
 
       .chatter{
         .flex(1);
+        @media @mobile {
+          display: none;
+        }
       }
 
       .hrs {
         text-align: center;
         font-size: 26px;
         font-weight: 600;
+        margin-left: 30%;
+        margin-right: 30%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+
+        border-bottom: 3px solid black;
 
         font-family: @df-serif;
         .num {
+          border-top: 3px solid black;
+
           font-weight: 600;
           font-size: 70px;
 
@@ -151,11 +168,14 @@ nav.top-bar {
         text-align: center;
         img {
           width: 80%;
+          @media @mobile {
+            width: 100%;
+          }
         }
 
         li {
           text-align: left;
-          list-style: none;
+          padding-bottom: 5px;
         }
       }
     }
@@ -163,10 +183,10 @@ nav.top-bar {
     .grif-pic {
       width: 55%;
       float: right;
-       @media @mobile {
-          width: 100%;
+      @media @mobile {
+        width: 100%;
 
-        }
+      }
       img {
         position: fixed;
         width: 60%;
@@ -364,20 +384,21 @@ nav.top-bar {
   }
 
   .injuries {
-    .display-flex();
-    font-size: 11px;
+
     .image {
       width: 40%;
+      float: left;
       position: relative;
 
       .icon {
         position: absolute;
-        text-align: right;
+            text-align: right;
       }
 
 
     }
 
+ 
     .glow {
       border-radius: 50%;
       width: 30px;
@@ -391,7 +412,7 @@ nav.top-bar {
       &:hover {
         background-color:cadetblue;
         opacity: .7;
-  @media @mobile {
+         @media @mobile {
         display: none;
       }
       }
@@ -407,10 +428,15 @@ nav.top-bar {
         padding: 5px;
         background-color: fade(white, 80%);
         border: 1px solid black;
-      }
+          @media @mobile {
+          display: none;
+        
+        }
+        }
     }
-
+    
     .played {
+      display: none;
       width: 50%;
       display: inline-block;
       float: right;
@@ -420,39 +446,16 @@ nav.top-bar {
       }
     }
   }
+        
 
-}
+        
+      }
+  
 
 
 
-.chartist-tooltip {
-  position: absolute;
-  display: inline-block;
-  opacity: 0;
-  min-width: 5em;
-  padding: .5em;
-  background: #F4C63D;
-  color: #453D3F;
-  font-weight: 700;
-  text-align: center;
-  pointer-events: none;
-  z-index: 1;
-  -webkit-transition: opacity .2s linear;
-  -moz-transition: opacity .2s linear;
-  -o-transition: opacity .2s linear;
-  transition: opacity .2s linear; }
-.chartist-tooltip:before {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  margin-left: -15px;
-  border: 15px solid transparent;
-  border-top-color: #F4C63D; }
-.chartist-tooltip.tooltip-show {
-  opacity: 1; }
+    
+  
 
 
 
@@ -500,10 +503,10 @@ nav.top-bar {
 
 .ct-comp {
   width: 90%;
-  
- @media @mobile {
-      width: 100%;
-    }
+
+  @media @mobile {
+    width: 100%;
+  }
   .ct-series {
     &.aaron {
       stroke: red;
@@ -557,22 +560,22 @@ nav.top-bar {
 
     }
 
-  
+
 
     .ct-area {
       opacity: .2;
       stroke-width: 4px; 
       @media @mobile {
-          stroke-width: 0;
-        }
+        stroke-width: 0;
+      }
     }
-    
+
     .ct-line {
       opacity: .2;
       stroke-width: 4px; 
       @media @mobile {
-          stroke-width: 1px;
-        }
+        stroke-width: 1px;
+      }
     }
     &.focus {
       .ct-line{
@@ -583,16 +586,16 @@ nav.top-bar {
       .ct-area {
         stroke-width: 12px;
         opacity: 1;
-      
+
 
       }
     }
     .new-point{
       fill-opacity: 1!important;
       transition: all 0.2s linear;
-@media @mobile {
-         r: 0;
-        }
+      @media @mobile {
+        r: 0;
+      }
 
       &:hover{
         r: 9;
@@ -607,7 +610,6 @@ nav.top-bar {
 
 
 }
-
 
 
 
@@ -627,6 +629,8 @@ nav.top-bar {
   -moz-transition: opacity .2s linear;
   -o-transition: opacity .2s linear;
   transition: opacity .2s linear;
+.chartist-tooltip { background: @st-light-blue;
+
 }
 .chartist-tooltip:before {
   content: "";
@@ -638,11 +642,10 @@ nav.top-bar {
   margin-left: -15px;
   border: 15px solid transparent;
   border-top-color: @st-light-blue;;
+
+  border-top-color: @st-light-blue;
 }
 .chartist-tooltip.tooltip-show {
   opacity: 1;
+  }
 }
-
-
-
-
