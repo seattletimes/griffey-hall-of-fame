@@ -83,26 +83,8 @@ compChart.on('draw', function(data) {
     }, 'ct-area');
         data.element.replace(circle);
     
-    if (data.seriesIndex != 0) {
-               circle.addClass('ct-faded-point');
-
-    }
-    else {
-       circle.addClass('ct-focused-point');
-    }
-   
   }
-    if (data.type === "line") {
-
-      if (data.seriesIndex != 0) {
-        data.element.addClass('ct-faded-line');
-     
-      }
-      else {
-        data.element.addClass('ct-focused-line');
-      }
-          
-    }
+    
 });
 
 

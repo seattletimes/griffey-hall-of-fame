@@ -42,6 +42,7 @@ nav.top-bar {
   .display-flex();
   .flex-direction(column); 
 
+
   .chatter {
     font-size: 20px;
     padding: 5%;
@@ -59,461 +60,454 @@ nav.top-bar {
   }
 
   .griffey-intro {
-    .display-flex;
-    .align-items(flex-start);
-  }
-  .intro {
-    .flex(1 0 0);
-    .display-flex();
-    .flex-direction(column);
-    .kgj {
-      font-size: 90px;
-      font-family: @df-serif;
-      font-weight: 900;
-      position: relative;
-      text-align: center;
-      margin: 0 auto;
 
-      .flex(2);
-
-      @media @mobile {
-        font-size: 2em;
-        font-weight: 900;
-      }
-    }
-    .intro-text {
-      text-align: center;
-      margin: 0 auto;
-    }
-    
-    .chatter{
-      .flex(1);
-    }
-    
-    .hrs {
-      text-align: center;
-      font-size: 16px;
-      font-family: @df-serif;
-      .num {
-        font-weight: 600;
-        font-size: 50px;
-      }
-    }
-  }
-  
-  .img {
-    position: fixed;
-    .flex(2 0 0);
-  }
-  
-  .field {
-    img {
-      width: 30%;
-    }
-  }
-
-
-  
-  .home-runs {
-
-    .legend {
-      font-size: 12px;
-      .key {
-        display: block;
-      }
-      .splotch {
-        display: inline-block;
-        width: 9px;
-        height: 9px;
-        background-color: #52C4B1;
-        margin-left: 20px;
-
-        &.two {
-          background-color: #a80000;
-        }
-      }
-
-    }
-
-    .year {
+    .intro {
+      width: 40%;
+      float: left;
+      z-index: 999;
+      padding-left: 60px;
       .display-flex();
-      margin: auto;
-      .align-items(stretch);
-
-      .advance {
-        padding: 10px;
-        font-weight: bold;
-        transition: all .2s linear;
-        cursor: pointer;
-
-        &:hover, &:focus {
-          background: @df-light-gray;
-        }
-      }
-
-      .description-container {
-        .flex(1);
-      }
-
-      .year-description {
-        float: inherit;
-        color: @df-dark-gray;
-        margin: inherit;
-        display: none;
+      .flex-direction(column);
+      .kgj {
+        font-size: 90px;
+        font-family: @df-serif;
+        font-weight: 900;
+        position: relative;
         text-align: center;
-        padding: 0 10px;
+        margin: 0 auto;
+
+        .flex(2);
 
         @media @mobile {
-          font-size: 14px;
-        }
-
-        .year {
-          font-weight: 800;
-          text-align: center;
-          margin-left: 46%;
-          font-size: 30px;
-
-          @media @mobile {
-            font-size: 16px;
-          }
-        }
-
-        &.show {
-          display: block;
+          font-size: 2em;
+          font-weight: 900;
         }
       }
-
-    }
-  }
-
- 
-  .hr-leaders {
-
-    padding: 5%;
-    .display-flex();
-
-    @media @mobile {
-      display: inline-block;
-
-    }
-
-    .leader {
-      width: 40%;
-      .flex(1 0 0);
-
-      @media @mobile {
-        display: block;
-        width: 60%;
+      .intro-text {
+        text-align: center;
         margin: 0 auto;
       }
 
-
-      .name, .stat, img {
-        font-size: 9;
-        text-align: center;
-        width: 100px;
-        @media @mobile {
-          display: inline-block;
-
-
-        }
-
-      }
-
-      img {
-        -webkit-border-radius: 12px; 
-        -moz-border-radius: 12px; 
-        border-radius: 12px; 
-        @media @mobile {
-          width: 100%;
-        }
-      }
-
-      .stat {
-        font-weight: 800;
-        @media @mobile {
-
-          width: 20%;
-          float: right;
-
-        }
-      }
-
-      .name {
-        @media @mobile {
-
-        }
-      }
-    }
-
-  }
-
-
-  .si {
-    padding-left: 20px;
-    padding-roght: 20px;
-    .si-image {
-      .display-flex();
-      .si-img {
-        width: 100px;
+      .chatter{
         .flex(1);
+      }
+
+      .hrs {
+        text-align: center;
+        font-size: 26px;
+        font-weight: 600;
+
+        font-family: @df-serif;
+        .num {
+          font-weight: 600;
+          font-size: 70px;
+
+        }
+      }
+
+      .field {
+        text-align: center;
+        img {
+          width: 80%;
+        }
+      }
+    }
+
+    .grif-pic {
+      width: 55%;
+      float: right;
+      img {
+      }
+    }
+  }
+
+
+    .home-runs {
+
+      .legend {
+        font-size: 12px;
+        .key {
+          display: block;
+        }
+        .splotch {
+          display: inline-block;
+          width: 9px;
+          height: 9px;
+          background-color: #52C4B1;
+          margin-left: 20px;
+
+          &.two {
+            background-color: #a80000;
+          }
+        }
+
+      }
+
+      .year {
+        .display-flex();
+        margin: auto;
+        .align-items(stretch);
+
+        .advance {
+          padding: 10px;
+          font-weight: bold;
+          transition: all .2s linear;
+          cursor: pointer;
+
+          &:hover, &:focus {
+            background: @df-light-gray;
+          }
+        }
+
+        .description-container {
+          .flex(1);
+        }
+
+        .year-description {
+          float: inherit;
+          color: @df-dark-gray;
+          margin: inherit;
+          display: none;
+          text-align: center;
+          padding: 0 10px;
+
+          @media @mobile {
+            font-size: 14px;
+          }
+
+          .year {
+            font-weight: 800;
+            text-align: center;
+            margin-left: 46%;
+            font-size: 30px;
+
+            @media @mobile {
+              font-size: 16px;
+            }
+          }
+
+          &.show {
+            display: block;
+          }
+        }
 
       }
     }
 
-    .si-focus {
-      display: none;
 
-      img{
-        float: left;
+    .hr-leaders {
+
+      padding: 5%;
+      .display-flex();
+
+      @media @mobile {
+        display: inline-block;
+
+      }
+
+      .leader {
         width: 40%;
-        padding: 30px;
+        .flex(1 0 0);
 
         @media @mobile {
-          width: 90%;
+          display: block;
+          width: 60%;
+          margin: 0 auto;
         }
-      }
 
-      .chatter {
 
-        .year{
-          font-weight: 700;
-          font-size: 40px;
+        .name, .stat, img {
+          font-size: 9;
           text-align: center;
+          width: 100px;
+          @media @mobile {
+            display: inline-block;
+
+
+          }
+
+        }
+
+        img {
+          -webkit-border-radius: 12px; 
+          -moz-border-radius: 12px; 
+          border-radius: 12px; 
+          @media @mobile {
+            width: 100%;
+          }
+        }
+
+        .stat {
+          font-weight: 800;
+          @media @mobile {
+
+            width: 20%;
+            float: right;
+
+          }
+        }
+
+        .name {
+          @media @mobile {
+
+          }
+        }
+      }
+
+    }
+
+
+    .si {
+      padding-left: 20px;
+      padding-roght: 20px;
+      .si-image {
+        .display-flex();
+        .si-img {
+          width: 100px;
+          .flex(1);
+
+        }
+      }
+
+      .si-focus {
+        display: none;
+
+        img{
+          float: left;
+          width: 40%;
+          padding: 30px;
+
+          @media @mobile {
+            width: 90%;
+          }
+        }
+
+        .chatter {
+
+          .year{
+            font-weight: 700;
+            font-size: 40px;
+            text-align: center;
+          }
+
+        }
+        &.show {
+          display: inline-block;
+        }
+      }
+    }
+
+
+    .injuries {
+      .display-flex();
+      font-size: 11px;
+      .image {
+        width: 40%;
+        position: relative;
+
+        .icon {
+          position: absolute;
+          text-align: right;
+        }
+
+
+      }
+
+      .glow {
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        border:solid 1px blue;
+
+        &:hover {
+          background-color:cadetblue;
+          opacity: .7;
+
         }
 
       }
-      &.show {
+
+      .description {
+        display: none;
+
+        &.show {
+          display: inline-block;
+          font-weight: 400;
+          padding: 5px;
+          background-color: fade(white, 80%);
+          border: 1px solid black;
+        }
+      }
+
+      .played {
+        width: 50%;
         display: inline-block;
+        float: right;
+
+        .title {
+          font-size: 16px;
+        }
       }
     }
   }
 
 
-  .injuries {
-    .display-flex();
-    font-size: 11px;
-    .image {
-      width: 40%;
-      position: relative;
-
-      .icon {
-        position: absolute;
-        text-align: right;
-      }
 
 
-    }
 
-    .glow {
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      border:solid 1px blue;
+  .chartist-tooltip {
+    position: absolute;
+    display: inline-block;
+    opacity: 0;
+    min-width: 5em;
+    padding: .5em;
+    background: #F4C63D;
+    color: #453D3F;
+    font-weight: 700;
+    text-align: center;
+    pointer-events: none;
+    z-index: 1;
+    -webkit-transition: opacity .2s linear;
+    -moz-transition: opacity .2s linear;
+    -o-transition: opacity .2s linear;
+    transition: opacity .2s linear; }
+  .chartist-tooltip:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -15px;
+    border: 15px solid transparent;
+    border-top-color: #F4C63D; }
+  .chartist-tooltip.tooltip-show {
+    opacity: 1; }
 
-      &:hover {
-        background-color:cadetblue;
-        opacity: .7;
 
-      }
 
-    }
 
-    .description {
-      display: none;
-
-      &.show {
-        display: inline-block;
-        font-weight: 400;
-        padding: 5px;
-        background-color: fade(white, 80%);
-        border: 1px solid black;
-      }
-    }
-
-    .played {
-      width: 50%;
-      display: inline-block;
-      float: right;
-
-      .title {
-        font-size: 16px;
-      }
-    }
+  .ct-bar {
+    fill: black;
+    stroke-width: 20px;
   }
-}
 
+  .ct-label {
+    color: black;
 
-
-
-
-.chartist-tooltip {
-  position: absolute;
-  display: inline-block;
-  opacity: 0;
-  min-width: 5em;
-  padding: .5em;
-  background: #F4C63D;
-  color: #453D3F;
-  font-weight: 700;
-  text-align: center;
-  pointer-events: none;
-  z-index: 1;
-  -webkit-transition: opacity .2s linear;
-  -moz-transition: opacity .2s linear;
-  -o-transition: opacity .2s linear;
-  transition: opacity .2s linear; }
-.chartist-tooltip:before {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  margin-left: -15px;
-  border: 15px solid transparent;
-  border-top-color: #F4C63D; }
-.chartist-tooltip.tooltip-show {
-  opacity: 1; }
-
-
-
-
-.ct-bar {
-  fill: black;
-  stroke-width: 20px;
-}
-
-.ct-label {
-  color: black;
-
-  @media @mobile {
-    font-size: 8px;
-  }
-}
-
-.ct-homeruns {
-  .ct-barlabel {
     @media @mobile {
-      font-size: 12px;
+      font-size: 8px;
     }
   }
-  @media @mobile {
-    margin-top: 30px;
-  }
-}
 
-.ct-homeruns, .ct-play {
-
-  .ct-line {
-    stroke: @df-middle-gray ;
-  }
-  .ct-bar, .ct-point, .ct-area {
-    stroke: #a80000;
-    fill: #a80000;
+  .ct-homeruns {
+    .ct-barlabel {
+      @media @mobile {
+        font-size: 12px;
+      }
+    }
     @media @mobile {
-      stroke-width: 2px;
+      margin-top: 30px;
     }
   }
 
+  .ct-homeruns, .ct-play {
 
-
-}
-.aaron {
-  stroke: red;
-  fill: red;
-
-  .ct-area {
-    fill: red;
-  }
-}  
-
-.bonds {
-  stroke: gray;
-  fill: gray;
-
-  .ct-area {
-    fill: gray;
-  }
-} 
-
-.rod {
-  stroke: green;
-  fill: green;
-
-  .ct-area {
-    fill: green;
-  }
-}  
-
-.griffey, &.ct-area, &.new-point {
-  stroke:  #52C4B1;
-  fill:  #52C4B1;
-
-}
-
-.mays {
-  stroke:  purple;
-  fill:  purple;
-
-  .ct-area {
-    fill:  purple;
-  }
-
-  .new-point {
-    stroke: purple;
-  }
-}
-
-.ruth {
-  stroke:  blue;
-  fill:  blue;
-
-  .ct-area {
-    fill:  blue;
-  }
-  .new-point {
-    stroke: blue;
-  }
-}
-.ct-comp {
-  width: 75%;
-
-  .ct-series {
-
-    .new-point{
-      fill-opacity: 1!important;
-      transition: all 0.2s linear;
-
-
-
-      &:hover{
-        r: 7;
-        stroke-opacity: 0.2;
-        stroke-width: 20px;
+    .ct-line {
+      stroke: @df-middle-gray ;
+    }
+    .ct-bar, .ct-point, .ct-area {
+      stroke: #a80000;
+      fill: #a80000;
+      @media @mobile {
+        stroke-width: 2px;
       }
     }
 
-    .ct-area {
-      stroke-width: 8px; 
-    } .ct-line {
-      stroke-width: 8px; 
-
-    }
-
-    .ct-line, .ct-point {
-      stroke-width: 7px;
-    }
-
-    .ct-faded-point, .ct-faded-line {
-      opacity: .2;
-      stroke-width: 4px;
-    }
 
 
-    .ct-focused-point, .ct-focused-line{
-      opacity: 1;
-      stroke-width: 4px;
+  }
+
+  .ct-comp {
+    width: 75%;
+
+    .ct-series {
+
+      &.aaron, &.ct-area &.new-point {
+        stroke: red;
+        fill: red;
+
+
+      }  
+
+      &.bonds, &.ct-area &.new-point {
+        stroke: gray;
+        fill: gray;
+
+      } 
+
+      &.rod, &.ct-area &.new-point {
+        stroke: green;
+        fill: green;
+
+      }  
+
+      &.griffey, &.ct-area &.new-point {
+        stroke:  #52C4B1;
+        fill:  #52C4B1;
+
+      }
+
+      &.mays, &.ct-area &.new-point {
+        stroke:  purple;
+        fill:  purple;
+
+
+      }
+
+      &.ruth, &.ct-area &.new-point {
+        stroke:  blue;
+        fill:  blue;
+
+
+      }
+
+      .new-point{
+        fill-opacity: 1!important;
+        transition: all 0.2s linear;
+
+
+        &:hover{
+          r: 9;
+          stroke-opacity: 0.2;
+          stroke-width: 20px;
+        }
+      }
+
+      .ct-line, .ct-area {
+        opacity: .2;
+        stroke-width: 4px; 
+        &.focus {
+          stroke-width: 7px;
+        }
+      } 
+
+
+
+
+      .ct-faded-point, .ct-faded-line {
+        opacity: .2;
+        stroke-width: 4px;
+      }
+
+
+      .ct-focused-point, .ct-focused-line{
+        opacity: 1;
+        stroke-width: 4px;
+      }
+
+
+
     }
 
 
@@ -522,42 +516,38 @@ nav.top-bar {
 
 
 
-}
 
-
-
-
-.chartist-tooltip {
-  position: absolute;
-  display: inline-block;
-  opacity: 0;
-  min-width: 5em;
-  padding: .5em;
-  background: @st-light-blue;;
-  color: #453D3F;
-  font-weight: 700;
-  text-align: center;
-  pointer-events: none;
-  z-index: 1;
-  -webkit-transition: opacity .2s linear;
-  -moz-transition: opacity .2s linear;
-  -o-transition: opacity .2s linear;
-  transition: opacity .2s linear;
-}
-.chartist-tooltip:before {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  margin-left: -15px;
-  border: 15px solid transparent;
-  border-top-color: @st-light-blue;;
-}
-.chartist-tooltip.tooltip-show {
-  opacity: 1;
-}
+  .chartist-tooltip {
+    position: absolute;
+    display: inline-block;
+    opacity: 0;
+    min-width: 5em;
+    padding: .5em;
+    background: @st-light-blue;;
+    color: #453D3F;
+    font-weight: 700;
+    text-align: center;
+    pointer-events: none;
+    z-index: 1;
+    -webkit-transition: opacity .2s linear;
+    -moz-transition: opacity .2s linear;
+    -o-transition: opacity .2s linear;
+    transition: opacity .2s linear;
+  }
+  .chartist-tooltip:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -15px;
+    border: 15px solid transparent;
+    border-top-color: @st-light-blue;;
+  }
+  .chartist-tooltip.tooltip-show {
+    opacity: 1;
+  }
 
 
 
