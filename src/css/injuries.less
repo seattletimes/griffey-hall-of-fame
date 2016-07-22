@@ -22,13 +22,14 @@
   .icon {
     position: absolute;
     border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    background-color: fade(@df-goldenrod, 80%);
-    border: 1px solid @df-goldenrod;
+    width: 16px;
+    height: 16px;
+    background-color: fade(#a80000, 80%);
+    border: 1px solid #a80000;
+    cursor: pointer;
 
     &:hover, &:focus, &.active {
-      background-color: @df-goldenrod;
+      background-color: #a80000;
     }
 
     .label {
@@ -36,14 +37,15 @@
       background-color: fade(white, 80%);
       padding: 4px 8px;
       position: relative;
-      left: 15px;
-      width: 100px;
+      font-size: 16px;
+      z-index: 999;
+      min-width: 100px;
     }
 
     &:hover {
 
       .label {
-        display: block;
+        display: inline-block;       
 
         @media @mobile {
           display: none;
@@ -62,10 +64,15 @@
       font-size: 16px;
     }
 
+    ul {
+      padding: 0;
+    }
+
     .item {
       display: none;
       &.show {
-        padding: 8px 20px;
+        padding: 20px 30px;
+        font-size: 16px;
         display: block;
       }
     }
