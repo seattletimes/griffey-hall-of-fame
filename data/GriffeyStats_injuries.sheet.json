@@ -1,84 +1,79 @@
 [
   {
     "injury": "Dislocated toe",
+    "undefined": "Toe ",
     "description": "Griffey dislocated his second toe on his right foot in early September of 2006 when he ran into a wall chasing after a Barry Bonds home run. It ended up sidelining him for most of the rest of the season, as he only had two plate appearances as a pinch hitter the rest of the way.",
     "top": 95,
     "left": 91
   },
   {
     "injury": "Torn ankle tendon",
+    "undefined": "Right ankle",
     "description": "Griffey tore a tendon legging out a double in mid-July of 2003. He had surgery the next day, and missed the rest of the season.",
     "top": 90,
     "left": 18
   },
   {
     "injury": "Torn knee tendon",
-    "description": "Griffey partially tore the tendon in his right knee when he was caught in a rundown in early April 2002. The injury ended up being less severe than it first appeared, and he declined to have surgery, and returned to action by the end of May.",
+    "undefined": "Right knee",
+    "description": "Griffey partially tore the tendon in his right knee when he was caught in a rundown in early April 2002. The injury ended up being less severe than it first appeared, and he declined to have surgery, and returned to action by the end of May. His right knee would again be a problem four years later, as he missed almost a month early in the 2006 season due to inflammation behind the knee.",
     "top": 77,
     "left": 73
   },
   {
     "injury": "Strained hamstring",
+    "undefined": "Left hamstring",
     "description": "Griffey partially tore his left hamstring scoring on a double in early September of 2000, and would rack up just three more plate appearances as a pinch hitter the rest of the season. It bothered him for much of the next season, as he went on the DL in late April and ended up playing in just 111 games.",
     "top": 60,
     "left": 72
   },
   {
-    "injury": "Inflammation behind knee",
-    "description": "Griffey missed almost a month early in the 2006 season due to inflammation behind his right knee.",
-    "top": 74,
-    "left": 36
-  },
-  {
     "injury": "High groin strain",
+    "undefined": "UPDATED",
     "description": "Griffey suffered a high groin strain late in the 2007 season that caused him to miss the final two weeks. He fielded a ball in right field, but appeared to injure himself going to make the throw and was forced to underhand the ball into the infield.",
     "top": 55,
-    "left": 56,
-    "undefined": "UPDATED"
+    "left": 56
   },
   {
     "injury": "Pleurisy",
+    "undefined": "Chest",
     "description": "Griffey was diagnosed with pleurisy, which is inflammation around the lungs, in early 2007. It caused him to miss some games early that season.",
     "top": 40,
     "left": 52
   },
   {
     "injury": "Dislocated shoulder",
+    "undefined": "Right shoulder",
     "description": "Griffey dislocated his right shoulder diving for a ball in early April of 2003, and was forced to miss more than a month",
     "top": 32,
     "left": 64
   },
   {
-    "injury": "Broken wrist (L)",
+    "injury": "Broken wrist ",
+    "undefined": "Left wrist",
     "description": "Griffey broke his left wrist making a spectacular catch and slamming into the wall in May of 1995. It took him nearly three months to recover, as he returned in the middle of August.",
     "top": 22,
     "left": 41
   },
   {
     "injury": "Broken hand",
-    "description": "Griffey fractured his right hand stepping out of the shower in July of 1989 and ended up missing nearly a month.",
+    "undefined": "UPDATED",
+    "description": "Griffey fractured his right hand stepping out of the shower in July of 1989 and ended up missing nearly a month. Seven years later, Griffey again fractured his hand, this time breaking the hamate bone when he fouled a pitch of his hand in June of 1996. He ended up missing about a month of the season",
+    "top": 23,
+    "left": 28
+  },
+  {
+    "injury": "Sprained wrist ligament",
+    "undefined": "NEW",
+    "description": "Griffey sprained his right wrist attempting a diving catch in mid-June 1992. He ended up going on the disabled list and missing two weeks.",
     "top": 25,
     "left": 32
   },
   {
-    "injury": "Sprained wrist ligament",
-    "description": "Griffey sprained his right wrist attempting a diving catch in mid-June 1992. He ended up going on the disabled list and missing two weeks.",
-    "top": 25,
-    "left": 32,
-    "undefined": "NEW"
-  },
-  {
-    "injury": "Broken hamate bone in wrist (R)",
-    "description": "Griffey broke the hamate bond in his right hand when he fouled a pitch off his hand in June of 1996. He ended up missing about a month of the season.",
-    "top": 25,
-    "left": 32,
-    "undefined": "NEW"
-  },
-  {
     "injury": "Torn hamstring",
+    "undefined": "NEW",
     "description": "Griffey tore his right hamstring making a sliding catch in August 2004. He had strained it earlier that year and missed 18 games, and in his first game back ruptured it and had surgery that caused him to miss the rest of the season.",
     "top": 60,
-    "left": 48,
-    "undefined": "NEW"
+    "left": 48
   }
 ]
