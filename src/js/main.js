@@ -58,11 +58,11 @@ var compared = {
 var compChart = new Chartist.Line('.ct-comp', compared, {
   axisY: {
     showLabel: true,
-    showGrid: false
+    showGrid: true
   },  
   axisX: {
     showLabel: true,
-    showGrid: true
+    showGrid: false
   },
   plugins: [
     Chartist.plugins.tooltip({
