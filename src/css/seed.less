@@ -1,6 +1,5 @@
 @import "seattletimes";
 @import (inline) "npm://chartist/dist/chartist.min.css";
-@import "injuries";
 
 .ad {
   padding-bottom: 20px;
@@ -104,7 +103,8 @@ nav.top-bar {
     border-top: 1px solid @df-border-gray;
     width: 75%;
     margin: auto;
-    margin-bottom: 60px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 
     @media @mobile {
       width: 100%;
@@ -406,47 +406,6 @@ nav.top-bar {
 
   }
 
-
-  .si {
-    // padding: 8%;
-    .si-image {
-      .display-flex();
-      .si-img {
-        width: 100px;
-        .flex(1);
-
-      }
-    }
-
-    .si-focus {
-      display: none;
-      background-color: fade(@df-middle-gray, 10%);
-      img{
-        float: left;
-        width: 40%;
-        padding: 30px;
-
-        @media @mobile {
-          width: 90%;
-        }
-      }
-
-      .chatter {
-
-        .date{
-          font-weight: 700;
-          font-size: 40px;
-          text-align: center;
-        }
-
-      }
-      &.show {
-        display: inline-block;
-      }
-    }
-  }
-
-  
 }
 
 .ct-bar {
@@ -496,11 +455,11 @@ nav.top-bar {
   }
 
   .ct-series {
-      stroke:  #52C4B1;
-      fill:  #52C4B1;
-      .ct-area {
-        stroke: #52C4B1;
-      }
+    stroke:  #52C4B1;
+    fill:  #52C4B1;
+    .ct-area {
+      stroke: #52C4B1;
+    }
 
     .ct-area {
       opacity: .2;
@@ -590,3 +549,6 @@ nav.top-bar {
     font-size: 14px;
   }
 }
+
+@import "injuries";
+@import "covers";

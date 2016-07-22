@@ -208,26 +208,27 @@
       <section class="si">
         <div class="title">Cover Boy</div>
         <div class="chatter"> Ken Griffey Jr. graced the cover of Sports Illustrated nine times. Check out each one below:</div>
-        <div class="si-image">
+        <div class="row">
+          <div class="cell">
 
 
-          <% for (var i = 1; i < 10; i++) { 
-            if (i == 2) { %>
-          <div class="si-img" data-id="<%=i%>"><img src="./assets/covers/Griffey-SIcover<%=i%>a.jpg"></div>
-          <% } 
-          else { %>
+              <% for (var i = 1; i < 10; i++) { 
+                if (i == 2) { %>
+              <div class="si-img" data-id="<%=i%>"><img src="./assets/covers/Griffey-SIcover<%=i%>a.jpg"></div>
+              <% } 
+              else { %>
 
-          <div class="si-img" data-id="<%=i%>"><img src="./assets/covers/Griffey-SIcover<%=i%>.jpg"></div>
+              <div class="si-img" data-id="<%=i%>"><img src="./assets/covers/Griffey-SIcover<%=i%>.jpg"></div>
 
-          <% }
+              <% }
 
-          }; %>
-        </div>
-        <% var mags = {};
-        json.GriffeyStats_si.forEach(function(item) {
-          if (!mags[item.id]) mags[item.id] = [];
-          mags[item.id].push(item);
-        }); %>
+              }; %>
+            </div>
+            <% var mags = {};
+            json.GriffeyStats_si.forEach(function(item) {
+              if (!mags[item.id]) mags[item.id] = [];
+              mags[item.id].push(item);
+            }); %>
 
         <div class="si-focus show" data-id="1">
 
@@ -260,6 +261,7 @@
 
 
         <% })}; %>  
+      </div>
 
 
       </section>

@@ -1,6 +1,5 @@
 var $ = require("./lib/qsa");
 var animate = require("./lib/animateScroll");
-console.log(animate);
 
 var clickedInjury = function(e) {
   $(".injuries .icon.active").forEach(i => i.classList.remove("active"));
