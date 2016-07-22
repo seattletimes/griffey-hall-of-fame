@@ -134,7 +134,7 @@
         <div class="image">
           <img src="./assets/GriffeyWEBgraphics3.jpg">
         </div>
-
+<div class="description">
         <% var injuries = {};
         json.GriffeyStats_injuries.forEach(function(item) {
           if (!injuries[item.injury]) injuries[item.injury] = [];
@@ -145,10 +145,10 @@
           var injury = injuries[i];
           injury.forEach(function(item) { %>
 
-        <div class="description"><ul><li><%= item.description %></li></ul></div>
+        <ul><li><%= item.description %></li></ul>
       
       <% }); } %>  
-      
+      </div>
       
 
 
