@@ -58,10 +58,9 @@ nav.top-bar {
 
   .title {
     font-weight: 800;
-    font-size: 45px;
-    text-align: left;
-    padding-left: 20px;
-    padding-bottom: 20px;
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
     font-family: @df-serif;
     z-index: 20;
 
@@ -73,10 +72,10 @@ nav.top-bar {
 
   }
   .chatter, .comp-chatter {
-    font-size: 20px;
+    font-size: 18px;
     padding-left: 5%;
-    padding-top: 5%;
     padding-bottom: 2%;
+    text-align: center;
 
     @media @mobile {
       font-size: 14px;
@@ -101,6 +100,16 @@ nav.top-bar {
 
     }
   }
+  .divider {
+    border-top: 1px solid @df-border-gray;
+    width: 75%;
+    margin: auto;
+    margin-bottom: 60px;
+
+    @media @mobile {
+      width: 100%;
+    }
+  }
 
   .griffey-intro {
     @media @mobile {
@@ -112,8 +121,9 @@ nav.top-bar {
       width: 40%;
       z-index: 999;
       text-align: center;
+      margin-top: 50px;
 
-      @media @mobile {
+      @media @tablet {
         padding: 0;
         width: 100%;
       }
@@ -125,10 +135,11 @@ nav.top-bar {
         position: relative;
         margin: 0 auto;
         line-height: 0.9em;
+        padding-bottom: 10px;
 
         .flex(2);
 
-        @media @mobile {
+        @media @tablet {
           position: block;
           line-height: 90%;
           font-size: 4em;
@@ -137,7 +148,7 @@ nav.top-bar {
         }
       }
       .intro-text {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
       }
 
       .chatter{
@@ -155,6 +166,7 @@ nav.top-bar {
         margin-right: 30%;
         margin-top: 10%;
         margin-bottom: 10%;
+        padding-bottom: 10px;
 
         border-bottom: 3px solid black;
 
@@ -187,15 +199,15 @@ nav.top-bar {
     .grif-pic {
       width: 55%;
       float: right;
-      @media @mobile {
+      @media @tablet {
         width: 100%;
 
       }
       img {
-        position: fixed;
-        width: 60%;
+        // position: fixed;
+        // width: 60%;
 
-        @media @mobile {
+        @media @tablet {
           position: relative;
           width: 100%;
         }
@@ -295,17 +307,11 @@ nav.top-bar {
       .flex(1 0 0);
       cursor: pointer;
 
-      &:hover {
-      }
-
       @media @mobile {
         display:inline-block;
         margin: 0 auto;
 
       }
-
-
-
 
       .name, .stat, img {
         font-size: 14px;
@@ -313,16 +319,14 @@ nav.top-bar {
         width: 100px;
         @media @mobile {
           display: inline-block;
-
-
         }
-
       }
 
       img {
         -webkit-border-radius: 12px; 
         -moz-border-radius: 12px; 
-        border-radius: 12px; 
+        border-radius: 12px;
+
         @media @mobile {
           border-radius: 5px;
         }
@@ -364,7 +368,7 @@ nav.top-bar {
 
 
   .si {
-    padding: 8%;
+    // padding: 8%;
     .si-image {
       .display-flex();
       .si-img {
