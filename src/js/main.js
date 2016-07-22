@@ -258,7 +258,6 @@ $(".advance").click(function(){
 
 
 //Sports Illustrated
-
 var magClick = function(e) {
   var others = qsa('.si-focus');
   

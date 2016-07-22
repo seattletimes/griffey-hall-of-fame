@@ -2,232 +2,231 @@
 <html>
   <head>
     <title><%= json.project.title %></title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      <link rel="stylesheet" type="text/css" href="style.css">
-      <%= t.include("partials/_head.html") %>
-        </head>
-      <body>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <%= t.include("partials/_head.html") %>
+  </head>
+  <body>
 
-        <nav class="top-bar">
-          <a class="logo" href="http://seattletimes.com">
-            <img src="./assets/seattletimes.svg">
-          </a>
-        </nav>
+    <nav class="top-bar">
+      <a class="logo" href="http://seattletimes.com">
+        <img src="./assets/seattletimes.svg">
+      </a>
+    </nav>
 
 
-        <div class="griffey-container">
+    <div class="griffey-container">
 
-          <section class="griffey-intro">
+      <section class="griffey-intro">
 
-            <div class="grif-pic"><img src="./assets/GriffeyILLO2016web.jpg"></div>
-            <div class="intro">
+        <div class="grif-pic"><img src="./assets/GriffeyILLO2016web.jpg"></div>
+        <div class="intro">
 
-              <div class="inro-text">HALL OF FAME | KEN GRIFFEY JR. | CLASS OF 2016</div>
-              <div class="kgj">Measuring Greatness</div>
-              <div class="inro-text">22 years | 2,671 games | 2,781 hits | 1,836 RBI</div>
-              <div class="chatter">
-                Ken Griffey Jr. battled injuries for a large part of his career. As a result, he was placed on the disabled list 12 times, forcing him to miss significant playing time. Griffey played in fewer than 130 games in 11 of his 22 total seasons. See a rundown of his injuries and time missed below..</div>
+          <div class="inro-text">HALL OF FAME | KEN GRIFFEY JR. | CLASS OF 2016</div>
+          <div class="kgj">Measuring Greatness</div>
+          <div class="inro-text">22 years | 2,671 games | 2,781 hits | 1,836 RBI</div>
+          <div class="chatter">
+            Ken Griffey Jr. battled injuries for a large part of his career. As a result, he was placed on the disabled list 12 times, forcing him to miss significant playing time. Griffey played in fewer than 130 games in 11 of his 22 total seasons. See a rundown of his injuries and time missed below..</div>
 
-              <div class="separator"></div>
-              <div class="hrs"><div class="num">630</div> HOME RUNS</div>
-              <div class="field">
+          <div class="separator"></div>
+          <div class="hrs"><div class="num">630</div> HOME RUNS</div>
+          <div class="field">
 
-                <img src="./assets/GriffeyWEBgraphics2.jpg">
-                <ul>
-                  <li>Griffey hit 40 or more home runs in seven seasons (including five straight from 1996-2000). Only seven players have accomplished that feat.</li>
-                  <li>530 of his 630 homers came from the No. 3 spot in the lineup.</li>
-                  <li>Griffey homered off 407 different pitchers. The most victimized was David Wells, who Griffey homered off of 8 times.</li>
-                  <li>He played in parts of four decades, one of only 29 players to do so.</li>
-                </ul>
+            <img src="./assets/GriffeyWEBgraphics2.jpg">
+            <ul>
+              <li>Griffey hit 40 or more home runs in seven seasons (including five straight from 1996-2000). Only seven players have accomplished that feat.</li>
+              <li>530 of his 630 homers came from the No. 3 spot in the lineup.</li>
+              <li>Griffey homered off 407 different pitchers. The most victimized was David Wells, who Griffey homered off of 8 times.</li>
+              <li>He played in parts of four decades, one of only 29 players to do so.</li>
+            </ul>
 
-              </div>
+          </div>
+        </div>
+
+
+
+      </section>
+
+      <section class="home-runs">
+
+        <div class="title">Griffey's Home Runs by Season</div>
+
+        <div class="legend">
+          <div class="key"><div class="splotch"></div> With Mariners</div>
+
+          <div class="key two"><div class="splotch two"></div> With Cincinnati Reds; Chicago White Sox</div>
+
+        </div>
+        <div class="ct-homeruns ct-bar ct-octave" id="ct-homeruns"></div>
+
+        <div class="year">
+
+          <a class="advance left">&lt;</a>
+
+          <div class="description-container">
+
+            <div class="year-description show" >Browse to explore some of Ken Griffey Jr.'s most memorable moments.</div>
+
+            <% var notes = {};
+            json.GriffeyStats_notes.forEach(function(item) {
+              if (!notes[item.Note]) notes[item.Note] = [];
+              notes[item.Note].push(item);
+            });
+
+            for (var n in notes) {
+
+              var note = notes[n];
+              note.forEach(function(item) { %>
+
+            <div class="year-description" data-id="<%= item.id %>">
+
+              <div class="year"><%= item.Year %></div><%= item.Note %>
             </div>
 
 
+            <% })}; %>
+          </div>
+          <a class="advance right">&gt;</a>
+        </div>
 
-          </section>
+      </section>
 
-          <section class="home-runs">
-
-            <div class="title">Griffey's Home Runs by Season</div>
-
-            <div class="legend">
-              <div class="key"><div class="splotch"></div> With Mariners</div>
-
-              <div class="key two"><div class="splotch two"></div> With Cincinnati Reds; Chicago White Sox</div>
-
-            </div>
-            <div class="ct-homeruns ct-bar ct-octave" id="ct-homeruns"></div>
-
-            <div class="year">
-
-              <a class="advance left">&lt;</a>
-
-              <div class="description-container">
-
-                <div class="year-description show" >Browse to explore some of Ken Griffey Jr.'s most memorable moments.</div>
-
-                <% var notes = {};
-                   json.GriffeyStats_notes.forEach(function(item) {
-                   if (!notes[item.Note]) notes[item.Note] = [];
-                   notes[item.Note].push(item);
-                   });
-
-                   for (var n in notes) {
-
-                   var note = notes[n];
-                   note.forEach(function(item) { %>
-
-                  <div class="year-description" data-id="<%= item.id %>">
-
-                    <div class="year"><%= item.Year %></div><%= item.Note %>
-                      </div>
+      <section class="compare">
+        <div class="title">What if? Griffey vs. all-time home run leaders</div>
+        <div class="chatter">Take a look at Ken Griffey Jr.'s career home-run trajectory and how it compares to the other five sluggers ahead of him on the all-time list.</div>
+        <div class="hr-leaders">
 
 
-                      <% })}; %>
-                        </div>
-                      <a class="advance right">&gt;</a>
-                    </div>
+          <% var players = {};
+          json.hr_leaders.forEach(function(item) {
+            if (!players[item.Name]) players[item.Name] = [];
+            players[item.Name].push(item);
+          });
 
-                    </section>
+          var colors = ['grey', 'red', 'blue', 'green', 'purple', '#52C4B1'];
+          var index = 0;
+          %>
 
-                  <section class="compare">
-                    <div class="title">What if? Griffey vs. all-time home run leaders</div>
-                    <div class="chatter">Take a look at Ken Griffey Jr.'s career home-run trajectory and how it compares to the other five sluggers ahead of him on the all-time list.</div>
-                    <div class="hr-leaders">
+          <% for (var p in players) {
 
+            var player = players[p];
+            player.forEach(function(item) { %>
 
-                      <% var players = {};
-                         json.hr_leaders.forEach(function(item) {
-                         if (!players[item.Name]) players[item.Name] = [];
-                         players[item.Name].push(item);
-                         });
+          <div class="leader" data-id="<%=item.id%>">
+            <div class="photo"> <img  style="border: 6px solid <%=colors[index]%>;" src="./assets/leaders/<%=index+1%>.jpg"></div>
+            <div class="name"><%=item.Name%></div>
+            <div class="stat"><%=item.hr%></div>
+          </div>
 
-                         var colors = ['grey', 'red', 'blue', 'green', 'purple', '#52C4B1'];
-                         var index = 0;
-                         %>
+          <% index++; }); } %>
+        </div>
 
-                        <% for (var p in players) {
+        <div class="ct-comp ct-octave" id="ct-comp"></div>
 
-                           var player = players[p];
-                           player.forEach(function(item) { %>
+      </section>
 
-                          <div class="leader" data-id="<%=item.id%>">
-                            <div class="photo"> <img  style="border: 6px solid <%=colors[index]%>;" src="./assets/leaders/<%=index+1%>.jpg"></div>
-                            <div class="name"><%=item.Name%></div>
-                              <div class="stat"><%=item.hr%></div>
-                              </div>
+      <section class="injuries">
+      <div class="title">Injuries</div>
 
-                              <% index++; }); } %>
-                                </div>
+        <div class="chatter">Ken Griffey Jr. battled injuries for a large part of his career. As a result, he was placed on the disabled list 12 times, forcing him to miss significant playing time. Griffey played in fewer than 130 games in 11 of his 22 total seasons. See a rundown of his injuries and time missed below.</div>
 
-                              <div class="ct-comp ct-octave" id="ct-comp"></div>
-
-                              </section>
-
-
-                            <div class="title">Injuries</div>
-
-                          
-
-      <div class="injuries">
         <div class="image">
           <img src="./assets/GriffeyWEBgraphics3.jpg">
         </div>
 
         <% var injuries = {};
-          json.GriffeyStats_injuries.forEach(function(item) {
-            if (!injuries[item.injury]) injuries[item.injury] = [];
-            injuries[item.injury].push(item);
-          }); %>
+        json.GriffeyStats_injuries.forEach(function(item) {
+          if (!injuries[item.injury]) injuries[item.injury] = [];
+          injuries[item.injury].push(item);
+        }); %>
 
-          <% for (var i in injuries) {
-            var injury = injuries[i];
-            injury.forEach(function(item) { %>
+        <% for (var i in injuries) {
+          var injury = injuries[i];
+          injury.forEach(function(item) { %>
 
-          <div class="description"><%= item.description %></div>
-          </div>
+        <div class="description"><ul><li><%= item.description %></li></ul></div>
+      
+      <% }); } %>  
+      
+      
 
-          <% }); } %>  
-            
-        <div class="played">
-          
-<div class="chatter">Ken Griffey Jr. battled injuries for a large part of his career. As a result, he was placed on the disabled list 12 times, forcing him to miss significant playing time. Griffey played in fewer than 130 games in 11 of his 22 total seasons. See a rundown of his injuries and time missed below.</div>
-          <div class="title">Percent of Games Played</div>
-          <div class="ct-play ct-octave" id="ct-play"></div>
-          
-          
-        </div>
+
+      <div class="played">
+
+
+        <div class="title">Percent of Games Played</div>
+        <div class="ct-play ct-octave" id="ct-play"></div>
+
 
       </div>
+</section>
 
-                                    <section class="si">
-                                      <div class="title">Cover Boy</div>
-                                      <div class="si-image">
-
-
-                                        <% for (var i = 1; i < 10; i++) { 
-                                        if (i == 2) { %>
-                                        <div class="si-img" data-id="<%=i%>"><img src="./assets/covers/Griffey-SIcover<%=i%>a.jpg"></div>
-                                        <% } 
-                                           else { %>
-
-                                          <div class="si-img" data-id="<%=i%>"><img src="./assets/covers/Griffey-SIcover<%=i%>.jpg"></div>
-
-                                          <% }
-
-                                             }; %>
-                                            </div>
-                                          <% var mags = {};
-                                             json.GriffeyStats_si.forEach(function(item) {
-                                             if (!mags[item.id]) mags[item.id] = [];
-                                             mags[item.id].push(item);
-                                             }); %>
-
-                                            <div class="si-focus show" data-id="1">
-
-                                              <img src="./assets/covers/Griffey-SIcover1.jpg">
-                                              <div class="chatter">
-                                                <div class="year">1990</div>
-                                                Griffey’s first S.I. cover is also his most iconic. The magazine calls him “Seattle’s 20-year-old wonder” and likens him to Willie Mays.
+      <section class="si">
+          <div class="title">Cover Boy</div>
+        <div class="si-image">
 
 
-                                              </div>
+          <% for (var i = 1; i < 10; i++) { 
+            if (i == 2) { %>
+          <div class="si-img" data-id="<%=i%>"><img src="./assets/covers/Griffey-SIcover<%=i%>a.jpg"></div>
+          <% } 
+          else { %>
 
-                                            </div>
+          <div class="si-img" data-id="<%=i%>"><img src="./assets/covers/Griffey-SIcover<%=i%>.jpg"></div>
 
-                                            <% for (var m = 2; m < 10; m++) {
+          <% }
 
-                                            var mag = mags[m];
+          }; %>
+        </div>
+        <% var mags = {};
+        json.GriffeyStats_si.forEach(function(item) {
+          if (!mags[item.id]) mags[item.id] = [];
+          mags[item.id].push(item);
+        }); %>
 
-                                            mag.forEach(function(item) { %>
+        <div class="si-focus show" data-id="1">
 
-                                            <div class="si-focus" data-id="<%= item.id %>">
-
-                                              <img src="./assets/covers/Griffey-SIcover<%=item.id%>.jpg">
-                                              <div class="chatter">
-
-                                                <div class="year"><%= item.Year %></div>
-                                                  <%= item.Description %>
-                                                    </div>
-
-                                                </div>
-
-
-                                                <% })}; %>  
-
-
-                                                  </section>
+          <img src="./assets/covers/Griffey-SIcover1.jpg">
+          <div class="chatter">
+            <div class="year">1990</div>
+            Griffey’s first S.I. cover is also his most iconic. The magazine calls him “Seattle’s 20-year-old wonder” and likens him to Willie Mays.
 
 
+          </div>
+
+        </div>
+
+        <% for (var m = 2; m < 10; m++) {
+
+          var mag = mags[m];
+
+          mag.forEach(function(item) { %>
+
+        <div class="si-focus" data-id="<%= item.id %>">
+
+          <img src="./assets/covers/Griffey-SIcover<%=item.id%>.jpg">
+          <div class="chatter">
+
+            <div class="year"><%= item.Year %></div>
+            <%= item.Description %>
+          </div>
+
+        </div>
 
 
+        <% })}; %>  
 
-                                                <script src="app.js" async></script>
-                                                <% if (json.project.production) { %>
-                                                  <%= !json.project.embedded ? t.include("partials/_foot.html") : "" %>
-                                                    <%= t.include("partials/_workHere.html") %>
-                                                      <% } %>
-                                                        </body>
-                                                      </html>
+
+      </section>
+      
+    </div>
+
+
+    <script src="app.js" async></script>
+    <% if (json.project.production) { %>
+    <%= !json.project.embedded ? t.include("partials/_foot.html") : "" %>
+    <%= t.include("partials/_workHere.html") %>
+    <% } %>
+  </body>
+</html>
