@@ -9,9 +9,11 @@ var tooltip = require("./chartist-plugin-tooltip.min.js");
 var qsa = require("./lib/qsa");
 
 
-var labels = ["'89", "'90", "'91", "'92", "'93", "'94", "'95", "'96", "'97", "'98", "'99", "'00", "'01", "'02", "'03", "'04", "'05", "'06", "'07", "'08", "'09", "'10"]
+var labels = ["'89", "'90", "'91", "'92", "'93", "'94", "'95", "'96", "'97", "'98", "'99", "'00", "'01", "'02", "'03", "'04", "'05", "'06", "'07", "'08", "'09", "'10"];
 
 var years = [1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010];
+
+var nums = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
 
 var baData = [0.264, 0.3, 0.327, 0.308, 0.309, 0.323, 0.258, 0.303, 0.304, 0.284, 0.285, 0.271, 0.286, 0.264, 0.247, 0.253, 0.301, 0.252, 0.277, 0.249, 0.214, 0.184];
 
@@ -23,7 +25,7 @@ var bondData = [16, 41, 65, 84, 117, 142, 176, 222, 259, 292, 334, 374, 411, 445
 var rodData = [0, 5, 41, 64, 106, 148, 189, 241, 298, 345, 381, 429, 464, 518, 553, 583, 613, 629, 647, 654, 687, 696]
 
 var aaronData = [13, 40, 66, 110, 140, 179, 219, 253, 298, 342, 366, 398, 442, 481, 510, 554, 592, 639, 673, 713, 733, 745]
-var ruthData = [13, 40, 66, 110, 140, 179, 219, 253, 298, 342, 366, 398, 442, 481, 510, 554, 592, 639, 673, 713, 733, 745]
+var ruthData = [0, 4, 7, 9, 20, 49, 103, 162, 197, 238, 284, 309, 356, 416, 470, 516, 565, 611, 652, 686, 708, 714]
 var maysData = [20, 24, 65, 116, 152, 187, 216, 250, 279, 319, 368, 406, 453, 505, 542, 564, 587, 600, 628, 646, 654, 660]
 
 var slugData = [0.42, 0.481, 0.527, 0.535, 0.617, 0.674, 0.481, 0.628, 0.646, 0.611, 0.576, 0.556, 0.533, 0.426, 0.566, 0.513, 0.576, 0.486, 0.496, 0.424, 0.411, 0.204];
@@ -37,22 +39,31 @@ var ticks = [];
 for (var i = 0; i <= 1; i += .05) ticks.push(i);
 
 
-
+var grif = document.querySelector(".grif-pic");
+var hr = document.querySelector("li");
+window.addEventListener("scroll",(function() {
+  var bounds = hr.getBoundingClientRect();
+  if (bounds.bottom < 0) {
+    grif.classList.add("after-scroll");
+  } else {
+    grif.classList.remove("after-scroll");
+  };
+}));
 
 
 //COMPARE 
 var compared = {
-  labels: labels,
+  labels: nums,
   series: [ {className: "griffey", data: griffeyData}, {className: "bonds", data: bondData}, {className: "rod", data: rodData}, {className: "aaron", data:  aaronData}, {className: "ruth", data: ruthData}, {className: "mays", data: maysData}]
 };
 
 var compChart = new Chartist.Line('.ct-comp', compared, {
   axisY: {
-    showLabel: true,
+    showLabel: false,
     showGrid: false
   },  
   axisX: {
-    showLabel: false,
+    showLabel: true,
     showGrid: false
   },
   plugins: [
@@ -72,7 +83,6 @@ compChart.on('draw', function(data) {
   console.log(data); 
 
   if (data.type === "point") {
-
      var circle = new Chartist.Svg('circle', {
       cx: [data.x],
       cy: [data.y],
@@ -91,11 +101,19 @@ compChart.on('draw', function(data) {
 //COMP events
 var $leaders = $('.hr-leaders');
 var $comp = $('.ct-comp');
+
 $leaders.on('click', '.leader', function(){
    var pos = this.getAttribute("data-id");
-  var thing = document.querySelector(`.${pos}`)
-   console.log(thing);
- thing.addClass("ct-focused-point");
+  var line = (document.querySelector(`.${pos}`));
+  
+  if (line.classList.contains("focus")) {
+      line.classList.remove("focus");
+
+  }
+  else {
+    
+  line.classList.add("focus");
+  }
 });
 
 
