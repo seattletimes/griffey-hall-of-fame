@@ -234,7 +234,6 @@ $(".advance").click(function(){
 
   if (this.classList.contains("left") & index < 0) return;
   if (this.classList.contains("right") & index > 20) return;
-  var bar = document.querySelector(`.home-runs svg [data-index="${index}"]`);
  
   if (current == null) {
     current = $(".year div:first");
