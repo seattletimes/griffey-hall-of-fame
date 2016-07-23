@@ -33,18 +33,6 @@ var playData = [78, 96, 95, 88, 96, 99, 50, 86, 97, 99, 99, 90, 69, 43, 33, 51, 
 
 var rbiData = [61, 80, 100, 103, 109, 90, 42, 140, 147, 146, 134, 118, 65, 23, 26, 60, 92, 72, 93, 71, 57, 7];
 
-//Scroll effect
-var grif = document.querySelector(".grif-pic");
-var hr = document.querySelector("li");
-window.addEventListener("scroll",(function() {
-  var bounds = hr.getBoundingClientRect();
-  if (bounds.bottom < 0) {
-    grif.classList.add("after-scroll");
-  } else {
-    grif.classList.remove("after-scroll");
-  };
-}));
-
 
 //COMPARE 
 var compared = {

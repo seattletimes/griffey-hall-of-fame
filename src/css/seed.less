@@ -51,24 +51,24 @@ nav.top-bar {
 }
 
 .griffey-container {
-  
+
   .chartist-tooltip {
-  position: absolute;
-  display: inline-block;
-  opacity: 0;
-  min-width: 5em;
-  padding: .5em;
-  background: @st-light-blue;
-  color: #453D3F;
-  font-family: Oxygen,Helvetica,Arial,sans-serif;
-  font-weight: 700;
-  text-align: center;
-  pointer-events: none;
-  z-index: 1;
-  -webkit-transition: opacity .2s linear;
-  -moz-transition: opacity .2s linear;
-  -o-transition: opacity .2s linear;
-  transition: opacity .2s linear; }
+    position: absolute;
+    display: inline-block;
+    opacity: 0;
+    min-width: 5em;
+    padding: .5em;
+    background: @st-light-blue;
+    color: #453D3F;
+    font-family: Oxygen,Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    text-align: center;
+    pointer-events: none;
+    z-index: 1;
+    -webkit-transition: opacity .2s linear;
+    -moz-transition: opacity .2s linear;
+    -o-transition: opacity .2s linear;
+    transition: opacity .2s linear; }
   .chartist-tooltip:before {
     content: "";
     position: absolute;
@@ -157,7 +157,6 @@ nav.top-bar {
     }
     .intro {
       width: 40%;
-      z-index: 999;
       text-align: center;
       margin-top: 50px;
 
@@ -205,26 +204,33 @@ nav.top-bar {
         font-family: @df-serif;
         .num {
           border-top: 3px solid black;
-
           font-weight: 600;
           font-size: 70px;
 
         }
       }
 
-      .field {
-   
-        text-align: center;
-        img {
-          width: 100%;
-          @media @mobile {
-            width: 100%;
-          }
-        }
 
-        li {
-          text-align: left;
-          padding-top: 10%;
+    }
+
+    .field {
+      float: left; 
+      width: 100%;
+      img {
+        width: 40%;
+        @media @mobile {
+          width: 100%;
+        }
+      }
+
+      li {
+        text-align: left;
+      }
+      .field-chatter {
+        float: right;
+        width: 55%;
+        @media @mobile {
+          width: 100%;
         }
       }
     }
@@ -236,6 +242,7 @@ nav.top-bar {
         width: 100%;
 
       }
+
       img {
         // position: fixed;
         // width: 60%;
